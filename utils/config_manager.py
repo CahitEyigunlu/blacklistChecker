@@ -36,3 +36,36 @@ def load_config():
         config_logger.error(f"Config yüklenirken hata oluştu: {str(e)}")
         Display.print_error(f"Config yüklenirken hata oluştu: {str(e)}")
         return None
+
+from dotenv import load_dotenv
+load_dotenv()
+
+def get_config():
+  """
+  Yapılandırma ayarlarını döndürür.
+  """
+
+  config = {
+      "mongodb": {
+          "url": os.getenv("MONGO_URL"),
+          "db_name": os.getenv("MONGO_DB_NAME")
+      },
+      "rabbitmq": {
+          "host": os.getenv("RABBITMQ_HOST"),
+          "port": int(os.getenv("RABBITMQ_PORT", 5672)),  # Varsayılan port 5672
+          "username": os.getenv("RABBITMQ_USERNAME"),
+          "password": os.getenv("RABBITMQ_PASSWORD"),
+          "erlang_cookie": os.getenv("RABBITMQ_ERLANG_COOKIE"),
+          "web_ui_port": int(os.getenv("RABBITMQ_WEB_UI_PORT", 8003)),  # Varsayılan port 8003
+          "amqp_port": int(os.getenv("RABBITMQ_AMQP_PORT", 5672))  # Varsayılan port 5672
+      },
+      "postgresql": {
+          "username": os.getenv("POSTGRES_USERNAME"),
+          "password": os.getenv("POSTGRES_PASSWORD"),
+          "db": os.getenv("POSTGRES_DB"),
+          "host": os.getenv("POSTGRES_HOST"),
+          "port": int(os.getenv("POSTGRES_PORT", 5432))  # Varsayılan port 5432
+      }
+  }
+
+  return config

@@ -1,27 +1,31 @@
-import os
-import signal
-import sys
-from tests.system_tests import runner
+from tests.test_network import test_internet_connection, test_dns_server
+from tests.test_databases import test_mongodb_connection, test_sqlite_connection, test_postgresql_connection
+from tests.test_rabbitmq import test_rabbitmq_connection
+from tests.test_blacklist import test_blacklist_health
 from display import Display
-from config_manager import load_config
-
-def handle_exit(signal_received, frame):
-    # Çıkış sinyali alındığında çalışacak fonksiyon
-    Display.print_warning("Çıkış yapılıyor, lütfen bekleyin...")
-    sys.exit(0)
 
 def main():
-    try:
-        # SIGINT (Ctrl+C) sinyalini yakala
-        signal.signal(signal.SIGINT, handle_exit)
-        # Main.py dizinini referans al
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        os.chdir(base_dir)  # Çalışma dizinini main.py'nin dizinine ayarla
-        Display.clear_screen()  # Ekranı temizle
-        runner()  # Tüm görevleri çalıştır
-        Display.print_info("İş akışı için görevleri kontrol ediyorum...")
-    except Exception as e:
-        Display.print_error(f"Beklenmeyen bir hata oluştu: {str(e)}")
+    """
+    Tüm testleri çalıştırır ve sonuçları görüntüler.
+    """
+    Display.print_info("Sistem testleri başlatılıyor...")
+
+    # Ağ testleri
+    test_internet_connection()
+    test_dns_server()
+
+    # Veritabanı testleri
+    test_mongodb_connection()
+    test_sqlite_connection()
+    test_postgresql_connection()
+
+    # RabbitMQ testi
+    test_rabbitmq_connection()
+
+    # Kara liste testi
+    test_blacklist_health()
+
+    Display.print_success("Tüm sistem testleri tamamlandı.")
 
 if __name__ == "__main__":
     main()
