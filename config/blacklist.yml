@@ -1,0 +1,53 @@
+
+database:
+  recorded_dbs:
+    mongodb: false 
+    mysql: false  
+    postgresql: false 
+
+# SQLite Ayarları
+sqlite:
+  db_path: "state.db"  # SQLite veritabanı dosyasının yolu
+
+# Blacklist Servisleri
+blacklists:
+  - name: "Spamhaus"
+    dns: "zen.spamhaus.org"
+    removal_link: "https://www.spamhaus.org/removal/"
+    removal_method: "Web formu doldurma"
+  - name: "Barracuda"
+    dns: "b.barracudacentral.org"
+    removal_link: "https://www.barracudanetworks.com/support/knowledge-base/how-do-i-remove-my-ip-address-from-the-barracuda-reputation-system"
+    removal_method: "Otomatik kaldırma (genellikle 24 saat içinde)"
+  - name: "SORBS"
+    dns: "dnsbl.sorbs.net"
+    removal_link: "https://www.sorbs.net/lookup.shtml"
+    removal_method: "IP adresi kontrolü ve kaldırma talebi"
+  - name: "SpamCop"
+    dns: "bl.spamcop.net"
+    removal_link: "https://www.spamcop.net/bl.shtml"
+    removal_method: "E-posta gönderme"
+  - name: "The CBL"
+    dns: "cbl.abuseat.org"
+    removal_link: "https://cbl.abuseat.org/lookup.cgi"
+    removal_method: "IP adresi kontrolü ve kaldırma talebi"
+  - name: "SURBL"
+    dns: "multi.uribl.com"
+    removal_link: "https://www.surbl.org/faqs#removed"
+    removal_method: "Otomatik kaldırma (belirli bir süre sonra)"
+  - name: "MultiRBL"
+    dns: "multi.surbl.org"
+    removal_link: "https://www.surbl.org/faqs#removed"
+    removal_method: "Otomatik kaldırma (belirli bir süre sonra)"
+  - name: "Hostkarma"
+    dns: "karma.junkemailfilter.com"
+    removal_link: "https://www.hostkarma.com/delisting/"
+    removal_method: "Web formu doldurma"
+  - name: "Spamhaus DROP"
+    dns: "drop.spamhaus.org"
+    removal_link: "https://www.spamhaus.org/removal/"
+    removal_method: "Manuel kaldırma talebi"
+  - name: "Spamhaus EDROP"
+    dns: "edrop.spamhaus.org"
+    removal_link: "https://www.spamhaus.org/removal/"
+    removal_method: "Manuel kaldırma talebi"
