@@ -1,7 +1,7 @@
 import os
 import yaml
 from display import Display
-from logging_module.logger import Logger
+from logger.logger import Logger
 
 # Logger ayarları
 config_logger = Logger("logs/config.log")

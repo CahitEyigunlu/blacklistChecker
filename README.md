@@ -19,4 +19,16 @@ Bu proje, belirli bir IP adresinin veya IP adresi listesinin çeşitli kara list
 1. Projeyi klonlayın veya indirin.
 2. Gerekli kütüphaneleri yükleyin: `pip install -r requirements.txt`
 
-## Kullanım
+## Kullanım :
+python blacklist_checker.py [IP adresi veya dosya yolu]
+* **IP adresi:** Tek bir IP adresini kontrol etmek için doğrudan IP adresini girin.
+* **Dosya yolu:** Birden fazla IP adresini kontrol etmek için IP adreslerini içeren bir dosyanın yolunu girin (her satırda bir IP adresi).
+
+## Yapılandırma
+
+`config.yml` dosyasını düzenleyerek kara listeleri ve diğer ayarları özelleştirebilirsiniz.
+
+## Lisans
+
+Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
+

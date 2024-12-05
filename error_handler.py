@@ -1,4 +1,4 @@
-from logging_module.logger import Logger
+from logger.logger import Logger
 from display import Display
 
 # Logger ayarları
