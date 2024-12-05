@@ -1,7 +1,7 @@
 import os
 import shutil
 from datetime import datetime, timedelta
-from logging_module.config import LOG_FILE_PATH, LOG_ROTATION_SIZE, LOG_RETENTION_DAYS
+from logger.config import LOG_FILE_PATH, LOG_ROTATION_SIZE, LOG_RETENTION_DAYS
 
 def rotate_log():
     """

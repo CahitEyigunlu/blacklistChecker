@@ -1,6 +1,6 @@
 
 from cryptography.fernet import Fernet
-from logging_module.config import ENCRYPTION_KEY
+from logger.config import ENCRYPTION_KEY
 
 def mask_data(data):
     # Example: Replace sensitive data with asterisks

@@ -1,5 +1,5 @@
 import socket
-from logging_module.logger import Logger
+from logger.logger import Logger
 from config_manager import load_config
 from display import Display
 
@@ -307,7 +307,7 @@ def test_blacklist_health(test_ip="127.0.0.2"):
 import pika
 from config_manager import load_config
 from display import Display
-from logging_module.logger import Logger
+from logger.logger import Logger
 
 # Logger ayarları
 info_logger = Logger("logs/info.log")
