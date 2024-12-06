@@ -14,8 +14,8 @@ info_logger = Logger("logs/info.log")
 error_logger = Logger("logs/error.log")
 
 class DatabaseTests:
-    def __init__(self, display):
-        self.display = display
+    def __init__(self):
+        pass
 
     def run(self):
         """
@@ -49,9 +49,9 @@ class DatabaseTests:
                 raise ValueError("MongoDB URI veya veritabanı adı eksik.")
 
             # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
-            self.display.print_info("MongoDB Bağlantı Bilgileri:")
-            self.display.print_info(f"  URI: {mask_password(mongo_uri)}")
-            self.display.print_info(f"  Veritabanı: {database_name}")
+            Display.print_info("MongoDB Bağlantı Bilgileri:")
+            Display.print_info(f"  URI: {mask_password(mongo_uri)}")
+            Display.print_info(f"  Veritabanı: {database_name}")
 
             # MongoDB'ye bağlan
             client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
@@ -63,17 +63,17 @@ class DatabaseTests:
 
             # Bağlantı başarılı
             info_logger.info(f"MongoDB bağlantısı başarılı: {mongo_uri}, Veritabanı: {database_name}")
-            self.display.print_success("MongoDB bağlantısı başarılı.")
+            Display.print_success("MongoDB bağlantısı başarılı.")
             return True
 
         except Exception as e:
             # Hata loglama ve kullanıcıya gösterim
             error_logger.error(f"MongoDB bağlantısı başarısız: {str(e)}")
-            self.display.print_error("MongoDB bağlantısı başarısız.")
+            Display.print_error("MongoDB bağlantısı başarısız.")
             # Bağlantı başarısız olursa, bağlantı bilgilerini göster
-            self.display.print_info("MongoDB Bağlantı Bilgileri:")
-            self.display.print_info(f"  URI: {mongo_uri or 'Bulunamadı'}")
-            self.display.print_info(f"  Veritabanı: {database_name or 'Bulunamadı'}")
+            Display.print_info("MongoDB Bağlantı Bilgileri:")
+            Display.print_info(f"  URI: {mongo_uri or 'Bulunamadı'}")
+            Display.print_info(f"  Veritabanı: {database_name or 'Bulunamadı'}")
             return False
 
     def test_sqlite_connection(self):
@@ -96,12 +96,12 @@ class DatabaseTests:
                 raise ValueError("SQLite veritabanı dosya yolu tanımlanmamış.")
 
             # Bağlantı bilgilerini ekrana yazdır
-            self.display.print_info("SQLite Bağlantı Bilgileri:")
-            self.display.print_info(f"  Veritabanı Dosyası: {db_path}")
+            Display.print_info("SQLite Bağlantı Bilgileri:")
+            Display.print_info(f"  Veritabanı Dosyası: {db_path}")
 
             # Veritabanı dosyasını kontrol et
             if not os.path.exists(db_path):
-                self.display.print_warning("Veritabanı dosyası bulunamadı. Yeni bir dosya oluşturulacak...")
+                Display.print_warning("Veritabanı dosyası bulunamadı. Yeni bir dosya oluşturulacak...")
                 open(db_path, 'w').close()
 
             # SQLite bağlantısını test et
@@ -114,14 +114,14 @@ class DatabaseTests:
 
             # Bağlantı başarılı
             info_logger.info(f"SQLite bağlantısı başarılı: {db_path}")
-            self.display.print_success("SQLite bağlantısı başarılı.")
+            Display.print_success("SQLite bağlantısı başarılı.")
             conn.close()
             return True
 
         except Exception as e:
             # Hata loglama ve kullanıcıya gösterim
             error_logger.error(f"SQLite bağlantısı başarısız: {str(e)}")
-            self.display.print_error("SQLite bağlantısı başarısız.")
+            Display.print_error("SQLite bağlantısı başarısız.")
             return False
 
     def test_postgresql_connection(self):
@@ -153,12 +153,12 @@ class DatabaseTests:
                 raise ValueError("PostgreSQL bağlantı ayarları eksik.")
 
             # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
-            self.display.print_info("PostgreSQL Bağlantı Bilgileri:")
-            self.display.print_info(f"  Kullanıcı: {user}")
-            self.display.print_info(f"  Şifre: ****")
-            self.display.print_info(f"  Veritabanı: {dbname}")
-            self.display.print_info(f"  Sunucu: {host}")
-            self.display.print_info(f"  Port: {port}")
+            Display.print_info("PostgreSQL Bağlantı Bilgileri:")
+            Display.print_info(f"  Kullanıcı: {user}")
+            Display.print_info(f"  Şifre: ****")
+            Display.print_info(f"  Veritabanı: {dbname}")
+            Display.print_info(f"  Sunucu: {host}")
+            Display.print_info(f"  Port: {port}")
 
             # PostgreSQL bağlantısını test et
             connection = psycopg2.connect(
@@ -177,7 +177,7 @@ class DatabaseTests:
             # Bağlantı başarılı
             if result and result[0] == 1:
                 info_logger.info(f"PostgreSQL bağlantısı başarılı: {host}:{port}, Veritabanı: {dbname}")
-                self.display.print_success("PostgreSQL bağlantısı başarılı.")
+                Display.print_success("PostgreSQL bağlantısı başarılı.")
             else:
                 raise ValueError("PostgreSQL test sorgusu başarısız.")
 
@@ -189,14 +189,14 @@ class DatabaseTests:
         except Exception as e:
             # Hata loglama ve kullanıcıya gösterim
             error_logger.error(f"PostgreSQL bağlantısı başarısız: {str(e)}")
-            self.display.print_error("PostgreSQL bağlantısı başarısız.")
+            Display.print_error("PostgreSQL bağlantısı başarısız.")
             # Bağlantı başarısız olursa, bağlantı bilgilerini göster (şifre dahil)
-            self.display.print_info("PostgreSQL Bağlantı Bilgileri:")
-            self.display.print_info(f"  Kullanıcı: {user or 'Bulunamadı'}")
-            self.display.print_info(f"  Şifre: {password or 'Bulunamadı'}")
-            self.display.print_info(f"  Veritabanı: {dbname or 'Bulunamadı'}")
-            self.display.print_info(f"  Sunucu: {host or 'Bulunamadı'}")
-            self.display.print_info(f"  Port: {port or 'Bulunamadı'}")
+            Display.print_info("PostgreSQL Bağlantı Bilgileri:")
+            Display.print_info(f"  Kullanıcı: {user or 'Bulunamadı'}")
+            Display.print_info(f"  Şifre: {password or 'Bulunamadı'}")
+            Display.print_info(f"  Veritabanı: {dbname or 'Bulunamadı'}")
+            Display.print_info(f"  Sunucu: {host or 'Bulunamadı'}")
+            Display.print_info(f"  Port: {port or 'Bulunamadı'}")
             return False
 
 

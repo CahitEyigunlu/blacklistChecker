@@ -1,15 +1,13 @@
 import os
+
 from rich import print
 from rich.console import Console
-from rich.live import Live
-from rich.panel import Panel
-from rich.text import Text
 
 console = Console()
 
 
 class Display:
-    """Rich ile ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
+    """Ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
 
     @staticmethod
     def get_theme():
@@ -31,7 +29,7 @@ class Display:
         """Mesaj türüne ve temaya göre uygun rengi seçer."""
         theme = Display.get_theme()
         colors = {
-            "success": "green" if theme == "dark" else "black",
+            "success": "green" ,
             "error": "red",
             "info": "cyan" if theme == "dark" else "blue",  # Koyu temada daha görünür renk
             "warning": "yellow",
@@ -40,34 +38,43 @@ class Display:
         return colors.get(message_type, "white")  # Varsayılan renk beyaz
 
     @staticmethod
-    def print_header(panel):
-        """ASCII art başlığını panel içinde yazdırır."""
+    def print_header():
+        """ASCII art başlığını yazdırır."""
+
+        # Ekranı temizle
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         header = """
+                                                                                                            
+                                                                                                            
+           SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
+          SS:::::::::::::::SP::::::::::::::::P  D::::::::::::DDD     N:::::::N       N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
+         S:::::SSSSSS::::::SP::::::PPPPPP:::::P D:::::::::::::::DD   N::::::::N      N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
+         S:::::S     SSSSSSSPP:::::P     P:::::PDDD:::::DDDDD:::::D  N:::::::::N     N::::::NEE::::::EEEEEEEEE::::ET:::::TT:::::::TT:::::T
+         S:::::S              P::::P     P:::::P  D:::::D    D:::::D N::::::::::N    N::::::N  E:::::E       EEEEEETTTTTT  T:::::T  TTTTTT
+         S:::::S              P::::P     P:::::P  D:::::D     D:::::DN:::::::::::N   N::::::N  E:::::E                     T:::::T        
+          S::::SSSS           P::::PPPPPP:::::P   D:::::D     D:::::DN:::::::N::::N  N::::::N  E::::::EEEEEEEEEE           T:::::T        
+           SS::::::SSSSS      P:::::::::::::PP    D:::::D     D:::::DN::::::N N::::N N::::::N  E:::::::::::::::E           T:::::T        
+             SSS::::::::SS    P::::PPPPPPPPP      D:::::D     D:::::DN::::::N  N::::N:::::::N  E:::::::::::::::E           T:::::T        
+                SSSSSS::::S   P::::P              D:::::D     D:::::DN::::::N   N:::::::::::N  E::::::EEEEEEEEEE           T:::::T        
+                     S:::::S  P::::P              D:::::D     D:::::DN::::::N    N::::::::::N  E:::::E                     T:::::T        
+                     S:::::S  P::::P              D:::::D    D:::::D N::::::N     N:::::::::N  E:::::E       EEEEEE        T:::::T        
+         SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D  N::::::N      N::::::::NEE::::::EEEEEEEE:::::E      TT:::::::TT      
+         S::::::SSSSSS:::::SP::::::::P          D:::::::::::::::DD   N::::::N       N:::::::NE::::::::::::::::::::E      T:::::::::T      
+         S:::::::::::::::SS P::::::::P          D::::::::::::DDD     N::::::N        N::::::NE::::::::::::::::::::E      T:::::::::T      
+          SSSSSSSSSSSSSS   PPPPPPPPPP          DDDDDDDDDDDDD        NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE      TTTTTTTTTTT      
 
-                                                                                                            
-                                                                                                            
-   SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
- SS:::::::::::::::SP::::::::::::::::P  D::::::::::::DDD     N:::::::N       N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
-S:::::SSSSSS::::::SP::::::PPPPPP:::::P D:::::::::::::::DD   N::::::::N      N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
-S:::::S     SSSSSSSPP:::::P     P:::::PDDD:::::DDDDD:::::D  N:::::::::N     N::::::NEE::::::EEEEEEEEE::::ET:::::TT:::::::TT:::::T
-S:::::S              P::::P     P:::::P  D:::::D    D:::::D N::::::::::N    N::::::N  E:::::E       EEEEEETTTTTT  T:::::T  TTTTTT
-S:::::S              P::::P     P:::::P  D:::::D     D:::::DN:::::::::::N   N::::::N  E:::::E                     T:::::T        
- S::::SSSS           P::::PPPPPP:::::P   D:::::D     D:::::DN:::::::N::::N  N::::::N  E::::::EEEEEEEEEE           T:::::T        
-  SS::::::SSSSS      P:::::::::::::PP    D:::::D     D:::::DN::::::N N::::N N::::::N  E:::::::::::::::E           T:::::T        
-    SSS::::::::SS    P::::PPPPPPPPP      D:::::D     D:::::DN::::::N  N::::N:::::::N  E:::::::::::::::E           T:::::T        
-       SSSSSS::::S   P::::P              D:::::D     D:::::DN::::::N   N:::::::::::N  E::::::EEEEEEEEEE           T:::::T        
-            S:::::S  P::::P              D:::::D     D:::::DN::::::N    N::::::::::N  E:::::E                     T:::::T        
-            S:::::S  P::::P              D:::::D    D:::::D N::::::N     N:::::::::N  E:::::E       EEEEEE        T:::::T        
-SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D  N::::::N      N::::::::NEE::::::EEEEEEEE:::::E      TT:::::::TT      
-S::::::SSSSSS:::::SP::::::::P          D:::::::::::::::DD   N::::::N       N:::::::NE::::::::::::::::::::E      T:::::::::T      
-S:::::::::::::::SS P::::::::P          D::::::::::::DDD     N::::::N        N::::::NE::::::::::::::::::::E      T:::::::::T      
- SSSSSSSSSSSSSSS   PPPPPPPPPP          DDDDDDDDDDDDD        NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE      TTTTTTTTTTT      
-                                                                                                            
-                                                                                                            
-                                                                                                            
-"""
-        panel.update(header)
 
+        """
+        print(header)  # Logoyu yazdır
+
+        # Altına boşluk ekle
+        print("\n\n")
+
+    @staticmethod
+    def print_section_header(title):
+        """Belirtilen başlıkla bir bölüm başlığı yazdırır."""
+        console.rule(f"[bold blue]{title}[/]")
 
     @staticmethod
     def print_success(message: str):

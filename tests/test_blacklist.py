@@ -12,8 +12,8 @@ error_logger = Logger("logs/error.log")
 
 
 class BlacklistTests:
-    def __init__(self, display):
-        self.display = display
+    def __init__(self):
+        pass
 
     def run(self):
         """
@@ -45,7 +45,7 @@ class BlacklistTests:
 
                 if not dns_address:
                     error_logger.error(f"Karaliste DNS bilgisi eksik: {name}")
-                    self.display.print_warning(f"DNS bilgisi eksik: {name}")
+                    Display.print_warning(f"DNS bilgisi eksik: {name}")
                     blacklist_results[name] = {
                         "status": "Eksik DNS bilgisi",
                         "response_time": 0
@@ -53,7 +53,7 @@ class BlacklistTests:
                     continue
 
                 try:
-                    self.display.print_info(f"{name} ({dns_address}) kontrol ediliyor...")
+                    Display.print_info(f"{name} ({dns_address}) kontrol ediliyor...")
 
                     # Zaman ölçümü başlat
                     start_time = time.time()
@@ -72,7 +72,7 @@ class BlacklistTests:
 
                     # Başarı mesajı
                     info_logger.info(f"{name} ({dns_address}) IP kara listede. Yanıt süresi: {elapsed_time} ms")
-                    self.display.print_success(f"{name} ({dns_address}) IP kara listede. Yanıt süresi: {elapsed_time} ms")
+                    Display.print_success(f"{name} ({dns_address}) IP kara listede. Yanıt süresi: {elapsed_time} ms")
 
                 except dns.resolver.NXDOMAIN:
                     # Kara listede olmadığını belirtir
@@ -80,7 +80,7 @@ class BlacklistTests:
                         "status": "IP kara listede değil",
                         "response_time": 0
                     }
-                    self.display.print_info(f"{name} ({dns_address}): IP kara listede değil.")
+                    Display.print_info(f"{name} ({dns_address}): IP kara listede değil.")
                     info_logger.info(f"{name} ({dns_address}): IP kara listede değil.")
 
                 except dns.resolver.Timeout:
@@ -89,7 +89,7 @@ class BlacklistTests:
                         "status": "DNS sorgusu zaman aşımına uğradı",
                         "response_time": 0
                     }
-                    self.display.print_warning(f"{name} ({dns_address}): DNS sorgusu zaman aşımına uğradı.")
+                    Display.print_warning(f"{name} ({dns_address}): DNS sorgusu zaman aşımına uğradı.")
                     error_logger.error(f"{name} ({dns_address}): DNS sorgusu zaman aşımına uğradı.")
 
                 except dns.resolver.NoAnswer:
@@ -98,7 +98,7 @@ class BlacklistTests:
                         "status": "DNS yanıt vermedi",
                         "response_time": 0
                     }
-                    self.display.print_warning(f"{name} ({dns_address}): DNS yanıt vermedi.")
+                    Display.print_warning(f"{name} ({dns_address}): DNS yanıt vermedi.")
                     error_logger.error(f"{name} ({dns_address}): DNS yanıt vermedi.")
 
                 except Exception as e:
@@ -108,21 +108,21 @@ class BlacklistTests:
                         "response_time": 0,
                         "error": str(e)
                     }
-                    self.display.print_error(f"{name} ({dns_address}) beklenmeyen bir hata nedeniyle çalışmıyor. Hata: {str(e)}")
+                    Display.print_error(f"{name} ({dns_address}) beklenmeyen bir hata nedeniyle çalışmıyor. Hata: {str(e)}")
                     error_logger.error(f"{name} ({dns_address}): Beklenmeyen hata. {str(e)}")
 
             # Tüm sonuçları kullanıcıya göster
-            self.display.print_info("Karaliste Sağlık Kontrol Sonuçları:")
+            Display.print_info("Karaliste Sağlık Kontrol Sonuçları:")
             for name, result in blacklist_results.items():
                 if result["response_time"] > 0:
-                    self.display.print_info(f"{name}: {result['status']} - {result['response_time']} ms")
+                    Display.print_info(f"{name}: {result['status']} - {result['response_time']} ms")
                 else:
-                    self.display.print_warning(f"{name}: {result['status']} (Hata: {result.get('error', 'Belirtilmedi')})")
+                    Display.print_warning(f"{name}: {result['status']} (Hata: {result.get('error', 'Belirtilmedi')})")
 
             return all(result["status"] in ("IP kara listede", "IP kara listede değil") for result in blacklist_results.values())
 
         except Exception as e:
             # Genel hata loglama ve kullanıcıya gösterim
             error_logger.error(f"Karaliste sağlık kontrolü başarısız: {str(e)}")
-            self.display.print_error("Karaliste sağlık kontrolü başarısız.")
+            Display.print_error("Karaliste sağlık kontrolü başarısız.")
             return False

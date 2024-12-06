@@ -10,8 +10,8 @@ error_logger = Logger("logs/error.log")
 
 
 class RabbitMQTests:
-    def __init__(self, display):
-        self.display = display
+    def __init__(self):
+        pass
 
     def run(self):
         """
@@ -42,10 +42,10 @@ class RabbitMQTests:
                 raise ValueError("RabbitMQ bağlantı ayarları eksik.")
 
             # Bağlantı bilgilerini ekrana yazdır
-            self.display.print_info("RabbitMQ Bağlantı Bilgileri:")
-            self.display.print_info(f"  Host: {host}")
-            self.display.print_info(f"  Port: {port}")
-            self.display.print_info(f"  Kullanıcı Adı: {username}")
+            Display.print_info("RabbitMQ Bağlantı Bilgileri:")
+            Display.print_info(f"  Host: {host}")
+            Display.print_info(f"  Port: {port}")
+            Display.print_info(f"  Kullanıcı Adı: {username}")
 
             # RabbitMQ bağlantısını test et
             credentials = pika.PlainCredentials(username, password)
@@ -63,21 +63,21 @@ class RabbitMQTests:
 
             # Başarı mesajı
             info_logger.info(f"RabbitMQ bağlantısı başarılı: {host}:{port}")
-            self.display.print_success("RabbitMQ bağlantısı başarılı.")
+            Display.print_success("RabbitMQ bağlantısı başarılı.")
             return True
 
         except pika.exceptions.ProbableAuthenticationError:
             # Kimlik doğrulama hatası
             error_logger.error("RabbitMQ kimlik doğrulama hatası.")
-            self.display.print_error("RabbitMQ kimlik doğrulama hatası.")
+            Display.print_error("RabbitMQ kimlik doğrulama hatası.")
             return False
         except pika.exceptions.AMQPConnectionError:
             # Bağlantı hatası
             error_logger.error("RabbitMQ bağlantı hatası.")
-            self.display.print_error("RabbitMQ bağlantı hatası.")
+            Display.print_error("RabbitMQ bağlantı hatası.")
             return False
         except Exception as e:
             # Genel hata
             error_logger.error(f"RabbitMQ testi sırasında beklenmeyen hata: {str(e)}")
-            self.display.print_error(f"RabbitMQ testi sırasında beklenmeyen hata: {str(e)}")
+            Display.print_error(f"RabbitMQ testi sırasında beklenmeyen hata: {str(e)}")
             return False
