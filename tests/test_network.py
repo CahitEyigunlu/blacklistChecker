@@ -1,7 +1,7 @@
 import socket
 
 from utils.display import Display
-from logger import Logger
+from logB import Logger
 
 # Logger ayarları
 info_logger = Logger("logs/info.log")

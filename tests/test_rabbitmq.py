@@ -2,7 +2,7 @@ import pika
 
 from utils.config_manager import load_config
 from utils.display import Display
-from logger import Logger
+from logB import Logger
 
 # Logger ayarları
 info_logger = Logger("logs/info.log")

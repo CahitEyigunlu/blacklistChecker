@@ -1,9 +1,9 @@
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-from logger.log_formatter import format_log
-from logger.log_security import encrypt_data, mask_data
-from logger.log_levels import DEBUG, INFO, WARNING, ERROR, CRITICAL
+from logB.log_formatter import format_log
+from logB.log_security import encrypt_data, mask_data
+from logB.log_levels import DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 class Logger:
     def __init__(self, log_file_path, level=DEBUG, max_bytes=10 * 1024 * 1024, backup_count=5):

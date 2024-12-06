@@ -1,7 +1,6 @@
 import sqlite3
-
-from utils import display
-from logger import logger
+from utils.display import Display
+from logB.logger import Logger
 
 
 class Database:
@@ -18,6 +17,8 @@ class Database:
         """
         self.db_path = db_path
         self.conn = None
+        self.display = Display()
+        self.Logger = Logger(log_file_path="logs/sqlite.log")  # Logger örneği
 
     def connect(self):
         """
@@ -25,11 +26,12 @@ class Database:
         """
         try:
             self.conn = sqlite3.connect(self.db_path)
-            logger.info("Connected to SQLite database.")
+            self.Logger.info("Connected to SQLite database.")
+            self.display.print_success("Connected to SQLite database.")
             return self.conn
         except sqlite3.Error as e:
-            display.print_colored(f"SQLite connection error: {e}", "red")
-            logger.error(f"SQLite connection error: {e}")
+            self.display.print_error(f"SQLite connection error: {e}")
+            self.Logger.error(f"SQLite connection error: {e}")
             return None
 
     def create_table(self):
@@ -45,14 +47,14 @@ class Database:
                     status TEXT NOT NULL,
                     result TEXT,
                     check_date DATE,
-                    last_checked DATETIME
-                )
+                    last_checked DATETIME)
             ''')
             self.conn.commit()
-            logger.info("Table created successfully.")
+            self.Logger.info("Table created successfully.")
+            self.display.print_success("Table created successfully.")
         except sqlite3.Error as e:
-            display.print_colored(f"Error creating table: {e}", "red")
-            logger.error(f"Error creating table: {e}")
+            self.display.print_error(f"Error creating table: {e}")
+            self.Logger.error(f"Error creating table: {e}")
 
     def add_ip_address(self, ip_address):
         """
@@ -64,10 +66,11 @@ class Database:
                 "INSERT INTO ip_check (ip_address, status, check_date, last_checked) VALUES (?, ?, DATE('now'), DATETIME('now'))",
                 (ip_address, "pending"))
             self.conn.commit()
-            logger.info(f"Added IP address: {ip_address}")
+            self.Logger.info(f"Added IP address: {ip_address}")
+            self.display.print_success(f"Added IP address: {ip_address}")
         except sqlite3.Error as e:
-            display.print_colored(f"Error adding IP address: {e}", "red")
-            logger.error(f"Error adding IP address: {e}")
+            self.display.print_error(f"Error adding IP address: {e}")
+            self.Logger.error(f"Error adding IP address: {e}")
 
     def update_ip_status(self, ip_address, status, result=None):
         """
@@ -79,10 +82,11 @@ class Database:
                 "UPDATE ip_check SET status = ?, result = ?, last_checked = DATETIME('now') WHERE ip_address = ?",
                 (status, result, ip_address))
             self.conn.commit()
-            logger.info(f"Updated IP address status: {ip_address} - {status}")
+            self.Logger.info(f"Updated IP address status: {ip_address} - {status}")
+            self.display.print_info(f"Updated IP address status: {ip_address} - {status}")
         except sqlite3.Error as e:
-            display.print_colored(f"Error updating IP status: {e}", "red")
-            logger.error(f"Error updating IP status: {e}")
+            self.display.print_error(f"Error updating IP status: {e}")
+            self.Logger.error(f"Error updating IP status: {e}")
 
     def get_unchecked_ips(self):
         """
@@ -92,11 +96,12 @@ class Database:
             cursor = self.conn.cursor()
             cursor.execute("SELECT ip_address FROM ip_check WHERE status != 'completed' OR check_date != DATE('now')")
             ips = [row[0] for row in cursor.fetchall()]
-            logger.info(f"Retrieved unchecked IP addresses: {len(ips)} addresses")
+            self.Logger.info(f"Retrieved unchecked IP addresses: {len(ips)} addresses")
+            self.display.print_info(f"Retrieved {len(ips)} unchecked IP addresses.")
             return ips
         except sqlite3.Error as e:
-            display.print_colored(f"Error getting unchecked IPs: {e}", "red")
-            logger.error(f"Error getting unchecked IPs: {e}")
+            self.display.print_error(f"Error getting unchecked IPs: {e}")
+            self.Logger.error(f"Error getting unchecked IPs: {e}")
             return []
 
     def get_last_check_date(self):
@@ -112,7 +117,8 @@ class Database:
             else:
                 return None
         except sqlite3.Error as e:
-            logger.error(f"Error getting last check date: {e}")
+            self.display.print_error(f"Error getting last check date: {e}")
+            self.Logger.error(f"Error getting last check date: {e}")
             raise
 
     def clear_pending_tasks(self):
@@ -123,9 +129,11 @@ class Database:
             cursor = self.conn.cursor()
             cursor.execute("DELETE FROM ip_check WHERE status = 'pending'")
             self.conn.commit()
-            logger.info("Cleared pending tasks from database.")
+            self.Logger.info("Cleared pending tasks from database.")
+            self.display.print_info("Cleared pending tasks from database.")
         except sqlite3.Error as e:
-            logger.error(f"Error clearing pending tasks: {e}")
+            self.display.print_error(f"Error clearing pending tasks: {e}")
+            self.Logger.error(f"Error clearing pending tasks: {e}")
             raise
 
     def close_connection(self):
@@ -135,4 +143,5 @@ class Database:
         if self.conn:
             self.conn.close()
             self.conn = None
-            logger.info("SQLite connection closed.")
+            self.Logger.info("SQLite connection closed.")
+            self.display.print_success("SQLite connection closed.")

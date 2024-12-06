@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from logger import logger
+from logB.logger import Logger
 
 class MongoDB:
     """
@@ -15,6 +15,7 @@ class MongoDB:
         self.connection_string = connection_string
         self.client = None
         self.db = None  # Veritabanı nesnesi için
+        self.logger = Logger(log_file_path="logs/mongodb.log")  # Logger nesnesi
 
     def connect(self, db_name):
         """
@@ -26,9 +27,9 @@ class MongoDB:
         try:
             self.client = MongoClient(self.connection_string)
             self.db = self.client[db_name]  # Veritabanını seç
-            logger.info(f"MongoDB sunucusuna başarıyla bağlanıldı. Veritabanı: {db_name}")
+            self.logger.info(f"MongoDB sunucusuna başarıyla bağlanıldı. Veritabanı: {db_name}")
         except Exception as e:
-            logger.error(f"MongoDB bağlantı hatası: {e}")
+            self.logger.error(f"MongoDB bağlantı hatası: {e}")
             raise
 
     def insert_document(self, collection_name, document):
@@ -42,9 +43,9 @@ class MongoDB:
         try:
             collection = self.db[collection_name]
             result = collection.insert_one(document)
-            logger.info(f"{collection_name} koleksiyonuna belge eklendi. ID: {result.inserted_id}")
+            self.logger.info(f"{collection_name} koleksiyonuna belge eklendi. ID: {result.inserted_id}")
         except Exception as e:
-            logger.error(f"Belge ekleme hatası: {e}")
+            self.logger.error(f"Belge ekleme hatası: {e}")
             raise
 
     def find_documents(self, collection_name, query):
@@ -61,10 +62,10 @@ class MongoDB:
         try:
             collection = self.db[collection_name]
             documents = list(collection.find(query))
-            logger.info(f"{collection_name} koleksiyonunda {len(documents)} belge bulundu.")
+            self.logger.info(f"{collection_name} koleksiyonunda {len(documents)} belge bulundu.")
             return documents
         except Exception as e:
-            logger.error(f"Belge bulma hatası: {e}")
+            self.logger.error(f"Belge bulma hatası: {e}")
             raise
 
     def close_connection(self):
@@ -74,7 +75,7 @@ class MongoDB:
         try:
             if self.client:
                 self.client.close()
-                logger.info("MongoDB bağlantısı kapatıldı.")
+                self.logger.info("MongoDB bağlantısı kapatıldı.")
         except Exception as e:
-            logger.error(f"MongoDB bağlantı kapatma hatası: {e}")
+            self.logger.error(f"MongoDB bağlantı kapatma hatası: {e}")
             raise

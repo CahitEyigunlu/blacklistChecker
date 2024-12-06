@@ -1,5 +1,5 @@
 import psycopg2
-from logger import logger
+from logB.logger import Logger
 
 class PostgreSQL:
     """
@@ -22,6 +22,7 @@ class PostgreSQL:
         self.password = password
         self.connection = None
         self.cursor = None
+        self.logger = Logger(log_file_path="logs/postgre.log")  # Logger nesnesi
 
     def connect(self):
         """
@@ -35,9 +36,9 @@ class PostgreSQL:
                 password=self.password
             )
             self.cursor = self.connection.cursor()
-            logger.info("PostgreSQL sunucusuna başarıyla bağlanıldı.")
+            self.logger.info("PostgreSQL sunucusuna başarıyla bağlanıldı.")
         except psycopg2.Error as e:
-            logger.error(f"PostgreSQL bağlantı hatası: {e}")
+            self.logger.error(f"PostgreSQL bağlantı hatası: {e}")
             raise
 
     def execute_query(self, query, params=None):
@@ -51,9 +52,9 @@ class PostgreSQL:
         try:
             self.cursor.execute(query, params)
             self.connection.commit()
-            logger.info("Sorgu başarıyla çalıştırıldı.")
+            self.logger.info("Sorgu başarıyla çalıştırıldı.")
         except psycopg2.Error as e:
-            logger.error(f"Sorgu çalıştırma hatası: {e}")
+            self.logger.error(f"Sorgu çalıştırma hatası: {e}")
             raise
 
     def fetch_data(self, query, params=None):
@@ -70,10 +71,10 @@ class PostgreSQL:
         try:
             self.cursor.execute(query, params)
             data = self.cursor.fetchall()
-            logger.info(f"Sorgudan {len(data)} satır veri alındı.")
+            self.logger.info(f"Sorgudan {len(data)} satır veri alındı.")
             return data
         except psycopg2.Error as e:
-            logger.error(f"Veri alma hatası: {e}")
+            self.logger.error(f"Veri alma hatası: {e}")
             raise
 
     def close_connection(self):
@@ -85,7 +86,7 @@ class PostgreSQL:
                 self.cursor.close()
             if self.connection:
                 self.connection.close()
-                logger.info("PostgreSQL bağlantısı kapatıldı.")
+                self.logger.info("PostgreSQL bağlantısı kapatıldı.")
         except psycopg2.Error as e:
-            logger.error(f"PostgreSQL bağlantı kapatma hatası: {e}")
+            self.logger.error(f"PostgreSQL bağlantı kapatma hatası: {e}")
             raise

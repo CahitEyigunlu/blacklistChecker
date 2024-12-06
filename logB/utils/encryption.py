@@ -1,7 +1,7 @@
 # encryption.py
 
 from cryptography.fernet import Fernet
-from logging_module.config import ENCRYPTION_KEY
+from logB.config import ENCRYPTION_KEY
 
 # Initialize Fernet with the provided encryption key
 fernet = Fernet(ENCRYPTION_KEY)
