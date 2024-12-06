@@ -12,12 +12,13 @@ from logger import Logger
 info_logger = Logger("logs/info.log")
 error_logger = Logger("logs/error.log")
 
-
 def test_mongodb_connection():
     """
     MongoDB bağlantısını test eder.
     Config dosyasından alınan bağlantı detaylarını kullanır.
     """
+    mongo_uri = None  # Değişkeni try bloğunun dışında tanımla
+    database_name = None  # Değişkeni try bloğunun dışında tanımla
     try:
         # Config dosyasını yükle
         config = load_config()
@@ -33,9 +34,9 @@ def test_mongodb_connection():
         if not mongo_uri or not database_name:
             raise ValueError("MongoDB URI veya veritabanı adı eksik.")
 
-        # Bağlantı bilgilerini ekrana yazdır
+        # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
         Display.print_info("MongoDB Bağlantı Bilgileri:")
-        Display.print_info(f"  URI: {mongo_uri}")
+        Display.print_info(f"  URI: {mask_password(mongo_uri)}")  # Şifreyi maskele
         Display.print_info(f"  Veritabanı: {database_name}")
 
         # MongoDB'ye bağlan
@@ -55,6 +56,10 @@ def test_mongodb_connection():
         # Hata loglama ve kullanıcıya gösterim
         error_logger.error(f"MongoDB bağlantısı başarısız: {str(e)}")
         Display.print_error("MongoDB bağlantısı başarısız.")
+        # Bağlantı başarısız olursa, bağlantı bilgilerini göster
+        Display.print_info("MongoDB Bağlantı Bilgileri:")
+        Display.print_info(f"  URI: {mongo_uri or 'Bulunamadı'}")  # Varsayılan değer kullan
+        Display.print_info(f"  Veritabanı: {database_name or 'Bulunamadı'}")  # Varsayılan değer kullan
         return False
 
 
@@ -106,12 +111,16 @@ def test_sqlite_connection():
         Display.print_error("SQLite bağlantısı başarısız.")
         return False
 
-
 def test_postgresql_connection():
     """
     PostgreSQL bağlantısını test eder.
     Config dosyasından alınan bağlantı detaylarını kullanır.
     """
+    user = None  # Değişkeni try bloğunun dışında tanımla
+    password = None  # Değişkeni try bloğunun dışında tanımla
+    dbname = None  # Değişkeni try bloğunun dışında tanımla
+    host = None  # Değişkeni try bloğunun dışında tanımla
+    port = None  # Değişkeni try bloğunun dışında tanımla
     try:
         # Config dosyasını yükle
         config = load_config()
@@ -130,9 +139,10 @@ def test_postgresql_connection():
         if not user or not password or not dbname or not host:
             raise ValueError("PostgreSQL bağlantı ayarları eksik.")
 
-        # Bağlantı bilgilerini ekrana yazdır
+        # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
         Display.print_info("PostgreSQL Bağlantı Bilgileri:")
         Display.print_info(f"  Kullanıcı: {user}")
+        Display.print_info(f"  Şifre: ****")  # Şifreyi maskele
         Display.print_info(f"  Veritabanı: {dbname}")
         Display.print_info(f"  Sunucu: {host}")
         Display.print_info(f"  Port: {port}")
@@ -145,6 +155,7 @@ def test_postgresql_connection():
             host=host,
             port=port
         )
+
 
         # Test sorgusu
         cursor = connection.cursor()
@@ -163,8 +174,35 @@ def test_postgresql_connection():
         connection.close()
         return True
 
+
     except Exception as e:
         # Hata loglama ve kullanıcıya gösterim
         error_logger.error(f"PostgreSQL bağlantısı başarısız: {str(e)}")
         Display.print_error("PostgreSQL bağlantısı başarısız.")
+        # Bağlantı başarısız olursa, bağlantı bilgilerini göster (şifre dahil)
+        Display.print_info("PostgreSQL Bağlantı Bilgileri:")
+        Display.print_info(f"  Kullanıcı: {user}")
+        Display.print_info(f"  Şifre: {password}")
+        Display.print_info(f"  Veritabanı: {dbname}")
+        Display.print_info(f"  Sunucu: {host}")
+        Display.print_info(f"  Port: {port}")
         return False
+
+def mask_password(uri):
+    """
+    Verilen URI'deki şifreyi maskeler.
+    """
+    try:
+        # URI'yi ayrıştır
+        parsed_uri = urllib.parse.urlparse(uri)
+
+        # Şifreyi maskele
+        netloc = parsed_uri.netloc.replace(parsed_uri.password, "****") if parsed_uri.password else parsed_uri.netloc
+
+        # Yeni URI'yi oluştur
+        masked_uri = urllib.parse.urlunparse(parsed_uri._replace(netloc=netloc))
+        return masked_uri
+    except Exception as e:
+        # URI ayrıştırılamazsa orijinal URI'yi döndür
+        error_logger.error(f"URI maskelenemedi: {str(e)}")
+        return uri
