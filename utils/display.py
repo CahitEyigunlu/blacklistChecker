@@ -1,14 +1,5 @@
-import curses
 import os
-import time
-
-from tests.test_network import test_internet_connection, test_dns_server
-from tests.test_databases import (test_mongodb_connection,
-                                   test_postgresql_connection,
-                                   test_sqlite_connection)
-from tests.test_rabbitmq import test_rabbitmq_connection
-from tests.test_blacklist import test_blacklist_health
-
+import curses
 
 class Display:
     """Curses ile ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
