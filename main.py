@@ -1,11 +1,8 @@
 import os
 import signal
 import time
-
-from tests.test_blacklist import BlacklistTests
-from tests.test_databases import DatabaseTests
-from tests.test_network import NetworkTests
-from tests.test_rabbitmq import RabbitMQTests
+from rich.table import Table
+from tests.tests import run_tests  
 from utils.display import Display, console
 
 
@@ -20,30 +17,29 @@ signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     """
-    Testleri çalıştırır.
+    Testleri çalıştırır ve sonuçları bir tabloda gösterir.
     """
-    display = Display()  # Display sınıfını başlat
-    display.print_header()  # Başlığı yazdır
-    display.print_header()  # Başlığı ilk olarak göster
-    time.sleep(2)  # Logoyu 2 saniye göster
-    display.print_header()  # Başlığı yazdır
-    display.print_section_header("Sistem Testleri") 
+    display = Display()
+    display.print_header()
+    time.sleep(2)
+    display.print_section_header("Sistem Testleri")
 
-    network_tests = NetworkTests()
-    display.print_section_header("Network Testleri") 
-    network_tests.run()
-    database_tests = DatabaseTests()
-    display.print_section_header("Database Testleri")
-    database_tests.run()
-    rabbitmq_tests = RabbitMQTests()
-    display.print_section_header("RabbitMQ Testleri") 
-    rabbitmq_tests.run()
-    blacklist_tests = BlacklistTests()
-    display.print_section_header("Blacklist Testleri")
-    blacklist_tests.run()
+    # Testleri çalıştır ve sonuçları al
+    test_results = run_tests()
+
+    # Tabloyu oluştur
+    table = Table(title="Test Sonuçları")
+    table.add_column("Test Adı", justify="left", style="cyan", no_wrap=True)
+    table.add_column("Sonuç", style="green")
+
+    # Test sonuçlarını tabloya ekle
+    for result in test_results:
+        table.add_row(*result)
+
+    # Tabloyu yazdır
+    console.print(table)
 
     display.print_success("Tüm sistem testleri tamamlandı.")
-
     display.print_info("Çıkmak için CTRL+C tuşlarına basın...")
     while True:
         time.sleep(1)
