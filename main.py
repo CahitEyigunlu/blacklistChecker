@@ -28,18 +28,6 @@ def main():
     display.print_header()
     time.sleep(2)
     display.print_section_header("System Tests")
-    config = config_manager.load_config()
-    sqlite_db = Database(config["sqlite"]["db_path"])
-    sqlite_db.connect()
-    rabbitmq = RabbitMQ(config["rabbitmq"]["host"])
-    rabbitmq.connect()
-    postgresql = PostgreSQL(host=config["postgresql"]["host"],database=config["postgresql"]["database"],user=config["postgresql"]["user"],password=config["postgresql"]["password"])
-    postgresql.connect()
-
-    # Initialize DBManager
-    db_manager = DBManager(config, sqlite_db, rabbitmq, postgresql)  # Argümanları ilet
-    db_manager.start()  # Perform startup tasks
-
     # Run tests and get results
     test_results = run_tests()
 
@@ -56,6 +44,18 @@ def main():
 
     # Print the table
     console.print(table)
+
+    config = config_manager.load_config()
+    sqlite_db = Database(config["sqlite"]["db_path"])
+    sqlite_db.connect()
+    rabbitmq = RabbitMQ(config["rabbitmq"]["host"])
+    rabbitmq.connect()
+    postgresql = PostgreSQL(host=config["postgresql"]["host"],database=config["postgresql"]["database"],user=config["postgresql"]["user"],password=config["postgresql"]["password"])
+    postgresql.connect()
+
+    # Initialize DBManager
+    db_manager = DBManager(config, sqlite_db, rabbitmq, postgresql)  # Argümanları ilet
+    db_manager.start()  # Perform startup tasks
 
     display.print_success("All system tests completed.")
     display.print_info("Press CTRL+C to exit...")
