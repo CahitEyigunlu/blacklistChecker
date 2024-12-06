@@ -1,8 +1,7 @@
 import signal
 import time
-
+from database import Database
 from rich.table import Table
-
 from database.db_manager import DBManager
 from tests.tests import run_tests
 from utils import config_manager
