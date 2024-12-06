@@ -2,7 +2,7 @@ database:
   recorded_dbs:
     mongodb: false 
     mysql: false  
-    postgresql: false 
+    postgresql: true 
 
 # SQLite Ayarları
 sqlite:
