@@ -3,7 +3,7 @@ import time
 import dns.resolver
 
 from utils.config_manager import load_config
-from display import Display
+from utils.display import Display
 from logger import Logger
 
 # Logger ayarları

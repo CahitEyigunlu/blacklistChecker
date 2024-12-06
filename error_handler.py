@@ -1,5 +1,5 @@
 from logger.logger import Logger
-from display import Display
+from utils.display import Display
 
 # Logger ayarları
 error_logger = Logger("logs/error.log")

@@ -5,7 +5,7 @@ import psycopg2
 from pymongo import MongoClient
 
 from utils.config_manager import load_config
-from display import Display
+from utils.display import Display
 from logger import Logger
 
 # Logger ayarları

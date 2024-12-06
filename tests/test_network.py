@@ -1,6 +1,6 @@
 import socket
 
-from display import Display
+from utils.display import Display
 from logger import Logger
 
 # Logger ayarları
