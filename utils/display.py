@@ -1,18 +1,18 @@
 import os
-import curses
+from rich import print
+from rich.console import Console
+from rich.live import Live
+from rich.panel import Panel
+from rich.text import Text
+
+console = Console()
+
 
 class Display:
-    """Curses ile ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
+    """Rich ile ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
 
-    def __init__(self, stdscr):
-        self.stdscr = stdscr
-        curses.start_color()
-        curses.use_default_colors()
-        for i in range(0, curses.COLORS):
-            curses.init_pair(i  + 1, i, -1)
-        self.theme = self.get_theme()
-
-    def get_theme(self):
+    @staticmethod
+    def get_theme():
         """Konsol temasını algılar (açık veya koyu)."""
         # Windows için özel çözüm (varsayılan olarak koyu tema)
         if os.name == 'nt':
@@ -26,23 +26,26 @@ class Display:
             pass
         return "light"
 
-    def get_color(self, message_type):
+    @staticmethod
+    def get_color(message_type):
         """Mesaj türüne ve temaya göre uygun rengi seçer."""
+        theme = Display.get_theme()
         colors = {
-            "success": curses.COLOR_GREEN if self.theme == "dark" else curses.COLOR_BLACK,
-            "error": curses.COLOR_RED,
-            "info": curses.COLOR_CYAN if self.theme == "dark" else curses.COLOR_BLUE,
-            "warning": curses.COLOR_YELLOW,
-            "debug": curses.COLOR_BLACK
+            "success": "green" if theme == "dark" else "black",
+            "error": "red",
+            "info": "cyan" if theme == "dark" else "blue",  # Koyu temada daha görünür renk
+            "warning": "yellow",
+            "debug": "grey"
         }
-        return colors.get(message_type, curses.COLOR_WHITE)
+        return colors.get(message_type, "white")  # Varsayılan renk beyaz
 
-    def print_header(self):
-        """ASCII art başlığını yazdırır."""
+    @staticmethod
+    def print_header(panel):
+        """ASCII art başlığını panel içinde yazdırır."""
         header = """
 
-                                                                                                                                 
-                                                                                                                                 
+                                                                                                            
+                                                                                                            
    SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
  SS:::::::::::::::SP::::::::::::::::P  D::::::::::::DDD     N:::::::N       N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
 S:::::SSSSSS::::::SP::::::PPPPPP:::::P D:::::::::::::::DD   N::::::::N      N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
@@ -59,34 +62,39 @@ SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D  N::::::N      N:::::
 S::::::SSSSSS:::::SP::::::::P          D:::::::::::::::DD   N::::::N       N:::::::NE::::::::::::::::::::E      T:::::::::T      
 S:::::::::::::::SS P::::::::P          D::::::::::::DDD     N::::::N        N::::::NE::::::::::::::::::::E      T:::::::::T      
  SSSSSSSSSSSSSSS   PPPPPPPPPP          DDDDDDDDDDDDD        NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE      TTTTTTTTTTT      
-                                                                                                                                 
-                                                                                                                                 
-                                                                                                                                 
+                                                                                                            
+                                                                                                            
+                                                                                                            
 """
-        self.stdscr.addstr(0, 0, header)
+        panel.update(header)
 
-    def print_message(self, message: str, message_type: str = "info"):
-        """Mesajı uygun renkte yazdırır."""
-        color = self.get_color(message_type)
-        self.stdscr.addstr(message + "\n", curses.color_pair(color + 1))
-        self.stdscr.refresh()
 
-    def print_success(self, message: str):
+    @staticmethod
+    def print_success(message: str):
         """Başarılı mesajları yeşil renkte yazdırır."""
-        self.print_message(f"✔️ Başarı: {message}", "success")
+        color = Display.get_color("success")
+        print(f"[bold {color}]✔️ Başarı: {message}[/]")
 
-    def print_error(self, message: str):
+    @staticmethod
+    def print_error(message: str):
         """Hata mesajlarını kırmızı renkte yazdırır."""
-        self.print_message(f"❌ Hata: {message}", "error")
+        color = Display.get_color("error")
+        print(f"[bold {color}]❌ Hata: {message}[/]")
 
-    def print_info(self, message: str):
+    @staticmethod
+    def print_info(message: str):
         """Bilgi mesajlarını mavi renkte yazdırır."""
-        self.print_message(f"ℹ️ Bilgi: {message}", "info")
+        color = Display.get_color("info")
+        print(f"[bold {color}]ℹ️ Bilgi: {message}[/]")
 
-    def print_warning(self, message: str):
+    @staticmethod
+    def print_warning(message: str):
         """Uyarı mesajlarını sarı renkte yazdırır."""
-        self.print_message(f"⚠️ Uyarı: {message}", "warning")
+        color = Display.get_color("warning")
+        print(f"[bold {color}]⚠️ Uyarı: {message}[/]")
 
-    def print_debug(self, message: str):
+    @staticmethod
+    def print_debug(message: str):
         """Debug mesajlarını gri renkte yazdırır."""
-        self.print_message(f"🐞 Debug: {message}", "debug")
+        color = Display.get_color("debug")
+        print(f"[bold {color}]🐞 Debug: {message}[/]")
