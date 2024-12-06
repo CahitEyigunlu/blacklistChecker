@@ -37,7 +37,7 @@ class TaskSynchronizer:
         total_tasks_count = len(self.in_memory_tasks)
 
         # Dosya yolları
-        base_path = "task_logs.txt"
+        base_path = "task_logs"
         os.makedirs(base_path, exist_ok=True)
         memory_tasks_path = os.path.join(base_path, "in_memory_tasks.txt")
         sqlite_tasks_path = os.path.join(base_path, "sqlite_tasks.txt")
