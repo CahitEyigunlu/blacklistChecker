@@ -11,7 +11,7 @@ def load_config():
         load_dotenv()
 
         # config.yml dosyasını oku
-        with open("config.yml", "r") as f:
+        with open("blacklist.yml", "r") as f:
             config = yaml.safe_load(f)
 
         # Ortam değişkenlerini config'e ekle
