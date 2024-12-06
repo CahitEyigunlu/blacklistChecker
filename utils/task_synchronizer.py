@@ -111,3 +111,40 @@ class TaskSynchronizer:
         self.logger.info(status_message)
         self.display.print_info(status_message)
         return status_message
+
+    def fetch_tasks(self, queue_name, batch_size):
+        """
+        Fetches tasks from RabbitMQ queue.
+
+        Args:
+            queue_name (str): The RabbitMQ queue name.
+            batch_size (int): Number of tasks to fetch.
+
+        Returns:
+            list: A list of tasks fetched from RabbitMQ.
+        """
+        tasks = []
+        for _ in range(batch_size):
+            method_frame, _, body = self.rabbitmq.channel.basic_get(queue=queue_name, auto_ack=False)
+            if method_frame:
+                task = json.loads(body.decode('utf-8'))
+                tasks.append((method_frame.delivery_tag, task))
+            else:
+                break
+        return tasks
+
+    def process_tasks(self, tasks):
+        """
+        Processes a list of tasks.
+
+        Args:
+            tasks (list): A list of tasks to process.
+        """
+        for delivery_tag, task in tasks:
+            try:
+                # Simulate task processing (e.g., network request, computation)
+                print(f"Processing task: {task}")  # Replace with actual processing logic
+                self.rabbitmq.channel.basic_ack(delivery_tag)  # Acknowledge task completion
+            except Exception as e:
+                self.logger.error(f"Failed to process task: {e}")
+                self.rabbitmq.channel.basic_nack(delivery_tag)

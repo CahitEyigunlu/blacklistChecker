@@ -160,3 +160,23 @@ class Database:
             self.display.print_error(f"Error clearing old tasks: {e}")
             self.Logger.error(f"Error clearing old tasks: {e}")
             raise
+
+
+    def bulk_update_tasks(self, tasks):
+        """
+        Bulk updates tasks in the SQLite database.
+
+        Args:
+            tasks (list): List of task dictionaries to update.
+        """
+        try:
+            cursor = self.conn.cursor()
+            for task in tasks:
+                cursor.execute(
+                    "UPDATE tasks SET status = 'completed' WHERE ip = ? AND dns = ?",
+                    (task["ip"], task["dns"])
+                )
+            self.conn.commit()
+        except Exception as e:
+            self.logger.error(f"Failed to bulk update tasks: {e}")
+            raise

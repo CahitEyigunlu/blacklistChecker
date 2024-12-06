@@ -99,32 +99,28 @@ def main():
             rabbitmq=db_manager.rabbitmq,
             in_memory_tasks=in_memory_tasks,
             config=config,
-            active_db_manager=db_manager  
+            active_db_manager=db_manager
         )
         synchronizer.synchronize()
-        task_statuses = synchronizer.report_status("Synchronization completed successfully.")
-        display.print_success(f"Task Status Report: {task_statuses}")
-        logger.info(f"Task synchronization completed: {task_statuses}")
-    except Exception as e:
-        logger.error(f"Task synchronization failed: {e}")
-        display.print_error(f"❌ Task synchronization failed: {e}")
-        return
 
-    try:
-        logger.info("Starting application...")
-        db_manager.start()
-
-        display.print_info("Application is running. Press CTRL+C to exit...")
+        # Start consuming tasks with a batch size
+        batch_size = 10  # Define the batch size
+        queue_name = config["rabbitmq"]["default_queue"]
         while True:
-            time.sleep(1)
+            tasks = synchronizer.fetch_tasks(queue_name, batch_size)
+            if not tasks:
+                display.print_info("No tasks found in RabbitMQ. Sleeping...")
+                time.sleep(5)  # Wait before checking again
+                continue
 
+            display.print_info(f"Processing {len(tasks)} tasks from RabbitMQ...")
+            synchronizer.process_tasks(tasks)
+
+            display.print_success(f"✔️ Processed {len(tasks)} tasks from RabbitMQ.")
     except Exception as e:
-        logger.error(f"Unexpected error: {e}")
-        display.print_error(f"❌ Unexpected error: {e}")
-    finally:
-        logger.info("Closing all database connections...")
-        db_manager.close_connections()
-        display.print_success("✔️ All connections closed. Application terminated.")
+        logger.error(f"Process Task synchronization failed: {e}")
+        display.print_error(f"❌Process Task synchronization failed: {e}")
+        return
 
 
 if __name__ == "__main__":
