@@ -2,48 +2,47 @@ import os
 import signal
 import time
 from rich.table import Table
-from tests.tests import run_tests  
+from tests.tests import run_tests
 from utils.display import Display, console
 
-
 def signal_handler(sig, frame):
-    """CTRL+C sinyali için işleyici."""
-    print("Çıkış yapılıyor...")
+    """
+    Handles the SIGINT signal (CTRL+C).
+    """
+    print("Exiting...")
     exit(0)
-
 
 signal.signal(signal.SIGINT, signal_handler)
 
-
 def main():
     """
-    Testleri çalıştırır ve sonuçları bir tabloda gösterir.
+    Runs the tests and displays the results in a table.
     """
     display = Display()
     display.print_header()
     time.sleep(2)
-    display.print_section_header("Sistem Testleri")
+    display.print_section_header("System Tests")
 
-    # Testleri çalıştır ve sonuçları al
+    # Run tests and get results
     test_results = run_tests()
 
-    # Tabloyu oluştur
-    table = Table(title="Test Sonuçları")
-    table.add_column("Test Adı", justify="left", style="cyan", no_wrap=True)
-    table.add_column("Sonuç", style="green")
+    # Create the table
+    table = Table(title="Test Results")
+    table.add_column("Test Name", justify="left", style="cyan", no_wrap=True)
+    table.add_column("Result", style="green")
 
-    # Test sonuçlarını tabloya ekle
+    # Add test results to the table
     for result in test_results:
-        table.add_row(*result)
+        test_name, result_status = result  # Assuming result is a tuple (name, status)
+        result_style = "red" if result_status == "Passed" else "green"
+        table.add_row(test_name, result_status, style=result_style)
 
-    # Tabloyu yazdır
+    # Print the table
     console.print(table)
-
-    display.print_success("Tüm sistem testleri tamamlandı.")
-    display.print_info("Çıkmak için CTRL+C tuşlarına basın...")
+    display.print_success("All system tests completed.")
+    display.print_info("Press CTRL+C to exit...")
     while True:
         time.sleep(1)
-
 
 if __name__ == "__main__":
     main()
