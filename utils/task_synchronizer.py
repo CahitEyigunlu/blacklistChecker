@@ -1,13 +1,11 @@
 from datetime import datetime
 from utils.display import Display
 from logB.logger import Logger
-import os
-import json
 
 
 class TaskSynchronizer:
     """
-    Synchronizes tasks between in-memory tasks, SQLite, RabbitMQ, and the active database.
+    Synchronizes tasks between in-memory tasks, SQLite, and RabbitMQ.
     """
 
     def __init__(self, sqlite_manager, rabbitmq, in_memory_tasks, config, active_db_manager):
@@ -29,9 +27,9 @@ class TaskSynchronizer:
         self.logger = Logger(log_file_path="logs/task_synchronizer.log")
         self.display = Display()
 
-    def synchronize(self):
+    async def synchronize(self):
         """
-        Synchronizes tasks between SQLite and RabbitMQ, and updates the active database.
+        Synchronizes tasks between SQLite and RabbitMQ.
         """
         today_date = datetime.now().strftime("%Y-%m-%d")
         queue_name = self.config["rabbitmq"].get("default_queue", "default_queue")
@@ -66,85 +64,31 @@ class TaskSynchronizer:
             self.rabbitmq.clear_queue(queue_name)
             self.logger.info(f"✔️ RabbitMQ queue '{queue_name}' cleared successfully.")
 
-            # Step 5: Fetch "pending" tasks from SQLite
+            # Step 5: Add tasks to RabbitMQ in batches
             pending_tasks_in_sqlite = [
                 task for task in sqlite_tasks if task["status"] == "pending"
             ]
             self.display.print_info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
             self.logger.info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
 
-            # Step 6: Add tasks to RabbitMQ in batches
-            batch_size = 10000
-            total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size  # Calculate total batches
-            total_added_tasks = 0
-
-            self.logger.info(f"ℹ️ Starting RabbitMQ upload: {total_batches} batches (batch size: {batch_size}).")
-            self.display.print_info(f"ℹ️ RabbitMQ upload: {total_batches} batches, {batch_size} tasks per batch.")
+            batch_size = 10000  # Batch size for publishing tasks to RabbitMQ
+            total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size
 
             for i in range(total_batches):
                 start_idx = i * batch_size
-                end_idx = start_idx + batch_size
+                end_idx = min(start_idx + batch_size, len(pending_tasks_in_sqlite))
                 batch = pending_tasks_in_sqlite[start_idx:end_idx]
                 self.rabbitmq.publish_task(queue_name, batch)
+
+                # Log batch progress
                 batch_count = len(batch)
-                total_added_tasks += batch_count
-                self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added to RabbitMQ.")
+                self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
                 self.display.print_info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
 
-            self.logger.info(f"✔️ Total of {total_added_tasks} tasks added to RabbitMQ queue '{queue_name}'.")
-            self.display.print_success(f"✔️ Total of {total_added_tasks} tasks added to RabbitMQ queue '{queue_name}'.")
-
+            self.logger.info("✔️ Task Synchronization Completed")
         except Exception as e:
             self.logger.error(f"❌ Task synchronization failed: {e}")
             self.display.print_error(f"❌ Task synchronization failed: {e}")
 
-        self.display.print_section_header("✔️ Task Synchronization Completed")
-        self.logger.info("✔️ Task Synchronization Completed")
-
-    def report_status(self, status_message):
-        """
-        Reports the current status of the synchronization process.
-
-        Args:
-            status_message (str): The status message to log and display.
-        """
-        self.logger.info(status_message)
-        self.display.print_info(status_message)
-        return status_message
-
-    def fetch_tasks(self, queue_name, batch_size):
-        """
-        Fetches tasks from RabbitMQ queue.
-
-        Args:
-            queue_name (str): The RabbitMQ queue name.
-            batch_size (int): Number of tasks to fetch.
-
-        Returns:
-            list: A list of tasks fetched from RabbitMQ.
-        """
-        tasks = []
-        for _ in range(batch_size):
-            method_frame, _, body = self.rabbitmq.channel.basic_get(queue=queue_name, auto_ack=False)
-            if method_frame:
-                task = json.loads(body.decode('utf-8'))
-                tasks.append((method_frame.delivery_tag, task))
-            else:
-                break
-        return tasks
-
-    def process_tasks(self, tasks):
-        """
-        Processes a list of tasks.
-
-        Args:
-            tasks (list): A list of tasks to process.
-        """
-        for delivery_tag, task in tasks:
-            try:
-                # Simulate task processing (e.g., network request, computation)
-                print(f"Processing task: {task}")  # Replace with actual processing logic
-                self.rabbitmq.channel.basic_ack(delivery_tag)  # Acknowledge task completion
-            except Exception as e:
-                self.logger.error(f"Failed to process task: {e}")
-                self.rabbitmq.channel.basic_nack(delivery_tag)
+        self.display.print_section_header("✔️ All checks Completed")
+        self.logger.info("✔️ All checks Completed")

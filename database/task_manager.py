@@ -175,3 +175,30 @@ class TaskManager:
         except sqlite3.Error as e:
             self.logger.error(f"Error closing SQLite connection: {e}")
             self.display.print_error(f"Error closing SQLite connection: {e}")
+
+    def bulk_update_tasks(self, tasks):
+        """
+        Bulk updates the status of tasks in the SQLite database.
+
+        Args:
+            tasks (list): A list of task dictionaries with 'ip', 'dns', and 'status' keys.
+
+        Example:
+            tasks = [
+                {"ip": "192.168.1.1", "dns": "example.com", "status": "completed"},
+                {"ip": "192.168.1.2", "dns": "test.com", "status": "failed"},
+            ]
+        """
+        query = """
+        UPDATE ip_check
+        SET status = :status, last_updated = CURRENT_TIMESTAMP
+        WHERE ip_address = :ip AND dns = :dns
+        """
+        try:
+            with self.conn:
+                self.cursor.executemany(query, tasks)
+            self.logger.info(f"Bulk updated {len(tasks)} tasks successfully.")
+            self.display.print_success(f"Bulk updated {len(tasks)} tasks successfully.")
+        except sqlite3.Error as e:
+            self.logger.error(f"Failed to bulk update tasks: {e}")
+            self.display.print_error(f"Failed to bulk update tasks: {e}")

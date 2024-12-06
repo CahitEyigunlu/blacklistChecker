@@ -1,3 +1,4 @@
+import asyncio
 import signal
 import time
 from database.db_manager import DBManager
@@ -6,6 +7,7 @@ from utils.config_manager import load_config
 from utils.display import Display, console
 from utils.task_generator import TaskGenerator
 from utils.task_synchronizer import TaskSynchronizer
+from utils.process_manager import ProcessManager
 from rich.table import Table
 from logB.logger import Logger
 
@@ -24,19 +26,19 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 
-def main():
+async def main():
     """
     Main function to initialize the application and handle its lifecycle.
     """
     logger = Logger(log_file_path="logs/application.log")
     display = Display()
 
+    # Run system tests
     try:
         display.print_header()
         time.sleep(2)
         display.print_section_header("System Tests")
 
-        # Run system tests and display results
         test_results = run_tests()
         table = Table(title="Test Results")
         table.add_column("Test Name", justify="left", style="cyan", no_wrap=True)
@@ -101,27 +103,31 @@ def main():
             config=config,
             active_db_manager=db_manager
         )
-        synchronizer.synchronize()
 
-        # Start consuming tasks with a batch size
-        batch_size = 10  # Define the batch size
-        queue_name = config["rabbitmq"].get("default_queue", "default_queue")
-        while True:
-            tasks = synchronizer.fetch_tasks(queue_name, batch_size)
-            if not tasks:
-                display.print_info("No tasks found in RabbitMQ. Sleeping...")
-                time.sleep(5)  # Wait before checking again
-                continue
-
-            display.print_info(f"Processing {len(tasks)} tasks from RabbitMQ...")
-            synchronizer.process_tasks(tasks)
-
-            display.print_success(f"✔️ Processed {len(tasks)} tasks from RabbitMQ.")
+        await synchronizer.synchronize()
+        logger.info("Task synchronization completed.")
+        display.print_success("✔️ Task synchronization completed.")
     except Exception as e:
-        logger.error(f"Process Task synchronization failed: {e}")
-        display.print_error(f"❌Process Task synchronization failed: {e}")
+        logger.error(f"Task synchronization failed: {e}")
+        display.print_error(f"❌ Task synchronization failed: {e}")
+        return
+
+    # Process tasks dynamically
+    try:
+        process_manager = ProcessManager(
+            rabbitmq=db_manager.rabbitmq,
+            sqlite_manager=db_manager.sqlite_db,
+            config=config
+        )
+        queue_name = config["rabbitmq"].get("default_queue", "default_queue")
+        await process_manager.fetch_and_process_tasks(queue_name)
+        logger.info("Task processing completed.")
+        display.print_success("✔️ Task processing completed.")
+    except Exception as e:
+        logger.error(f"Task processing failed: {e}")
+        display.print_error(f"❌ Task processing failed: {e}")
         return
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

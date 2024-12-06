@@ -199,3 +199,51 @@ class RabbitMQ:
             else:
                 break
         return tasks
+    
+    def fetch_task(self, queue_name, batch_size):
+        """
+        Fetches tasks from RabbitMQ queue in a batch.
+
+        Args:
+            queue_name (str): The RabbitMQ queue name.
+            batch_size (int): Number of tasks to fetch.
+
+        Returns:
+            list: A list of tuples containing delivery_tag and task data.
+        """
+        tasks = []
+        try:
+            for _ in range(batch_size):
+                method_frame, _, body = self.channel.basic_get(queue=queue_name, auto_ack=False)
+                if method_frame:
+                    task = json.loads(body.decode('utf-8'))
+                    tasks.append((method_frame.delivery_tag, task))
+                else:
+                    # If no more messages in the queue, break the loop
+                    break
+            return tasks
+        except Exception as e:
+            self.logger.error(f"Error fetching tasks from RabbitMQ: {e}")
+            return []
+
+    def fetch_tasks(self, queue_name, max_tasks):
+        """
+        Fetches tasks from a RabbitMQ queue.
+
+        Args:
+            queue_name (str): The name of the queue to fetch tasks from.
+            max_tasks (int): Maximum number of tasks to fetch.
+
+        Returns:
+            list: A list of (delivery_tag, task_data) tuples.
+        """
+        tasks = []
+        for _ in range(max_tasks):
+            method_frame, _, body = self.channel.basic_get(queue=queue_name, auto_ack=False)
+            if method_frame:
+                delivery_tag = method_frame.delivery_tag
+                task_data = json.loads(body)  # Assumes tasks are serialized as JSON
+                tasks.append((delivery_tag, task_data))
+            else:
+                break
+        return tasks
