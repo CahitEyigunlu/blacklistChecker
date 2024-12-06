@@ -5,7 +5,7 @@ from tests.tests import run_tests
 from utils.config_manager import load_config
 from utils.display import Display, console
 from utils.task_generator import TaskGenerator
-from utils.task_synchronizer import TaskSynchronizer  # TaskSynchronizer sınıfı
+from utils.task_synchronizer import TaskSynchronizer
 from rich.table import Table
 from logB.logger import Logger
 
@@ -14,9 +14,10 @@ def signal_handler(sig, frame):
     """
     Handles the SIGINT signal (CTRL+C) to exit gracefully.
     """
-    logger = Logger(log_file_path="logs/application.log")  # Local logger
+    logger = Logger(log_file_path="logs/application.log")
     logger.info("Application interrupted. Exiting...")
-    print("❌ Application interrupted. Exiting...")
+    display = Display()
+    display.print_error("❌ Application interrupted. Exiting...")
     exit(0)
 
 
@@ -27,7 +28,7 @@ def main():
     """
     Main function to initialize the application and handle its lifecycle.
     """
-    logger = Logger(log_file_path="logs/application.log")  # Logger instance
+    logger = Logger(log_file_path="logs/application.log")
     display = Display()
 
     try:
@@ -43,14 +44,14 @@ def main():
 
         for result in test_results:
             test_name, result_status = result
-            result_style = "red" if result_status == "Passed" else "green"
+            result_style = "red" if result_status != "Passed" else "green"
             table.add_row(test_name, result_status, style=result_style)
 
         console.print(table)
         display.print_success("All system tests completed.")
     except Exception as e:
         logger.error(f"System tests failed: {e}")
-        print(f"❌ System tests failed: {e}")
+        display.print_error(f"❌ System tests failed: {e}")
         return
 
     # Load configuration
@@ -59,10 +60,10 @@ def main():
         if not config:
             raise ValueError("Configuration could not be loaded.")
         logger.info("Configuration loaded successfully.")
-        print("✔️ Configuration loaded successfully.")
+        display.print_success("✔️ Configuration loaded successfully.")
     except Exception as e:
         logger.error(f"Failed to load configuration: {e}")
-        print(f"❌ Failed to load configuration: {e}")
+        display.print_error(f"❌ Failed to load configuration: {e}")
         return
 
     # Generate tasks
@@ -73,22 +74,22 @@ def main():
 
         if in_memory_tasks:
             logger.info(f"Generated {len(in_memory_tasks)} tasks.")
-            print(f"✔️ Total tasks generated: {len(in_memory_tasks)}")
+            display.print_success(f"✔️ Total tasks generated: {len(in_memory_tasks)}")
         else:
             raise ValueError("No tasks were generated.")
     except Exception as e:
         logger.error(f"Task generation failed: {e}")
-        print(f"❌ Task generation failed: {e}")
+        display.print_error(f"❌ Task generation failed: {e}")
         return
 
     # Initialize DBManager
     try:
         db_manager = DBManager(config)
         logger.info("DBManager initialized successfully.")
-        print("✔️ DBManager initialized successfully.")
+        display.print_success("✔️ DBManager initialized successfully.")
     except Exception as e:
         logger.error(f"DBManager initialization failed: {e}")
-        print(f"❌ DBManager initialization failed: {e}")
+        display.print_error(f"❌ DBManager initialization failed: {e}")
         return
 
     # Synchronize tasks
@@ -101,14 +102,13 @@ def main():
             active_db_manager=db_manager  
         )
         synchronizer.synchronize()
-        task_statuses = synchronizer.report_status()
-        print(f"Task Status Report: {task_statuses}")
+        task_statuses = synchronizer.report_status("Synchronization completed successfully.")
+        display.print_success(f"Task Status Report: {task_statuses}")
         logger.info(f"Task synchronization completed: {task_statuses}")
     except Exception as e:
         logger.error(f"Task synchronization failed: {e}")
-        print(f"❌ Task synchronization failed: {e}")
+        display.print_error(f"❌ Task synchronization failed: {e}")
         return
-
 
     try:
         logger.info("Starting application...")
@@ -116,18 +116,16 @@ def main():
 
         display.print_info("Application is running. Press CTRL+C to exit...")
         while True:
-            time.sleep(1)  # Keep the application alive
+            time.sleep(1)
 
     except Exception as e:
         logger.error(f"Unexpected error: {e}")
-        print(f"❌ Unexpected error: {e}")
+        display.print_error(f"❌ Unexpected error: {e}")
     finally:
         logger.info("Closing all database connections...")
         db_manager.close_connections()
-        display.print_success("All connections closed. Application terminated.")
-        print("✔️ All connections closed. Application terminated.")
+        display.print_success("✔️ All connections closed. Application terminated.")
 
 
 if __name__ == "__main__":
     main()
-

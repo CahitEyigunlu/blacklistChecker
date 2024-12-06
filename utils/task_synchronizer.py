@@ -2,6 +2,7 @@ from datetime import datetime
 from utils.display import Display
 from logB.logger import Logger
 import os
+import json
 
 
 class TaskSynchronizer:
@@ -30,114 +31,83 @@ class TaskSynchronizer:
 
     def synchronize(self):
         """
-        Enhanced synchronization method with detailed logging and file outputs.
+        Synchronizes tasks between SQLite and RabbitMQ, and updates the active database.
         """
         today_date = datetime.now().strftime("%Y-%m-%d")
         queue_name = self.config["rabbitmq"].get("default_queue", "default_queue")
         total_tasks_count = len(self.in_memory_tasks)
-
-        # Dosya yolları
-        base_path = "task_logs"
-        os.makedirs(base_path, exist_ok=True)
-        memory_tasks_path = os.path.join(base_path, "in_memory_tasks.txt")
-        sqlite_tasks_path = os.path.join(base_path, "sqlite_tasks.txt")
-        missing_tasks_path = os.path.join(base_path, "missing_tasks.txt")
 
         # Step 1: Display and log total tasks generated
         self.display.print_success(f"✔️ Total tasks generated: {total_tasks_count}")
         self.logger.info(f"✔️ Total tasks generated: {total_tasks_count}")
 
         try:
-            # Step 2: Fetch SQLite tasks for today
+            # Step 2: Fetch tasks for today from SQLite
             sqlite_tasks = self.sqlite_manager.fetch_tasks_by_date(today_date)
-            sqlite_task_set = set((task["ip"], task["blacklist_name"]) for task in sqlite_tasks)
-            self.display.print_info(f"SQLite: Found {len(sqlite_tasks)} tasks for today.")
-            self.logger.info(f"SQLite: Found {len(sqlite_tasks)} tasks for today.")
-
-            # Write SQLite tasks to file
-            with open(sqlite_tasks_path, "w") as file:
-                for task in sqlite_tasks:
-                    file.write(f'{task["ip"]},{task["blacklist_name"]}\n')
+            sqlite_task_set = set((task["ip"], task["dns"]) for task in sqlite_tasks)
 
             # Step 3: Compare SQLite tasks with in-memory tasks
-            in_memory_task_set = set((task["ip"], task["blacklist_name"]) for task in self.in_memory_tasks)
-
-            # Write in-memory tasks to file
-            with open(memory_tasks_path, "w") as file:
-                for task in self.in_memory_tasks:
-                    file.write(f'{task["ip"]},{task["blacklist_name"]}\n')
-
+            in_memory_task_set = set((task["ip"], task["dns"]) for task in self.in_memory_tasks)
             missing_in_sqlite = in_memory_task_set - sqlite_task_set
-
-            # Write missing tasks to file
-            with open(missing_tasks_path, "w") as file:
-                for ip, blacklist_name in missing_in_sqlite:
-                    file.write(f"{ip},{blacklist_name}\n")
 
             if missing_in_sqlite:
                 self.sqlite_manager.insert_tasks([
-                    {"ip": ip, "blacklist_name": blacklist_name, "status": "pending"}
-                    for ip, blacklist_name in missing_in_sqlite
+                    {"ip": ip, "dns": dns, "status": "pending"}
+                    for ip, dns in missing_in_sqlite
                 ])
                 self.display.print_success(f"✔️ Added {len(missing_in_sqlite)} missing tasks to SQLite.")
                 self.logger.info(f"✔️ Added {len(missing_in_sqlite)} missing tasks to SQLite.")
             else:
-                self.display.print_info("SQLite: No missing tasks found.")
-                self.logger.info("SQLite: No missing tasks found.")
+                self.display.print_info("ℹ️ SQLite: No missing tasks found.")
+                self.logger.info("ℹ️ SQLite: No missing tasks found.")
 
-            # Step 4: Compare RabbitMQ tasks with SQLite pending tasks
-            rabbitmq_tasks = self.rabbitmq.get_all_tasks(queue_name)
-            rabbitmq_task_set = set((task["ip"], task["blacklist_name"]) for task in rabbitmq_tasks)
+            # Step 4: Clear RabbitMQ queue
+            self.logger.info("ℹ️ Clearing RabbitMQ queue...")
+            self.rabbitmq.clear_queue(queue_name)
+            self.logger.info(f"✔️ RabbitMQ queue '{queue_name}' cleared successfully.")
+
+            # Step 5: Fetch "pending" tasks from SQLite
             pending_tasks_in_sqlite = [
                 task for task in sqlite_tasks if task["status"] == "pending"
             ]
-            pending_task_set = set((task["ip"], task["blacklist_name"]) for task in pending_tasks_in_sqlite)
+            self.display.print_info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
+            self.logger.info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
 
-            missing_in_rabbitmq = pending_task_set - rabbitmq_task_set
-            if missing_in_rabbitmq:
-                for ip, blacklist_name in missing_in_rabbitmq:
-                    self.rabbitmq.publish_task(queue_name, {
-                        "ip": ip,
-                        "blacklist_name": blacklist_name
-                    })
-                self.display.print_success(f"✔️ Added {len(missing_in_rabbitmq)} missing tasks to RabbitMQ.")
-                self.logger.info(f"✔️ Added {len(missing_in_rabbitmq)} missing tasks to RabbitMQ.")
-            else:
-                self.display.print_info("RabbitMQ: No missing tasks found.")
-                self.logger.info("RabbitMQ: No missing tasks found.")
+            # Step 6: Add tasks to RabbitMQ in batches
+            batch_size = 10000
+            total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size  # Calculate total batches
+            total_added_tasks = 0
 
-            # Step 5: Check if all tasks are completed
-            completed_tasks = [
-                task for task in sqlite_tasks if task["status"] == "completed"
-            ]
-            if len(completed_tasks) == len(sqlite_tasks) and len(sqlite_tasks) == total_tasks_count:
-                # All tasks completed
-                active_db_tasks = self.active_db_manager.fetch_all_tasks()
-                active_db_task_set = set((task["ip"], task["blacklist_name"]) for task in active_db_tasks)
+            self.logger.info(f"ℹ️ Starting RabbitMQ upload: {total_batches} batches (batch size: {batch_size}).")
+            self.display.print_info(f"ℹ️ RabbitMQ upload: {total_batches} batches, {batch_size} tasks per batch.")
 
-                differences = in_memory_task_set - active_db_task_set
-                if differences:
-                    self.display.print_info(f"Active DB: Found {len(differences)} missing tasks. Syncing.")
-                    self.logger.info(f"Active DB: Found {len(differences)} missing tasks. Syncing.")
-                    self.active_db_manager.insert_tasks(differences)
-                else:
-                    self.display.print_success("✔️ All tasks are already synchronized across systems.")
-                    self.logger.info("✔️ All tasks are already synchronized across systems.")
+            for i in range(total_batches):
+                start_idx = i * batch_size
+                end_idx = start_idx + batch_size
+                batch = pending_tasks_in_sqlite[start_idx:end_idx]
+                self.rabbitmq.publish_task(queue_name, batch)
+                batch_count = len(batch)
+                total_added_tasks += batch_count
+                self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added to RabbitMQ.")
+                self.display.print_info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
 
-                # If the tasks are from an old date, reset everything
-                oldest_task_date = min(task["check_date"] for task in sqlite_tasks)
-                if oldest_task_date != today_date:
-                    self.display.print_info("Tasks belong to an old date. Resetting everything.")
-                    self.logger.info("Tasks belong to an old date. Resetting everything.")
-                    self.sqlite_manager.clear_all_tasks()
-                    self.rabbitmq.clear_queue(queue_name)
-                    self.sqlite_manager.insert_tasks(self.in_memory_tasks)
-                    for task in self.in_memory_tasks:
-                        self.rabbitmq.publish_task(queue_name, task)
+            self.logger.info(f"✔️ Total of {total_added_tasks} tasks added to RabbitMQ queue '{queue_name}'.")
+            self.display.print_success(f"✔️ Total of {total_added_tasks} tasks added to RabbitMQ queue '{queue_name}'.")
 
         except Exception as e:
-            self.display.print_error(f"Task synchronization failed: {e}")
-            self.logger.error(f"Task synchronization failed: {e}")
+            self.logger.error(f"❌ Task synchronization failed: {e}")
+            self.display.print_error(f"❌ Task synchronization failed: {e}")
 
-        self.display.print_section_header("Task Synchronization Completed")
-        self.logger.info("Task Synchronization Completed")
+        self.display.print_section_header("✔️ Task Synchronization Completed")
+        self.logger.info("✔️ Task Synchronization Completed")
+
+    def report_status(self, status_message):
+        """
+        Reports the current status of the synchronization process.
+
+        Args:
+            status_message (str): The status message to log and display.
+        """
+        self.logger.info(status_message)
+        self.display.print_info(status_message)
+        return status_message

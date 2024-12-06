@@ -32,7 +32,7 @@ class TaskManager:
                 CREATE TABLE IF NOT EXISTS ip_check (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     ip_address TEXT NOT NULL,
-                    blacklist_name TEXT NOT NULL,
+                    dns TEXT NOT NULL,
                     status TEXT NOT NULL, -- pending, completed, failed
                     result TEXT, -- blacklisted, not_blacklisted, error
                     check_date DATE NOT NULL,
@@ -76,9 +76,9 @@ class TaskManager:
         try:
             for task in tasks:
                 self.cursor.execute('''
-                    INSERT INTO ip_check (ip_address, blacklist_name, status, check_date)
+                    INSERT INTO ip_check (ip_address, dns, status, check_date)
                     VALUES (?, ?, 'pending', ?)
-                ''', (task['ip'], task['blacklist_name'], self.today))
+                ''', (task['ip'], task['dns'], self.today))
             self.conn.commit()
             self.logger.info(f"Inserted {len(tasks)} tasks successfully.")
             self.display.print_success(f"Inserted {len(tasks)} tasks successfully.")
@@ -95,7 +95,7 @@ class TaskManager:
         """
         try:
             self.cursor.execute(
-                "SELECT id, ip_address, blacklist_name FROM ip_check WHERE status = 'pending'"
+                "SELECT id, ip_address, dns FROM ip_check WHERE status = 'pending'"
             )
             tasks = self.cursor.fetchall()
             self.logger.info(f"Fetched {len(tasks)} pending tasks.")
@@ -140,14 +140,14 @@ class TaskManager:
         """
         try:
             self.cursor.execute(
-                "SELECT ip_address, blacklist_name, status, result, check_date, last_updated FROM ip_check WHERE check_date = ?",
+                "SELECT ip_address, dns, status, result, check_date, last_updated FROM ip_check WHERE check_date = ?",
                 (date,)
             )
             rows = self.cursor.fetchall()
             tasks = [
                 {
                     "ip": row[0],
-                    "blacklist_name": row[1],
+                    "dns": row[1],
                     "status": row[2],
                     "result": row[3],
                     "check_date": row[4],

@@ -146,3 +146,17 @@ class Database:
             self.Logger.info("SQLite connection closed.")
             self.display.print_success("SQLite connection closed.")
 
+    def clear_old_tasks(self):
+        """
+        Clears tasks with check_date older than today from the database.
+        """
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute("DELETE FROM ip_check WHERE check_date < DATE('now')")
+            self.conn.commit()
+            self.Logger.info("Cleared tasks older than today from database.")
+            self.display.print_info("Cleared tasks older than today from database.")
+        except sqlite3.Error as e:
+            self.display.print_error(f"Error clearing old tasks: {e}")
+            self.Logger.error(f"Error clearing old tasks: {e}")
+            raise

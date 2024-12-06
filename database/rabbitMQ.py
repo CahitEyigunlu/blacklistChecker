@@ -66,8 +66,8 @@ class RabbitMQ:
         except Exception as e:
             self.logger.error(f"RabbitMQ connection error: {e}")
             raise
-            
-    def publish_tasks(self, queue_name, tasks):
+
+    def publish_task(self, queue_name, tasks):
         """
         Publishes multiple tasks to the specified queue in batch.
 
@@ -78,14 +78,16 @@ class RabbitMQ:
         try:
             self.ensure_queue_exists(queue_name)
             for task in tasks:
+                message = json.dumps(task)
                 self.channel.basic_publish(
-                    exchange='', 
-                    routing_key=queue_name, 
-                    body=str(task)
+                    exchange='',
+                    routing_key=queue_name,
+                    body=message,
+                    properties=pika.BasicProperties(delivery_mode=2)  # Make message persistent
                 )
-            self.logger.info(f"Published {len(tasks)} tasks to {queue_name}.")
+            self.logger.info(f"Published {len(tasks)} tasks to queue '{queue_name}'.")
         except Exception as e:
-            self.logger.error(f"Error publishing tasks to queue {queue_name}: {e}")
+            self.logger.error(f"Failed to publish tasks to queue '{queue_name}': {e}")
             raise
 
     def create_queue(self, queue_name):
@@ -160,6 +162,18 @@ class RabbitMQ:
             self.logger.error(f"Error closing RabbitMQ connection: {e}")
             raise
 
+    def clear_queue(self, queue_name):
+        """
+        Clears all messages from the specified RabbitMQ queue.
+
+        Args:
+            queue_name (str): The name of the queue to clear.
+        """
+        try:
+            self.channel.queue_purge(queue_name)
+            print(f"✔️ Queue '{queue_name}' cleared successfully.")
+        except Exception as e:
+            print(f"❌ Failed to clear queue '{queue_name}': {e}")
 
     def get_all_tasks(self, queue_name):
         """
