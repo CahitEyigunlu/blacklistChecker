@@ -1,3 +1,4 @@
+import json
 import pika
 from logB.logger import Logger
 
@@ -25,6 +26,20 @@ class RabbitMQ:
         self.logger = Logger(log_file_path="logs/rabbitmq.log")  # Logger instance
         self.queue_name = queue_name
 
+    def ensure_queue_exists(self, queue_name):
+        """
+        Ensures the specified queue exists.
+
+        Args:
+            queue_name (str): The name of the queue to check/create.
+        """
+        try:
+            self.channel.queue_declare(queue=queue_name)
+            self.logger.info(f"Queue '{queue_name}' ensured to exist.")
+        except Exception as e:
+            self.logger.error(f"Error ensuring queue exists: {e}")
+            raise
+
     def connect(self):
         """
         Connects to the RabbitMQ server and ensures the default queue exists.
@@ -51,7 +66,27 @@ class RabbitMQ:
         except Exception as e:
             self.logger.error(f"RabbitMQ connection error: {e}")
             raise
+            
+    def publish_tasks(self, queue_name, tasks):
+        """
+        Publishes multiple tasks to the specified queue in batch.
 
+        Args:
+            queue_name (str): The name of the queue to publish the tasks to.
+            tasks (list of dict): The tasks to publish.
+        """
+        try:
+            self.ensure_queue_exists(queue_name)
+            for task in tasks:
+                self.channel.basic_publish(
+                    exchange='', 
+                    routing_key=queue_name, 
+                    body=str(task)
+                )
+            self.logger.info(f"Published {len(tasks)} tasks to {queue_name}.")
+        except Exception as e:
+            self.logger.error(f"Error publishing tasks to queue {queue_name}: {e}")
+            raise
 
     def create_queue(self, queue_name):
         """
@@ -89,6 +124,7 @@ class RabbitMQ:
             queue_name: The name of the queue to publish to.
             message: The message to publish.
         """
+        self.ensure_queue_exists(queue_name)  # Ensure the queue exists
         try:
             self.channel.basic_publish(exchange='', routing_key=queue_name, body=message)
             self.logger.info(f"Published message to {queue_name} queue: {message}")
@@ -124,6 +160,7 @@ class RabbitMQ:
             self.logger.error(f"Error closing RabbitMQ connection: {e}")
             raise
 
+
     def get_all_tasks(self, queue_name):
         """
         Retrieves all tasks from a specific RabbitMQ queue without consuming them.
@@ -132,14 +169,19 @@ class RabbitMQ:
             queue_name (str): Name of the RabbitMQ queue.
 
         Returns:
-            list: A list of all messages in the queue.
+            list: A list of all messages in the queue as dictionaries.
         """
-        self.channel.queue_declare(queue=queue_name, passive=True)
+        self.ensure_queue_exists(queue_name)
         tasks = []
         while True:
             method_frame, header_frame, body = self.channel.basic_get(queue=queue_name, auto_ack=False)
             if method_frame:
-                tasks.append(body)
+                try:
+                    task = json.loads(body.decode('utf-8'))  # Decode and parse the message
+                    tasks.append(task)
+                except json.JSONDecodeError:
+                    self.logger.error(f"Error decoding task: {body}")
+                    continue
             else:
                 break
         return tasks

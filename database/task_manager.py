@@ -1,5 +1,7 @@
 import sqlite3
 from datetime import date, datetime
+from utils.display import Display
+from logB.logger import Logger
 
 
 class TaskManager:
@@ -17,24 +19,32 @@ class TaskManager:
         self.conn = conn
         self.cursor = self.conn.cursor()
         self.today = date.today().strftime("%Y-%m-%d")
+        self.display = Display()
+        self.logger = Logger(log_file_path="logs/task_manager.log")
         self.initialize()
 
     def initialize(self):
         """
         Ensures the database has the required table.
         """
-        self.cursor.execute('''
-            CREATE TABLE IF NOT EXISTS ip_check (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                ip_address TEXT NOT NULL,
-                blacklist_name TEXT NOT NULL,
-                status TEXT NOT NULL, -- pending, completed, failed
-                result TEXT, -- blacklisted, not_blacklisted, error
-                check_date DATE NOT NULL,
-                last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        ''')
-        self.conn.commit()
+        try:
+            self.cursor.execute('''
+                CREATE TABLE IF NOT EXISTS ip_check (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ip_address TEXT NOT NULL,
+                    blacklist_name TEXT NOT NULL,
+                    status TEXT NOT NULL, -- pending, completed, failed
+                    result TEXT, -- blacklisted, not_blacklisted, error
+                    check_date DATE NOT NULL,
+                    last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
+                )
+            ''')
+            self.conn.commit()
+            self.logger.info("Table initialized successfully.")
+            self.display.print_success("Table initialized successfully.")
+        except sqlite3.Error as e:
+            self.logger.error(f"Error initializing table: {e}")
+            self.display.print_error(f"Error initializing table: {e}")
 
     def has_today_records(self):
         """
@@ -43,11 +53,18 @@ class TaskManager:
         Returns:
             bool: True if records exist for today, False otherwise.
         """
-        self.cursor.execute(
-            "SELECT COUNT(*) FROM ip_check WHERE check_date = ?", (self.today,)
-        )
-        count = self.cursor.fetchone()[0]
-        return count > 0
+        try:
+            self.cursor.execute(
+                "SELECT COUNT(*) FROM ip_check WHERE check_date = ?", (self.today,)
+            )
+            count = self.cursor.fetchone()[0]
+            self.logger.info(f"Found {count} records for today ({self.today}).")
+            self.display.print_info(f"Found {count} records for today ({self.today}).")
+            return count > 0
+        except sqlite3.Error as e:
+            self.logger.error(f"Error checking today's records: {e}")
+            self.display.print_error(f"Error checking today's records: {e}")
+            return False
 
     def insert_tasks(self, tasks):
         """
@@ -56,12 +73,18 @@ class TaskManager:
         Args:
             tasks (list): List of task dictionaries to be added.
         """
-        for task in tasks:
-            self.cursor.execute('''
-                INSERT INTO ip_check (ip_address, blacklist_name, status, check_date)
-                VALUES (?, ?, 'pending', ?)
-            ''', (task['ip'], task['blacklist_name'], self.today))
-        self.conn.commit()
+        try:
+            for task in tasks:
+                self.cursor.execute('''
+                    INSERT INTO ip_check (ip_address, blacklist_name, status, check_date)
+                    VALUES (?, ?, 'pending', ?)
+                ''', (task['ip'], task['blacklist_name'], self.today))
+            self.conn.commit()
+            self.logger.info(f"Inserted {len(tasks)} tasks successfully.")
+            self.display.print_success(f"Inserted {len(tasks)} tasks successfully.")
+        except sqlite3.Error as e:
+            self.logger.error(f"Error inserting tasks: {e}")
+            self.display.print_error(f"Error inserting tasks: {e}")
 
     def fetch_pending_tasks(self):
         """
@@ -70,10 +93,18 @@ class TaskManager:
         Returns:
             list: List of pending task records.
         """
-        self.cursor.execute(
-            "SELECT id, ip_address, blacklist_name FROM ip_check WHERE status = 'pending'"
-        )
-        return self.cursor.fetchall()
+        try:
+            self.cursor.execute(
+                "SELECT id, ip_address, blacklist_name FROM ip_check WHERE status = 'pending'"
+            )
+            tasks = self.cursor.fetchall()
+            self.logger.info(f"Fetched {len(tasks)} pending tasks.")
+            self.display.print_info(f"Fetched {len(tasks)} pending tasks.")
+            return tasks
+        except sqlite3.Error as e:
+            self.logger.error(f"Error fetching pending tasks: {e}")
+            self.display.print_error(f"Error fetching pending tasks: {e}")
+            return []
 
     def update_task_status(self, task_id, status, result=None):
         """
@@ -84,78 +115,63 @@ class TaskManager:
             status (str): The new status ('completed', 'failed').
             result (str, optional): The result of the task. Defaults to None.
         """
-        self.cursor.execute('''
-            UPDATE ip_check
-            SET status = ?, result = ?, last_updated = CURRENT_TIMESTAMP
-            WHERE id = ?
-        ''', (status, result, task_id))
-        self.conn.commit()
+        try:
+            self.cursor.execute('''
+                UPDATE ip_check
+                SET status = ?, result = ?, last_updated = CURRENT_TIMESTAMP
+                WHERE id = ?
+            ''', (status, result, task_id))
+            self.conn.commit()
+            self.logger.info(f"Task {task_id} updated to status '{status}' with result '{result}'.")
+            self.display.print_success(f"Task {task_id} updated to status '{status}'.")
+        except sqlite3.Error as e:
+            self.logger.error(f"Error updating task {task_id}: {e}")
+            self.display.print_error(f"Error updating task {task_id}: {e}")
 
-    def fetch_completed_tasks(self):
+    def fetch_tasks_by_date(self, date):
         """
-        Fetches all tasks marked as completed.
+        Fetches tasks from the database for the specified date.
 
-        Returns:
-            list: List of completed task records.
-        """
-        self.cursor.execute(
-            "SELECT * FROM ip_check WHERE status = 'completed'"
-        )
-        return self.cursor.fetchall()
-
-    def clear_completed_tasks(self):
-        """
-        Deletes all tasks marked as completed from the database.
-        """
-        self.cursor.execute(
-            "DELETE FROM ip_check WHERE status = 'completed'"
-        )
-        self.conn.commit()
-
-    def count_tasks_by_status(self):
-        """
-        Counts tasks grouped by their statuses.
+        Args:
+            date (str): The date to filter tasks (format: YYYY-MM-DD).
 
         Returns:
-            dict: Dictionary with counts of tasks grouped by their statuses.
+            list[dict]: List of tasks with their details.
         """
-        self.cursor.execute(
-            "SELECT status, COUNT(*) FROM ip_check GROUP BY status"
-        )
-        result = {row[0]: row[1] for row in self.cursor.fetchall()}
-        return result
-
-    def get_last_updated_tasks(self):
-        """
-        Fetches the last updated tasks.
-
-        Returns:
-            list: List of tasks with their last updated timestamp.
-        """
-        self.cursor.execute('''
-            SELECT id, ip_address, blacklist_name, status, result, last_updated 
-            FROM ip_check
-            ORDER BY last_updated DESC
-            LIMIT 10
-        ''')
-        return self.cursor.fetchall()
-
-    def reset_pending_tasks(self):
-        """
-        Resets all pending tasks to allow reprocessing.
-
-        Changes their status to 'pending' and clears their results.
-        """
-        self.cursor.execute('''
-            UPDATE ip_check
-            SET status = 'pending', result = NULL, last_updated = CURRENT_TIMESTAMP
-            WHERE status != 'pending'
-        ''')
-        self.conn.commit()
+        try:
+            self.cursor.execute(
+                "SELECT ip_address, blacklist_name, status, result, check_date, last_updated FROM ip_check WHERE check_date = ?",
+                (date,)
+            )
+            rows = self.cursor.fetchall()
+            tasks = [
+                {
+                    "ip": row[0],
+                    "blacklist_name": row[1],
+                    "status": row[2],
+                    "result": row[3],
+                    "check_date": row[4],
+                    "last_updated": row[5]
+                }
+                for row in rows
+            ]
+            self.logger.info(f"Fetched {len(tasks)} tasks for date {date}.")
+            self.display.print_info(f"Fetched {len(tasks)} tasks for date {date}.")
+            return tasks
+        except sqlite3.Error as e:
+            self.logger.error(f"Error fetching tasks for date {date}: {e}")
+            self.display.print_error(f"Error fetching tasks for date {date}: {e}")
+            return []
 
     def close_connection(self):
         """
         Closes the SQLite connection.
         """
-        if self.conn:
-            self.conn.close()
+        try:
+            if self.conn:
+                self.conn.close()
+                self.logger.info("SQLite connection closed.")
+                self.display.print_success("SQLite connection closed.")
+        except sqlite3.Error as e:
+            self.logger.error(f"Error closing SQLite connection: {e}")
+            self.display.print_error(f"Error closing SQLite connection: {e}")

@@ -97,7 +97,8 @@ def main():
             sqlite_manager=db_manager.sqlite_db,
             rabbitmq=db_manager.rabbitmq,
             in_memory_tasks=in_memory_tasks,
-            config=config
+            config=config,
+            active_db_manager=db_manager  
         )
         synchronizer.synchronize()
         task_statuses = synchronizer.report_status()
@@ -107,6 +108,7 @@ def main():
         logger.error(f"Task synchronization failed: {e}")
         print(f"❌ Task synchronization failed: {e}")
         return
+
 
     try:
         logger.info("Starting application...")

@@ -145,3 +145,4 @@ class Database:
             self.conn = None
             self.Logger.info("SQLite connection closed.")
             self.display.print_success("SQLite connection closed.")
+
