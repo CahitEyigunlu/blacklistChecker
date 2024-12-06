@@ -105,7 +105,7 @@ def main():
 
         # Start consuming tasks with a batch size
         batch_size = 10  # Define the batch size
-        queue_name = config["rabbitmq"]["default_queue"]
+        queue_name = config["rabbitmq"].get("default_queue", "default_queue")
         while True:
             tasks = synchronizer.fetch_tasks(queue_name, batch_size)
             if not tasks:
