@@ -1,4 +1,3 @@
-
 database:
   recorded_dbs:
     mongodb: false 
