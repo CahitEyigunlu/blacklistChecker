@@ -1,8 +1,8 @@
 from datetime import date
 
 from database.sqlite import Database
-from postgre import PostgreSQL
-from rabbitmq import RabbitMQ
+from database.postgre import PostgreSQL
+from database.rabbitMQ import RabbitMQ
 from utils import display
 from logger import logger
 

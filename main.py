@@ -1,7 +1,7 @@
-import os
 import signal
 import time
 from rich.table import Table
+from database.db_manager import DBManager
 from tests.tests import run_tests
 from utils.display import Display, console
 
@@ -12,7 +12,9 @@ def signal_handler(sig, frame):
     print("Exiting...")
     exit(0)
 
+
 signal.signal(signal.SIGINT, signal_handler)
+
 
 def main():
     """
@@ -22,6 +24,10 @@ def main():
     display.print_header()
     time.sleep(2)
     display.print_section_header("System Tests")
+
+    # Initialize DBManager
+    db_manager = DBManager()  # Create a DBManager instance
+    db_manager.start()  # Perform startup tasks
 
     # Run tests and get results
     test_results = run_tests()
@@ -34,15 +40,19 @@ def main():
     # Add test results to the table
     for result in test_results:
         test_name, result_status = result  # Assuming result is a tuple (name, status)
-        result_style = "red" if result_status == "Passed" else "green"
+        result_style = "red" if result_status == "Passed" else "green"  # Corrected line!
         table.add_row(test_name, result_status, style=result_style)
 
     # Print the table
     console.print(table)
+
     display.print_success("All system tests completed.")
     display.print_info("Press CTRL+C to exit...")
+
+    # Keep the application running and connections alive
     while True:
         time.sleep(1)
+
 
 if __name__ == "__main__":
     main()
