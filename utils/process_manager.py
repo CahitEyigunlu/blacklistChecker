@@ -1,4 +1,5 @@
 import asyncio
+import dns.resolver  # For DNSBL lookups
 from logB.logger import Logger
 from utils.display import Display
 
@@ -45,9 +46,26 @@ class ProcessManager:
             async with semaphore:
                 try:
                     self.display.print_info(f"Processing task: {task}")
-                    # Simulate task processing (e.g., network request, computation)
-                    await asyncio.sleep(1)  # Replace this with actual processing logic
-                    task["status"] = "completed"  # Mark as completed
+                    # Perform DNSBL query
+                    ip = task.get("ip")
+                    dnsbl_server = task.get("dns")
+                    reversed_ip = ".".join(reversed(ip.split(".")))
+                    query = f"{reversed_ip}.{dnsbl_server}"
+
+                    try:
+                        answers = dns.resolver.resolve(query, "A")
+                        task["status"] = "blacklisted"
+                        task["result"] = [str(answer) for answer in answers]
+                        self.display.print_success(f"IP {ip} is blacklisted on {dnsbl_server}.")
+                    except dns.resolver.NXDOMAIN:
+                        task["status"] = "clean"
+                        task["result"] = None
+                        self.display.print_info(f"IP {ip} is not blacklisted on {dnsbl_server}.")
+                    except Exception as e:
+                        task["status"] = "error"
+                        task["result"] = str(e)
+                        self.logger.error(f"Error querying {query}: {e}")
+
                     self.rabbitmq.channel.basic_ack(delivery_tag)  # Acknowledge task in RabbitMQ
                     self.logger.info(f"Task completed: {task}")
                 except Exception as e:
@@ -70,7 +88,7 @@ class ProcessManager:
                 await asyncio.gather(*task_futures)  # Wait for all tasks to complete
 
                 # Bulk update SQLite after processing all tasks in the batch
-                completed_tasks = [task for _, task in tasks if task.get("status") == "completed"]
+                completed_tasks = [task for _, task in tasks if task.get("status") in {"clean", "blacklisted"}]
                 if completed_tasks:
                     try:
                         self.sqlite_manager.bulk_update_tasks(completed_tasks)
