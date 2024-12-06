@@ -1,6 +1,7 @@
 from datetime import datetime
 from utils.display import Display
 from logB.logger import Logger
+import os
 
 
 class TaskSynchronizer:
@@ -29,11 +30,18 @@ class TaskSynchronizer:
 
     def synchronize(self):
         """
-        Main method to synchronize tasks across all systems.
+        Enhanced synchronization method with detailed logging and file outputs.
         """
         today_date = datetime.now().strftime("%Y-%m-%d")
         queue_name = self.config["rabbitmq"].get("default_queue", "default_queue")
         total_tasks_count = len(self.in_memory_tasks)
+
+        # Dosya yolları
+        base_path = "task_logs.txt"
+        os.makedirs(base_path, exist_ok=True)
+        memory_tasks_path = os.path.join(base_path, "in_memory_tasks.txt")
+        sqlite_tasks_path = os.path.join(base_path, "sqlite_tasks.txt")
+        missing_tasks_path = os.path.join(base_path, "missing_tasks.txt")
 
         # Step 1: Display and log total tasks generated
         self.display.print_success(f"✔️ Total tasks generated: {total_tasks_count}")
@@ -46,9 +54,26 @@ class TaskSynchronizer:
             self.display.print_info(f"SQLite: Found {len(sqlite_tasks)} tasks for today.")
             self.logger.info(f"SQLite: Found {len(sqlite_tasks)} tasks for today.")
 
+            # Write SQLite tasks to file
+            with open(sqlite_tasks_path, "w") as file:
+                for task in sqlite_tasks:
+                    file.write(f'{task["ip"]},{task["blacklist_name"]}\n')
+
             # Step 3: Compare SQLite tasks with in-memory tasks
             in_memory_task_set = set((task["ip"], task["blacklist_name"]) for task in self.in_memory_tasks)
+
+            # Write in-memory tasks to file
+            with open(memory_tasks_path, "w") as file:
+                for task in self.in_memory_tasks:
+                    file.write(f'{task["ip"]},{task["blacklist_name"]}\n')
+
             missing_in_sqlite = in_memory_task_set - sqlite_task_set
+
+            # Write missing tasks to file
+            with open(missing_tasks_path, "w") as file:
+                for ip, blacklist_name in missing_in_sqlite:
+                    file.write(f"{ip},{blacklist_name}\n")
+
             if missing_in_sqlite:
                 self.sqlite_manager.insert_tasks([
                     {"ip": ip, "blacklist_name": blacklist_name, "status": "pending"}
