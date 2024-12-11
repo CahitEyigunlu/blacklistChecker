@@ -1,0 +1,61 @@
+2024-12-11 14:25:31,485 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:31.484969Z", "level": "INFO", "message": "\u0130nternet ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131.", "details": {}}
+2024-12-11 14:25:31,488 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:31.488047Z", "level": "INFO", "message": "DNS sunucusu ba\u015far\u0131l\u0131 bir \u015fekilde \u00e7al\u0131\u015f\u0131yor.", "details": {}}
+2024-12-11 14:25:32,349 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.349389Z", "level": "INFO", "message": "MongoDB ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: mongodb+srv://User:kwn7FYK5nvh9pnbcbc@autospd.mkvab.mongodb.net/?retryWrites=true&w=majority&authSource=admin&appName=AutoSPD, Veritaban\u0131: AutoSPD", "details": {}}
+2024-12-11 14:25:32,366 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.366857Z", "level": "INFO", "message": "SQLite ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: state.db", "details": {}}
+2024-12-11 14:25:32,398 - logB.logger - ERROR - {"timestamp": "2024-12-11T11:25:32.398430Z", "level": "ERROR", "message": "PostgreSQL ba\u011flant\u0131s\u0131 ba\u015far\u0131s\u0131z: connection to server at \"178.20.231.247\", port 5432 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\n", "details": {}}
+2024-12-11 14:25:32,430 - logB.logger - ERROR - {"timestamp": "2024-12-11T11:25:32.430831Z", "level": "ERROR", "message": "RabbitMQ ba\u011flant\u0131 hatas\u0131.", "details": {}}
+2024-12-11 14:25:32,512 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.512888Z", "level": "INFO", "message": "Spamhaus (zen.spamhaus.org) IP kara listede. Yan\u0131t s\u00fcresi: 76.03 ms", "details": {}}
+2024-12-11 14:25:32,669 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.669296Z", "level": "INFO", "message": "Barracuda (b.barracudacentral.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:32,839 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.839330Z", "level": "INFO", "message": "SORBS (dnsbl.sorbs.net): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:32,920 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:32.920400Z", "level": "INFO", "message": "SpamCop (bl.spamcop.net): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,025 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.025295Z", "level": "INFO", "message": "The CBL (cbl.abuseat.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,237 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.237066Z", "level": "INFO", "message": "SURBL (multi.uribl.com): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,313 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.313658Z", "level": "INFO", "message": "MultiRBL (multi.surbl.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,509 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.509755Z", "level": "INFO", "message": "Hostkarma (karma.junkemailfilter.com): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,614 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.614083Z", "level": "INFO", "message": "Spamhaus DROP (drop.spamhaus.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,686 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.686220Z", "level": "INFO", "message": "Spamhaus EDROP (edrop.spamhaus.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:25:33,701 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.701138Z", "level": "INFO", "message": "Configuration loaded successfully.", "details": {}}
+2024-12-11 14:25:33,860 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.860152Z", "level": "INFO", "message": "Generated 624840 tasks.", "details": {}}
+2024-12-11 14:25:33,861 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.861350Z", "level": "INFO", "message": "Table initialized successfully.", "details": {}}
+2024-12-11 14:25:33,861 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.861790Z", "level": "INFO", "message": "Table initialized successfully.", "details": {}}
+2024-12-11 14:25:33,862 - logB.logger - INFO - {"timestamp": "2024-12-11T11:25:33.862137Z", "level": "INFO", "message": "Connected to SQLite database.", "details": {}}
+2024-12-11 14:25:33,884 - logB.logger - ERROR - {"timestamp": "2024-12-11T11:25:33.884455Z", "level": "ERROR", "message": "RabbitMQ connection error: ", "details": {}}
+2024-12-11 14:25:33,884 - logB.logger - ERROR - {"timestamp": "2024-12-11T11:25:33.884744Z", "level": "ERROR", "message": "DBManager initialization failed: ", "details": {}}
+2024-12-11 14:36:44,269 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:44.268856Z", "level": "INFO", "message": "\u0130nternet ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131.", "details": {}}
+2024-12-11 14:36:44,273 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:44.273599Z", "level": "INFO", "message": "DNS sunucusu ba\u015far\u0131l\u0131 bir \u015fekilde \u00e7al\u0131\u015f\u0131yor.", "details": {}}
+2024-12-11 14:36:45,408 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:45.408063Z", "level": "INFO", "message": "MongoDB ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: mongodb+srv://User:kwn7FYK5nvh9pnbcbc@autospd.mkvab.mongodb.net/?retryWrites=true&w=majority&authSource=admin&appName=AutoSPD, Veritaban\u0131: AutoSPD", "details": {}}
+2024-12-11 14:36:45,424 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:45.424296Z", "level": "INFO", "message": "SQLite ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: state.db", "details": {}}
+2024-12-11 14:36:45,744 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:45.744395Z", "level": "INFO", "message": "PostgreSQL ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: 178.20.231.247:5432, Veritaban\u0131: AntiSpam", "details": {}}
+2024-12-11 14:36:45,918 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:45.917934Z", "level": "INFO", "message": "RabbitMQ ba\u011flant\u0131s\u0131 ba\u015far\u0131l\u0131: 178.20.231.247:5672", "details": {}}
+2024-12-11 14:36:45,995 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:45.995755Z", "level": "INFO", "message": "Spamhaus (zen.spamhaus.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,174 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.174817Z", "level": "INFO", "message": "Barracuda (b.barracudacentral.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,352 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.352797Z", "level": "INFO", "message": "SORBS (dnsbl.sorbs.net): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,428 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.428499Z", "level": "INFO", "message": "SpamCop (bl.spamcop.net): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,491 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.491194Z", "level": "INFO", "message": "The CBL (cbl.abuseat.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,566 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.566845Z", "level": "INFO", "message": "SURBL (multi.uribl.com) IP kara listede. Yan\u0131t s\u00fcresi: 73.9 ms", "details": {}}
+2024-12-11 14:36:46,644 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.644764Z", "level": "INFO", "message": "MultiRBL (multi.surbl.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:46,921 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:46.921357Z", "level": "INFO", "message": "Hostkarma (karma.junkemailfilter.com): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:47,028 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.028553Z", "level": "INFO", "message": "Spamhaus DROP (drop.spamhaus.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:47,119 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.119221Z", "level": "INFO", "message": "Spamhaus EDROP (edrop.spamhaus.org): IP kara listede de\u011fil.", "details": {}}
+2024-12-11 14:36:47,140 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.140015Z", "level": "INFO", "message": "Configuration loaded successfully.", "details": {}}
+2024-12-11 14:36:47,299 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.299333Z", "level": "INFO", "message": "Generated 624840 tasks.", "details": {}}
+2024-12-11 14:36:47,301 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.301290Z", "level": "INFO", "message": "Table initialized successfully.", "details": {}}
+2024-12-11 14:36:47,301 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.301959Z", "level": "INFO", "message": "Table initialized successfully.", "details": {}}
+2024-12-11 14:36:47,302 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.302269Z", "level": "INFO", "message": "Connected to SQLite database.", "details": {}}
+2024-12-11 14:36:47,421 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.421034Z", "level": "INFO", "message": "Successfully connected to RabbitMQ server.", "details": {}}
+2024-12-11 14:36:47,421 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.421850Z", "level": "INFO", "message": "Connected to RabbitMQ server.", "details": {}}
+2024-12-11 14:36:47,542 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.542545Z", "level": "INFO", "message": "PostgreSQL sunucusuna ba\u015far\u0131yla ba\u011flan\u0131ld\u0131.", "details": {}}
+2024-12-11 14:36:47,544 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.544165Z", "level": "INFO", "message": "Connected to PostgreSQL database.", "details": {}}
+2024-12-11 14:36:47,544 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.544873Z", "level": "INFO", "message": "DBManager initialized successfully.", "details": {}}
+2024-12-11 14:36:47,548 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.548259Z", "level": "INFO", "message": "\u2714\ufe0f Total tasks generated: 624840", "details": {}}
+2024-12-11 14:36:47,613 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:47.613204Z", "level": "INFO", "message": "Fetched 0 tasks for date 2024-12-11.", "details": {}}
+2024-12-11 14:36:48,174 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.174558Z", "level": "INFO", "message": "Inserted 401320 tasks successfully.", "details": {}}
+2024-12-11 14:36:48,185 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.185695Z", "level": "INFO", "message": "\u2714\ufe0f Added 401320 missing tasks to SQLite.", "details": {}}
+2024-12-11 14:36:48,186 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.186044Z", "level": "INFO", "message": "\u2139\ufe0f Clearing RabbitMQ queue...", "details": {}}
+2024-12-11 14:36:48,214 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.214383Z", "level": "INFO", "message": "\u2714\ufe0f RabbitMQ queue 'default_queue' cleared successfully.", "details": {}}
+2024-12-11 14:36:48,214 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.214922Z", "level": "INFO", "message": "\u2139\ufe0f SQLite: Found 0 pending tasks.", "details": {}}
+2024-12-11 14:36:48,215 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.215158Z", "level": "INFO", "message": "\u2714\ufe0f Task Synchronization Completed", "details": {}}
+2024-12-11 14:36:48,215 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.215769Z", "level": "INFO", "message": "\u2714\ufe0f All checks Completed", "details": {}}
+2024-12-11 14:36:48,216 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.215994Z", "level": "INFO", "message": "Task synchronization completed.", "details": {}}
+2024-12-11 14:36:48,216 - logB.logger - ERROR - {"timestamp": "2024-12-11T11:36:48.216591Z", "level": "ERROR", "message": "Error during fetch and process tasks: Channel is closed.", "details": {}}
+2024-12-11 14:36:48,217 - logB.logger - INFO - {"timestamp": "2024-12-11T11:36:48.217063Z", "level": "INFO", "message": "Task processing completed.", "details": {}}
