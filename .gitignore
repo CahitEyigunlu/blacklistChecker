@@ -100,3 +100,4 @@ celerybeat-schedule  
 #özel ekler
 backup.sch
 backup/
+.db

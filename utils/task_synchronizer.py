@@ -24,7 +24,8 @@ class TaskSynchronizer:
         self.in_memory_tasks = in_memory_tasks
         self.config = config
         self.active_db_manager = active_db_manager
-        self.logger = Logger(log_file_path="logs/task_synchronizer.log")
+        self.logger = Logger(log_file_path=config['logging']['app_log_path'])
+        self.error_logger = Logger(log_file_path=config['logging']['error_log_path'])
         self.display = Display()
 
     async def synchronize(self):
@@ -75,20 +76,26 @@ class TaskSynchronizer:
             total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size
 
             for i in range(total_batches):
-                start_idx = i * batch_size
-                end_idx = min(start_idx + batch_size, len(pending_tasks_in_sqlite))
-                batch = pending_tasks_in_sqlite[start_idx:end_idx]
-                self.rabbitmq.publish_task(queue_name, batch)
+                try:
+                    start_idx = i * batch_size
+                    end_idx = min(start_idx + batch_size, len(pending_tasks_in_sqlite))
+                    batch = pending_tasks_in_sqlite[start_idx:end_idx]
+                    self.rabbitmq.publish_task(queue_name, batch)
 
-                # Log batch progress
-                batch_count = len(batch)
-                self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
-                self.display.print_info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
+                    # Log batch progress
+                    batch_count = len(batch)
+                    self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
+                    self.display.print_info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
+                except Exception as batch_error:
+                    error_message = f"Error in batch {i + 1}/{total_batches}: {batch_error}"
+                    self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py", "batch": i+1})  # extra bilgisi eklendi
+                    self.display.print_error(f"❌ {error_message}")
 
             self.logger.info("✔️ Task Synchronization Completed")
         except Exception as e:
-            self.logger.error(f"❌ Task synchronization failed: {e}")
-            self.display.print_error(f"❌ Task synchronization failed: {e}")
+            error_message = f"❌ Task synchronization failed: {e}"
+            self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py"})  # extra bilgisi eklendi
+            self.display.print_error(f"❌ {error_message}")
 
         self.display.print_section_header("✔️ All checks Completed")
         self.logger.info("✔️ All checks Completed")

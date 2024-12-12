@@ -8,17 +8,18 @@ class Database:
     Handles SQLite database operations.
     """
 
-    def __init__(self, db_path):
+    def __init__(self, config):  # config parametresi eklendi
         """
-        Initializes Database with the database path.
+        Initializes Database with the database path from the configuration.
 
         Args:
-            db_path: Path to the SQLite database file.
+            config: Uygulama yapılandırması.
         """
-        self.db_path = db_path
+        self.config = config  # config değişkeni eklendi
+        self.db_path = config["sqlite"]["db_path"]  # db_path config'den alınıyor
         self.conn = None
         self.display = Display()
-        self.Logger = Logger(log_file_path="logs/sqlite.log")  # Logger örneği
+        self.logger = Logger(log_file_path=config['logging']['app_log_path'])  # Logger nesnesi, config dosyasından log yolunu alıyor
 
     def connect(self):
         """
@@ -26,12 +27,12 @@ class Database:
         """
         try:
             self.conn = sqlite3.connect(self.db_path)
-            self.Logger.info("Connected to SQLite database.")
+            self.logger.info("Connected to SQLite database.")
             self.display.print_success("Connected to SQLite database.")
             return self.conn
         except sqlite3.Error as e:
             self.display.print_error(f"SQLite connection error: {e}")
-            self.Logger.error(f"SQLite connection error: {e}")
+            self.logger.error(f"SQLite connection error: {e}", extra={"function": "connect", "file": "sqlite.py"})  # extra bilgisi eklendi
             return None
 
     def create_table(self):
@@ -50,11 +51,11 @@ class Database:
                     last_checked DATETIME)
             ''')
             self.conn.commit()
-            self.Logger.info("Table created successfully.")
+            self.logger.info("Table created successfully.")
             self.display.print_success("Table created successfully.")
         except sqlite3.Error as e:
             self.display.print_error(f"Error creating table: {e}")
-            self.Logger.error(f"Error creating table: {e}")
+            self.logger.error(f"Error creating table: {e}", extra={"function": "create_table", "file": "sqlite.py"})  # extra bilgisi eklendi
 
     def add_ip_address(self, ip_address):
         """
@@ -66,11 +67,11 @@ class Database:
                 "INSERT INTO ip_check (ip_address, status, check_date, last_checked) VALUES (?, ?, DATE('now'), DATETIME('now'))",
                 (ip_address, "pending"))
             self.conn.commit()
-            self.Logger.info(f"Added IP address: {ip_address}")
+            self.logger.info(f"Added IP address: {ip_address}")
             self.display.print_success(f"Added IP address: {ip_address}")
         except sqlite3.Error as e:
             self.display.print_error(f"Error adding IP address: {e}")
-            self.Logger.error(f"Error adding IP address: {e}")
+            self.logger.error(f"Error adding IP address: {e}", extra={"function": "add_ip_address", "file": "sqlite.py", "ip_address": ip_address})  # extra bilgisi eklendi
 
     def update_ip_status(self, ip_address, status, result=None):
         """
@@ -82,11 +83,11 @@ class Database:
                 "UPDATE ip_check SET status = ?, result = ?, last_checked = DATETIME('now') WHERE ip_address = ?",
                 (status, result, ip_address))
             self.conn.commit()
-            self.Logger.info(f"Updated IP address status: {ip_address} - {status}")
+            self.logger.info(f"Updated IP address status: {ip_address} - {status}")
             self.display.print_info(f"Updated IP address status: {ip_address} - {status}")
         except sqlite3.Error as e:
             self.display.print_error(f"Error updating IP status: {e}")
-            self.Logger.error(f"Error updating IP status: {e}")
+            self.logger.error(f"Error updating IP status: {e}", extra={"function": "update_ip_status", "file": "sqlite.py", "ip_address": ip_address, "status": status, "result": result})  # extra bilgisi eklendi
 
     def get_unchecked_ips(self):
         """
@@ -96,12 +97,12 @@ class Database:
             cursor = self.conn.cursor()
             cursor.execute("SELECT ip_address FROM ip_check WHERE status != 'completed' OR check_date != DATE('now')")
             ips = [row[0] for row in cursor.fetchall()]
-            self.Logger.info(f"Retrieved unchecked IP addresses: {len(ips)} addresses")
+            self.logger.info(f"Retrieved unchecked IP addresses: {len(ips)} addresses")
             self.display.print_info(f"Retrieved {len(ips)} unchecked IP addresses.")
             return ips
         except sqlite3.Error as e:
             self.display.print_error(f"Error getting unchecked IPs: {e}")
-            self.Logger.error(f"Error getting unchecked IPs: {e}")
+            self.logger.error(f"Error getting unchecked IPs: {e}", extra={"function": "get_unchecked_ips", "file": "sqlite.py"})  # extra bilgisi eklendi
             return []
 
     def get_last_check_date(self):
@@ -118,7 +119,7 @@ class Database:
                 return None
         except sqlite3.Error as e:
             self.display.print_error(f"Error getting last check date: {e}")
-            self.Logger.error(f"Error getting last check date: {e}")
+            self.logger.error(f"Error getting last check date: {e}", extra={"function": "get_last_check_date", "file": "sqlite.py"})  # extra bilgisi eklendi
             raise
 
     def clear_pending_tasks(self):
@@ -129,11 +130,11 @@ class Database:
             cursor = self.conn.cursor()
             cursor.execute("DELETE FROM ip_check WHERE status = 'pending'")
             self.conn.commit()
-            self.Logger.info("Cleared pending tasks from database.")
+            self.logger.info("Cleared pending tasks from database.")
             self.display.print_info("Cleared pending tasks from database.")
         except sqlite3.Error as e:
             self.display.print_error(f"Error clearing pending tasks: {e}")
-            self.Logger.error(f"Error clearing pending tasks: {e}")
+            self.logger.error(f"Error clearing pending tasks: {e}", extra={"function": "clear_pending_tasks", "file": "sqlite.py"})  # extra bilgisi eklendi
             raise
 
     def close_connection(self):
@@ -143,7 +144,7 @@ class Database:
         if self.conn:
             self.conn.close()
             self.conn = None
-            self.Logger.info("SQLite connection closed.")
+            self.logger.info("SQLite connection closed.")
             self.display.print_success("SQLite connection closed.")
 
     def clear_old_tasks(self):
@@ -154,11 +155,11 @@ class Database:
             cursor = self.conn.cursor()
             cursor.execute("DELETE FROM ip_check WHERE check_date < DATE('now')")
             self.conn.commit()
-            self.Logger.info("Cleared tasks older than today from database.")
+            self.logger.info("Cleared tasks older than today from database.")
             self.display.print_info("Cleared tasks older than today from database.")
         except sqlite3.Error as e:
             self.display.print_error(f"Error clearing old tasks: {e}")
-            self.Logger.error(f"Error clearing old tasks: {e}")
+            self.logger.error(f"Error clearing old tasks: {e}", extra={"function": "clear_old_tasks", "file": "sqlite.py"})  # extra bilgisi eklendi
             raise
 
     def bulk_update_tasks(self, tasks):
@@ -177,5 +178,5 @@ class Database:
                 )
             self.conn.commit()
         except sqlite3.Error as e:
-            self.logger.error(f"Failed to bulk update tasks: {e}")
+            self.logger.error(f"Failed to bulk update tasks: {e}", extra={"function": "bulk_update_tasks", "file": "sqlite.py", "tasks": tasks})  # extra bilgisi eklendi
             raise

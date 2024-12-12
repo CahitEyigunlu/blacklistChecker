@@ -5,42 +5,43 @@ from logB.logger import Logger
 
 
 class TaskProcessor:
-    def __init__(self, rabbitmq, sqlite_manager, batch_size=10, update_threshold=100):
+    def __init__(self, config, rabbitmq, sqlite_manager):
         """
         Initializes the TaskProcessor.
 
         Args:
+            config: Configuration dictionary.
             rabbitmq: RabbitMQ instance.
             sqlite_manager: SQLite manager instance.
-            batch_size (int): Number of tasks to fetch in parallel.
-            update_threshold (int): Number of tasks before bulk SQLite update.
         """
+        self.config = config
         self.rabbitmq = rabbitmq
         self.sqlite_manager = sqlite_manager
-        self.batch_size = batch_size
-        self.update_threshold = update_threshold
+        self.batch_size = config['rabbitmq'].get('batch_size', 10)
+        self.update_threshold = config['rabbitmq'].get('update_threshold', 100)
+        self.queue_name = config['rabbitmq']['default_queue']
         self.processed_tasks = []
         self.running_tasks = set()  # Track running asyncio tasks
         self.display = Display()
-        self.logger = Logger(log_file_path="logs/task_processor.log")
+        self.logger = Logger(log_file_path=config['logging']['app_log_path'])
+        self.error_logger = Logger(log_file_path=config['logging']['error_log_path'])
 
-    async def fetch_task(self, queue_name):
+    async def fetch_task(self):
         """
         Fetches a single task from RabbitMQ.
-
-        Args:
-            queue_name (str): RabbitMQ queue name.
 
         Returns:
             tuple: A tuple containing delivery_tag and task data.
         """
         try:
-            method_frame, _, body = self.rabbitmq.channel.basic_get(queue=queue_name, auto_ack=False)
+            method_frame, _, body = self.rabbitmq.channel.basic_get(queue=self.queue_name, auto_ack=False)
             if method_frame:
                 task = json.loads(body.decode('utf-8'))
                 return method_frame.delivery_tag, task
         except Exception as e:
-            self.logger.error(f"Error fetching task: {e}")
+            error_message = f"Error fetching task: {e}"
+            self.error_logger.error(error_message, extra={"function": "fetch_task", "file": "task_processor.py"})  # extra bilgisi eklendi
+            self.display.print_error(f"❌ {error_message}")
         return None, None
 
     async def process_task(self, delivery_tag, task):
@@ -63,8 +64,10 @@ class TaskProcessor:
             self.logger.info(f"Processed and acknowledged task: {task}")
 
         except Exception as e:
-            self.logger.error(f"Error processing task: {e}")
+            error_message = f"Error processing task: {e}"
+            self.error_logger.error(error_message, extra={"function": "process_task", "file": "task_processor.py", "task": task})  # extra bilgisi eklendi
             self.rabbitmq.channel.basic_nack(delivery_tag)
+            self.display.print_error(f"❌ {error_message}")
 
     async def update_database(self):
         """
@@ -79,28 +82,32 @@ class TaskProcessor:
             self.display.print_success(f"✔️ Updated {len(self.processed_tasks)} tasks in SQLite.")
             self.processed_tasks = []  # Clear the processed tasks list
         except Exception as e:
-            self.logger.error(f"Error updating database: {e}")
+            error_message = f"Error updating database: {e}"
+            self.error_logger.error(error_message, extra={"function": "update_database", "file": "task_processor.py"})  # extra bilgisi eklendi
+            self.display.print_error(f"❌ {error_message}")
 
-    async def run(self, queue_name):
+    async def run(self):
         """
         Main task processing loop.
-
-        Args:
-            queue_name (str): RabbitMQ queue name.
         """
         self.display.print_info(f"Starting TaskProcessor with batch size {self.batch_size}...")
 
         while True:
-            # Ensure there are enough running tasks
-            while len(self.running_tasks) < self.batch_size:
-                delivery_tag, task = await self.fetch_task(queue_name)
-                if task:
-                    task_coro = self.process_task(delivery_tag, task)
-                    self.running_tasks.add(asyncio.create_task(task_coro))
+            try:
+                # Ensure there are enough running tasks
+                while len(self.running_tasks) < self.batch_size:
+                    delivery_tag, task = await self.fetch_task()
+                    if task:
+                        task_coro = self.process_task(delivery_tag, task)
+                        self.running_tasks.add(asyncio.create_task(task_coro))
 
-            # Wait for one task to complete
-            done, self.running_tasks = await asyncio.wait(self.running_tasks, return_when=asyncio.FIRST_COMPLETED)
+                # Wait for one task to complete
+                done, self.running_tasks = await asyncio.wait(self.running_tasks, return_when=asyncio.FIRST_COMPLETED)
 
-            # If processed tasks reach the threshold, update the database
-            if len(self.processed_tasks) >= self.update_threshold:
-                await self.update_database()
+                # If processed tasks reach the threshold, update the database
+                if len(self.processed_tasks) >= self.update_threshold:
+                    await self.update_database()
+            except Exception as e:
+                error_message = f"Error in main loop: {e}"
+                self.error_logger.error(error_message, extra={"function": "run", "file": "task_processor.py"})  # extra bilgisi eklendi
+                self.display.print_error(f"❌ {error_message}")

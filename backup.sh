@@ -3,18 +3,21 @@
 # Zaman damgası oluştur
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 backup_dir="backup"
-backup_file="backup_$timestamp.zip"
+backup_file="$backup_dir/backup_$timestamp.zip"
+
+# Backup klasörü oluştur (eğer yoksa)
+if [ ! -d "$backup_dir" ]; then
+    mkdir -p "$backup_dir"
+    echo "Backup klasörü oluşturuldu: $backup_dir"
+fi
 
 # .git ve logs klasörlerini hariç tutarak sıkıştırma
 echo "Sıkıştırma işlemi başlıyor..."
 zip -r "$backup_file" . -x ".git/*" "logs/*" "*.zip"
 
-# Eğer sıkıştırma başarısız olursa backup klasörü oluştur ve oraya kaydet
+# Eğer sıkıştırma başarısız olursa hata mesajı göster
 if [ $? -ne 0 ]; then
-    echo "Sıkıştırma başarısız oldu, yedekleme dizini oluşturuluyor..."
-    mkdir -p "$backup_dir"
-    mv "$backup_file" "$backup_dir/"
-    echo "Yedekleme tamamlandı: $backup_dir/$backup_file"
+    echo "Sıkıştırma işlemi başarısız oldu!"
 else
-    echo "Sıkıştırma tamamlandı: $backup_file"
+    echo "Yedekleme tamamlandı: $backup_file"
 fi

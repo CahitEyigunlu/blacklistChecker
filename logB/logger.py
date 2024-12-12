@@ -5,6 +5,7 @@ from logB.log_formatter import format_log
 from logB.log_security import encrypt_data, mask_data
 from logB.log_levels import DEBUG, INFO, WARNING, ERROR, CRITICAL
 
+
 class Logger:
     def __init__(self, log_file_path, level=DEBUG, max_bytes=10 * 1024 * 1024, backup_count=5):
         self.log_file_path = log_file_path
@@ -44,16 +45,20 @@ class Logger:
         else:
             print(f"Invalid log level: {level}")
 
-    def log(self, level, message, details=None, encrypt=False):
+    def log(self, level, message, details=None, encrypt=False, extra=None):
         """
         Loglama fonksiyonu.
         """
-        log_entry = format_log(level, message, details)
+        log_entry = format_log(level, message, details, extra=extra)
+
         if encrypt:
             log_entry = encrypt_data(log_entry)
 
+        if extra is None:
+            extra = {}
+
         if self._should_log(level):
-            self.logger.log(self._get_numeric_level(level), log_entry)
+            self.logger.log(self._get_numeric_level(level), log_entry, extra=extra)
 
     def _should_log(self, level):
         """
@@ -95,20 +100,20 @@ class Logger:
         }
         return level_dict.get(level_name, logging.DEBUG)
 
-    def debug(self, message, details=None, encrypt=False):
-        self.log("DEBUG", message, details, encrypt)
+    def debug(self, message, details=None, encrypt=False, extra=None):
+        self.log("DEBUG", message, details, encrypt, extra)
 
-    def info(self, message, details=None, encrypt=False):
-        self.log("INFO", message, details, encrypt)
+    def info(self, message, details=None, encrypt=False, extra=None):
+        self.log("INFO", message, details, encrypt, extra)
 
-    def warning(self, message, details=None, encrypt=False):
-        self.log("WARNING", message, details, encrypt)
+    def warning(self, message, details=None, encrypt=False, extra=None):
+        self.log("WARNING", message, details, encrypt, extra)
 
-    def error(self, message, details=None, encrypt=False):
-        self.log("ERROR", message, details, encrypt)
+    def error(self, message, details=None, encrypt=False, extra=None):
+        self.log("ERROR", message, details, encrypt, extra)
 
-    def critical(self, message, details=None, encrypt=False):
-        self.log("CRITICAL", message, details, encrypt)
+    def critical(self, message, details=None, encrypt=False, extra=None):
+        self.log("CRITICAL", message, details, encrypt, extra)
 
     # Proxy metodlar ekleyerek diğer modüllerin doğrudan kullanmasını sağlıyoruz
     def get_logger(self):

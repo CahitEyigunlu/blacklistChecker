@@ -9,18 +9,19 @@ class TaskManager:
     Manages task lifecycle in SQLite for IP and blacklist processing.
     """
 
-    def __init__(self, conn):
+    def __init__(self, conn, config):  # config parametresi eklendi
         """
         Initializes the TaskManager with an existing SQLite connection.
 
         Args:
             conn (sqlite3.Connection): Existing SQLite connection object.
+            config: Uygulama yapılandırması.
         """
         self.conn = conn
         self.cursor = self.conn.cursor()
         self.today = date.today().strftime("%Y-%m-%d")
         self.display = Display()
-        self.logger = Logger(log_file_path="logs/task_manager.log")
+        self.logger = Logger(log_file_path=config['logging']['app_log_path'])  # Logger nesnesi, config dosyasından log yolunu alıyor
         self.initialize()
 
     def initialize(self):
@@ -43,7 +44,7 @@ class TaskManager:
             self.logger.info("Table initialized successfully.")
             self.display.print_success("Table initialized successfully.")
         except sqlite3.Error as e:
-            self.logger.error(f"Error initializing table: {e}")
+            self.logger.error(f"Error initializing table: {e}", extra={"function": "initialize", "file": "task_manager.py"})  # extra bilgisi eklendi
             self.display.print_error(f"Error initializing table: {e}")
 
     def has_today_records(self):
@@ -62,7 +63,7 @@ class TaskManager:
             self.display.print_info(f"Found {count} records for today ({self.today}).")
             return count > 0
         except sqlite3.Error as e:
-            self.logger.error(f"Error checking today's records: {e}")
+            self.logger.error(f"Error checking today's records: {e}", extra={"function": "has_today_records", "file": "task_manager.py"})  # extra bilgisi eklendi
             self.display.print_error(f"Error checking today's records: {e}")
             return False
 
@@ -83,7 +84,7 @@ class TaskManager:
             self.logger.info(f"Inserted {len(tasks)} tasks successfully.")
             self.display.print_success(f"Inserted {len(tasks)} tasks successfully.")
         except sqlite3.Error as e:
-            self.logger.error(f"Error inserting tasks: {e}")
+            self.logger.error(f"Error inserting tasks: {e}", extra={"function": "insert_tasks", "file": "task_manager.py", "tasks": tasks})  # extra bilgisi eklendi
             self.display.print_error(f"Error inserting tasks: {e}")
 
     def fetch_pending_tasks(self):
@@ -102,7 +103,7 @@ class TaskManager:
             self.display.print_info(f"Fetched {len(tasks)} pending tasks.")
             return tasks
         except sqlite3.Error as e:
-            self.logger.error(f"Error fetching pending tasks: {e}")
+            self.logger.error(f"Error fetching pending tasks: {e}", extra={"function": "fetch_pending_tasks", "file": "task_manager.py"})  # extra bilgisi eklendi
             self.display.print_error(f"Error fetching pending tasks: {e}")
             return []
 
@@ -125,7 +126,7 @@ class TaskManager:
             self.logger.info(f"Task {task_id} updated to status '{status}' with result '{result}'.")
             self.display.print_success(f"Task {task_id} updated to status '{status}'.")
         except sqlite3.Error as e:
-            self.logger.error(f"Error updating task {task_id}: {e}")
+            self.logger.error(f"Error updating task {task_id}: {e}", extra={"function": "update_task_status", "file": "task_manager.py", "task_id": task_id, "status": status, "result": result})  # extra bilgisi eklendi
             self.display.print_error(f"Error updating task {task_id}: {e}")
 
     def fetch_tasks_by_date(self, date):
@@ -159,7 +160,7 @@ class TaskManager:
             self.display.print_info(f"Fetched {len(tasks)} tasks for date {date}.")
             return tasks
         except sqlite3.Error as e:
-            self.logger.error(f"Error fetching tasks for date {date}: {e}")
+            self.logger.error(f"Error fetching tasks for date {date}: {e}", extra={"function": "fetch_tasks_by_date", "file": "task_manager.py", "date": date})  # extra bilgisi eklendi
             self.display.print_error(f"Error fetching tasks for date {date}: {e}")
             return []
 
@@ -173,7 +174,7 @@ class TaskManager:
                 self.logger.info("SQLite connection closed.")
                 self.display.print_success("SQLite connection closed.")
         except sqlite3.Error as e:
-            self.logger.error(f"Error closing SQLite connection: {e}")
+            self.logger.error(f"Error closing SQLite connection: {e}", extra={"function": "close_connection", "file": "task_manager.py"})  # extra bilgisi eklendi
             self.display.print_error(f"Error closing SQLite connection: {e}")
 
     def bulk_update_tasks(self, tasks):
@@ -200,5 +201,5 @@ class TaskManager:
             self.logger.info(f"Bulk updated {len(tasks)} tasks successfully.")
             self.display.print_success(f"Bulk updated {len(tasks)} tasks successfully.")
         except sqlite3.Error as e:
-            self.logger.error(f"Failed to bulk update tasks: {e}")
+            self.logger.error(f"Failed to bulk update tasks: {e}", extra={"function": "bulk_update_tasks", "file": "task_manager.py", "tasks": tasks})  # extra bilgisi eklendi
             self.display.print_error(f"Failed to bulk update tasks: {e}")

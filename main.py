@@ -16,22 +16,30 @@ def signal_handler(sig, frame):
     """
     Handles the SIGINT signal (CTRL+C) to exit gracefully.
     """
-    logger = Logger(log_file_path="logs/application.log")
-    logger.info("Application interrupted. Exiting...")
     display = Display()
     display.print_error("❌ Application interrupted. Exiting...")
     exit(0)
-
-
-signal.signal(signal.SIGINT, signal_handler)
 
 
 async def main():
     """
     Main function to initialize the application and handle its lifecycle.
     """
-    logger = Logger(log_file_path="logs/application.log")
+    # Load configuration
+    try:
+        config = load_config()
+        if not config:
+            raise ValueError("Configuration could not be loaded.")
+    except Exception as e:
+        print(f"❌ Failed to load configuration: {e}")
+        return
+
+    # Initialize logger with dynamic log path
+    logger = Logger(log_file_path=config['logging']['app_log_path'])
     display = Display()
+
+    # Signal Handling
+    signal.signal(signal.SIGINT, signal_handler)
 
     # Run system tests
     try:
@@ -50,29 +58,18 @@ async def main():
             table.add_row(test_name, result_status, style=result_style)
 
         console.print(table)
-        display.print_success("All system tests completed.")
+        display.print_success("✔️ All system tests completed.")
     except Exception as e:
-        logger.error(f"System tests failed: {e}")
+        logger.error(f"System tests failed: {e}", extra={"function": "main", "section": "system_tests"})  # extra bilgisi eklendi
         display.print_error(f"❌ System tests failed: {e}")
-        return
-
-    # Load configuration
-    try:
-        config = load_config()
-        if not config:
-            raise ValueError("Configuration could not be loaded.")
-        logger.info("Configuration loaded successfully.")
-        display.print_success("✔️ Configuration loaded successfully.")
-    except Exception as e:
-        logger.error(f"Failed to load configuration: {e}")
-        display.print_error(f"❌ Failed to load configuration: {e}")
         return
 
     # Generate tasks
     try:
-        ip_list = TaskGenerator.parse_ip_list("data/netconf_24_prefixes.yaml")
-        blacklist_list = TaskGenerator.get_blacklist_config()
-        in_memory_tasks = TaskGenerator.generate_task_list(ip_list, blacklist_list)
+        task_generator = TaskGenerator()
+        ip_list = task_generator.parse_ip_list("data/netconf_24_prefixes.yaml")
+        blacklist_list = task_generator.get_blacklist_config()
+        in_memory_tasks = task_generator.generate_task_list(ip_list, blacklist_list)
 
         if in_memory_tasks:
             logger.info(f"Generated {len(in_memory_tasks)} tasks.")
@@ -80,7 +77,7 @@ async def main():
         else:
             raise ValueError("No tasks were generated.")
     except Exception as e:
-        logger.error(f"Task generation failed: {e}")
+        logger.error(f"Task generation failed: {e}", extra={"function": "main", "section": "task_generation"})  # extra bilgisi eklendi
         display.print_error(f"❌ Task generation failed: {e}")
         return
 
@@ -90,7 +87,7 @@ async def main():
         logger.info("DBManager initialized successfully.")
         display.print_success("✔️ DBManager initialized successfully.")
     except Exception as e:
-        logger.error(f"DBManager initialization failed: {e}")
+        logger.error(f"DBManager initialization failed: {e}", extra={"function": "main", "section": "db_init"})  # extra bilgisi eklendi
         display.print_error(f"❌ DBManager initialization failed: {e}")
         return
 
@@ -108,7 +105,7 @@ async def main():
         logger.info("Task synchronization completed.")
         display.print_success("✔️ Task synchronization completed.")
     except Exception as e:
-        logger.error(f"Task synchronization failed: {e}")
+        logger.error(f"Task synchronization failed: {e}", extra={"function": "main", "section": "task_sync"})  # extra bilgisi eklendi
         display.print_error(f"❌ Task synchronization failed: {e}")
         return
 
@@ -119,12 +116,12 @@ async def main():
             sqlite_manager=db_manager.sqlite_db,
             config=config
         )
-        queue_name = config["rabbitmq"].get("default_queue", "default_queue")
+        queue_name = config["rabbitmq"]["default_queue"]
         await process_manager.fetch_and_process_tasks(queue_name)
         logger.info("Task processing completed.")
         display.print_success("✔️ Task processing completed.")
     except Exception as e:
-        logger.error(f"Task processing failed: {e}")
+        logger.error(f"Task processing failed: {e}", extra={"function": "main", "section": "task_processing"})  # extra bilgisi eklendi
         display.print_error(f"❌ Task processing failed: {e}")
         return
 

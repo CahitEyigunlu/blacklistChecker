@@ -21,7 +21,8 @@ class ProcessManager:
         self.rabbitmq = rabbitmq
         self.sqlite_manager = sqlite_manager
         self.config = config
-        self.logger = Logger(log_file_path="logs/process_manager.log")
+        self.logger = Logger(log_file_path=config["logging"]["app_log_path"])
+        self.error_logger = Logger(log_file_path=config["logging"]["error_log_path"])
         self.display = Display()
         self.processed_tasks = []
 
@@ -64,14 +65,16 @@ class ProcessManager:
                     except Exception as e:
                         task["status"] = "error"
                         task["result"] = str(e)
-                        self.logger.error(f"Error querying {query}: {e}")
+                        error_message = f"Error querying {query}: {e}"
+                        self.error_logger.error(error_message, extra={"function": "process_single_task", "file": "process_manager.py", "task": task, "query": query})  # extra bilgisi eklendi
 
                     self.rabbitmq.channel.basic_ack(delivery_tag)  # Acknowledge task in RabbitMQ
                     self.logger.info(f"Task completed: {task}")
                 except Exception as e:
-                    self.logger.error(f"Error processing task: {e}")
+                    error_message = f"Error processing task: {e}"
+                    self.error_logger.error(error_message, extra={"function": "process_single_task", "file": "process_manager.py", "task": task})  # extra bilgisi eklendi
                     self.rabbitmq.channel.basic_nack(delivery_tag)  # Negative acknowledgment
-                    self.display.print_error(f"❌ Error processing task: {e}")
+                    self.display.print_error(f"❌ {error_message}")
 
         try:
             while True:
@@ -97,9 +100,11 @@ class ProcessManager:
                         )
                         self.logger.info(f"✔️ Bulk updated {len(completed_tasks)} tasks in SQLite.")
                     except Exception as e:
-                        self.logger.error(f"Error updating SQLite: {e}")
-                        self.display.print_error(f"❌ Error updating SQLite: {e}")
+                        error_message = f"Error updating SQLite: {e}"
+                        self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra bilgisi eklendi
+                        self.display.print_error(f"❌ {error_message}")
 
         except Exception as e:
-            self.logger.error(f"Error during fetch and process tasks: {e}")
-            self.display.print_error(f"❌ Error during fetch and process tasks: {e}")
+            error_message = f"Error during fetch and process tasks: {e}"
+            self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra bilgisi eklendi
+            self.display.print_error(f"❌ {error_message}")
