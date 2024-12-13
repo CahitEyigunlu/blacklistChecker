@@ -1,5 +1,7 @@
 # Blacklist Checker
 
+![Logo](https://raw.githubusercontent.com/CahitEyigunlu/blacklistChecker/refs/heads/main/assets/logo.webp)
+
 ## Introduction
 
 The Blacklist Checker is a tool designed to monitor and verify blacklisted domains, IPs, or other entities using a customizable configuration. It offers logging, database management, and task synchronization for efficient operation.
