@@ -50,12 +50,21 @@ class TaskSynchronizer:
             missing_in_sqlite = in_memory_task_set - sqlite_task_set
 
             if missing_in_sqlite:
+                # Doğrudan çağrı, await kullanmadan
                 self.sqlite_manager.insert_tasks([
                     {"ip": ip, "dns": dns, "status": "pending"}
                     for ip, dns in missing_in_sqlite
                 ])
                 self.display.print_success(f"✔️ Added {len(missing_in_sqlite)} missing tasks to SQLite.")
                 self.logger.info(f"✔️ Added {len(missing_in_sqlite)} missing tasks to SQLite.")
+
+                # Verify insertion
+                sqlite_tasks = self.sqlite_manager.fetch_tasks_by_date(today_date)  # Yeniden sorgula
+                pending_tasks_in_sqlite = [
+                    task for task in sqlite_tasks if task["status"] == "pending"
+                ]
+                self.display.print_info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
+                self.logger.info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
             else:
                 self.display.print_info("ℹ️ SQLite: No missing tasks found.")
                 self.logger.info("ℹ️ SQLite: No missing tasks found.")

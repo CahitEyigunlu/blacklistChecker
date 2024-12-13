@@ -17,7 +17,7 @@ def signal_handler(sig, frame):
     Handles the SIGINT signal (CTRL+C) to exit gracefully.
     """
     display = Display()
-    display.print_error("❌ Application interrupted. Exiting...")
+    display.print_error("\u274c Application interrupted. Exiting...")
     exit(0)
 
 async def main():
@@ -30,7 +30,7 @@ async def main():
         if not config:
             raise ValueError("Configuration could not be loaded.")
     except Exception as e:
-        print(f"❌ Failed to load configuration: {e}")
+        print(f"\u274c Failed to load configuration: {e}")
         return
 
     # Initialize logger with dynamic log path
@@ -57,10 +57,10 @@ async def main():
             table.add_row(test_name, result_status, style=result_style)
 
         console.print(table)
-        display.print_success("✔️ All system tests completed.")
+        display.print_success("\u2714\ufe0f All system tests completed.")
     except Exception as e:
         logger.error(f"System tests failed: {e}", extra={"function": "main", "section": "system_tests"})
-        display.print_error(f"❌ System tests failed: {e}")
+        display.print_error(f"\u274c System tests failed: {e}")
         return
 
     # Generate tasks
@@ -72,22 +72,23 @@ async def main():
 
         if in_memory_tasks:
             logger.info(f"Generated {len(in_memory_tasks)} tasks.")
-            display.print_success(f"✔️ Total tasks generated: {len(in_memory_tasks)}")
+            display.print_success(f"\u2714\ufe0f Total tasks generated: {len(in_memory_tasks)}")
         else:
             raise ValueError("No tasks were generated.")
     except Exception as e:
         logger.error(f"Task generation failed: {e}", extra={"function": "main", "section": "task_generation"})
-        display.print_error(f"❌ Task generation failed: {e}")
+        display.print_error(f"\u274c Task generation failed: {e}")
         return
 
+    
     # Initialize DBManager
     try:
         db_manager = DBManager(config)
         logger.info("DBManager initialized successfully.")
-        display.print_success("✔️ DBManager initialized successfully.")
+        display.print_success("\u2714\ufe0f DBManager initialized successfully.")
     except Exception as e:
         logger.error(f"DBManager initialization failed: {e}", extra={"function": "main", "section": "db_init"})
-        display.print_error(f"❌ DBManager initialization failed: {e}")
+        display.print_error(f"\u274c DBManager initialization failed: {e}")
         return
 
     # Synchronize tasks
@@ -102,10 +103,10 @@ async def main():
 
         await synchronizer.synchronize()
         logger.info("Task synchronization completed.")
-        display.print_success("✔️ Task synchronization completed.")
+        display.print_success("\u2714\ufe0f Task synchronization completed.")
     except Exception as e:
         logger.error(f"Task synchronization failed: {e}", extra={"function": "main", "section": "task_sync"})
-        display.print_error(f"❌ Task synchronization failed: {e}")
+        display.print_error(f"\u274c Task synchronization failed: {e}")
         return
 
     # Process tasks dynamically
@@ -118,22 +119,25 @@ async def main():
         queue_name = config["rabbitmq"]["default_queue"]
         await process_manager.fetch_and_process_tasks(queue_name)
         logger.info("Task processing completed.")
-        display.print_success("✔️ Task processing completed.")
+        display.print_success("\u2714\ufe0f Task processing completed.")
     except Exception as e:
         logger.error(f"Task processing failed: {e}", extra={"function": "main", "section": "task_processing"})
-        display.print_error(f"❌ Task processing failed: {e}")
+        display.print_error(f"\u274c Task processing failed: {e}")
         return
+        
 
     # Finalize and handle PostgreSQL processing
     try:
         postgres = PostgreSQL(config)
-        postgres.process_queue_and_exit(lambda: db_manager.rabbitmq.fetch_pending_tasks())
-        logger.info("PostgreSQL processing and cleanup completed.")
-        display.print_success("✔️ PostgreSQL processing and cleanup completed.")
+        sqlite_manager = db_manager.sqlite_db  # Access SQLite TaskManager instance
+        postgres.process_sqlite_to_postgres_and_exit(sqlite_manager)
+        logger.info("SQLite to PostgreSQL processing and cleanup completed.")
+        display.print_success("✔️ SQLite to PostgreSQL processing and cleanup completed.")
     except Exception as e:
-        logger.error(f"PostgreSQL processing failed: {e}", extra={"function": "main", "section": "postgres_processing"})
-        display.print_error(f"❌ PostgreSQL processing failed: {e}")
+        logger.error(f"SQLite to PostgreSQL processing failed: {e}", extra={"function": "main", "section": "postgres_processing"})
+        display.print_error(f"❌ SQLite to PostgreSQL processing failed: {e}")
         return
+
 
 if __name__ == "__main__":
     asyncio.run(main())

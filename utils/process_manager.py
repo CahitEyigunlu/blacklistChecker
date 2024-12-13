@@ -74,6 +74,15 @@ class ProcessManager:
             while True:
                 tasks = self.rabbitmq.fetch_tasks(queue_name, max_concurrent_tasks)
                 if not tasks:
+                    if self.processed_tasks:
+                        self.display.print_success(
+                            f"🎉 All tasks are completed! Total processed task count: {len(self.processed_tasks)}"
+                        )
+                        self.logger.info(
+                            f"🎉 All tasks are completed! Total processed task count: {len(self.processed_tasks)}"
+                        )
+                        break  # All tasks are done, exit the loop.
+                    
                     self.display.print_info("No tasks found in RabbitMQ. Sleeping...")
                     await asyncio.sleep(5)  # Wait before checking for new tasks
                     continue
@@ -87,6 +96,7 @@ class ProcessManager:
                 # Bulk update SQLite after processing all tasks in the batch
                 completed_tasks = [task for _, task in tasks if task.get("status") in {"clean", "blacklisted"}]
                 if completed_tasks:
+                    self.processed_tasks.extend(completed_tasks)  # Add to processed tasks
                     try:
                         self.sqlite_manager.bulk_update_tasks(completed_tasks)
                         self.display.print_success(
@@ -95,10 +105,10 @@ class ProcessManager:
                         self.logger.info(f"✔️ Bulk updated {len(completed_tasks)} tasks in SQLite.")
                     except Exception as e:
                         error_message = f"Error updating SQLite: {e}"
-                        self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra bilgisi eklendi
+                        self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra info added
                         self.display.print_error(f"❌ {error_message}")
 
         except Exception as e:
             error_message = f"Error during fetch and process tasks: {e}"
-            self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra bilgisi eklendi
+            self.error_logger.error(error_message, extra={"function": "fetch_and_process_tasks", "file": "process_manager.py"})  # extra info added
             self.display.print_error(f"❌ {error_message}")

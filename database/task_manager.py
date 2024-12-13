@@ -203,3 +203,67 @@ class TaskManager:
         except sqlite3.Error as e:
             self.logger.error(f"Failed to bulk update tasks: {e}", extra={"function": "bulk_update_tasks", "file": "task_manager.py", "tasks": tasks})  # extra bilgisi eklendi
             self.display.print_error(f"Failed to bulk update tasks: {e}")
+
+    def fetch_tasks_by_latest_date(self, status="blacklisted"):
+        """
+        Fetches tasks with a specific status for the latest check_date.
+
+        Args:
+            status (str): The status of the tasks to fetch (default: "blacklisted").
+
+        Returns:
+            list[dict]: List of tasks with their details.
+        """
+        try:
+            latest_date = self.get_latest_check_date()
+            if not latest_date:
+                self.logger.info("No latest check_date available.")
+                self.display.print_info("ℹ️ No latest check_date available.")
+                return []
+
+            self.cursor.execute(
+                "SELECT ip_address, dns, status, result, check_date, last_updated FROM ip_check WHERE check_date = ? AND status = ?",
+                (latest_date, status)
+            )
+            rows = self.cursor.fetchall()
+            tasks = [
+                {
+                    "ip": row[0],
+                    "dns": row[1],
+                    "status": row[2],
+                    "result": row[3],
+                    "check_date": row[4],
+                    "last_updated": row[5]
+                }
+                for row in rows
+            ]
+            self.logger.info(f"Fetched {len(tasks)} tasks with status '{status}' for date {latest_date}.")
+            self.display.print_info(f"ℹ️ Fetched {len(tasks)} tasks with status '{status}' for date {latest_date}.")
+            return tasks
+        except sqlite3.Error as e:
+            self.logger.error(f"Error fetching tasks by latest date: {e}", extra={"function": "fetch_tasks_by_latest_date", "file": "task_manager.py", "status": status})
+            self.display.print_error(f"❌ Error fetching tasks by latest date: {e}")
+            return []
+
+    def get_latest_check_date(self):
+        """
+        Fetches the latest check_date from the database.
+
+        Returns:
+            str: The latest check_date as a string (format: YYYY-MM-DD).
+        """
+        try:
+            self.cursor.execute("SELECT MAX(check_date) FROM ip_check")
+            result = self.cursor.fetchone()
+            if result and result[0]:
+                self.logger.info(f"Latest check_date: {result[0]}")
+                self.display.print_info(f"ℹ️ Latest check_date: {result[0]}")
+                return result[0]
+            else:
+                self.logger.info("No records found in ip_check table.")
+                self.display.print_info("ℹ️ No records found in ip_check table.")
+                return None
+        except sqlite3.Error as e:
+            self.logger.error(f"Error fetching latest check_date: {e}", extra={"function": "get_latest_check_date", "file": "task_manager.py"})
+            self.display.print_error(f"❌ Error fetching latest check_date: {e}")
+            raise

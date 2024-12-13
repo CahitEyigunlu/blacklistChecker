@@ -38,20 +38,20 @@ class TaskGenerator:
                     ip_list.extend([str(ip) for ip in network.hosts()])
                 except ValueError as e:
                     error_message = f"Invalid CIDR block {cidr}: {e}"
-                    self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py", "cidr": cidr})  # extra bilgisi eklendi
-                    self.display.print_error(f"❌ {error_message}")
+                    self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py", "cidr": cidr})
+                    self.display.print_error(f"\u274c {error_message}")
             self.logger.info(f"Parsed {len(ip_list)} IPs from {file_path}")
             return ip_list
 
         except FileNotFoundError as e:
             error_message = f"File not found: {file_path}"
-            self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py"})  # extra bilgisi eklendi
-            self.display.print_error(f"❌ {error_message}")
+            self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py"})
+            self.display.print_error(f"\u274c {error_message}")
             return []
         except Exception as e:
             error_message = f"Error parsing IP list: {e}"
-            self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py"})  # extra bilgisi eklendi
-            self.display.print_error(f"❌ {error_message}")
+            self.error_logger.error(error_message, extra={"function": "parse_ip_list", "file": "task_generator.py"})
+            self.display.print_error(f"\u274c {error_message}")
             return []
 
     def get_blacklist_config(self):
@@ -69,13 +69,13 @@ class TaskGenerator:
             return config["blacklists"]
         except KeyError as e:
             error_message = f"KeyError: {e}"
-            self.error_logger.error(error_message, extra={"function": "get_blacklist_config", "file": "task_generator.py"})  # extra bilgisi eklendi
-            self.display.print_error(f"❌ {error_message}")
+            self.error_logger.error(error_message, extra={"function": "get_blacklist_config", "file": "task_generator.py"})
+            self.display.print_error(f"\u274c {error_message}")
             return []
         except Exception as e:
             error_message = f"Error retrieving blacklist configuration: {e}"
-            self.error_logger.error(error_message, extra={"function": "get_blacklist_config", "file": "task_generator.py"})  # extra bilgisi eklendi
-            self.display.print_error(f"❌ {error_message}")
+            self.error_logger.error(error_message, extra={"function": "get_blacklist_config", "file": "task_generator.py"})
+            self.display.print_error(f"\u274c {error_message}")
             return []
 
     def generate_task_list(self, ip_list, blacklist_list):
@@ -101,11 +101,11 @@ class TaskGenerator:
                         "removal_method": blacklist["removal_method"]
                     })
             self.logger.info(f"Generated {len(task_list)} tasks.")
-            self.display.print_success(f"✔️ Generated {len(task_list)} tasks.")
+            self.display.print_success(f"\u2714\ufe0f Generated {len(task_list)} tasks.")
             return task_list
 
         except Exception as e:
             error_message = f"Error generating task list: {e}"
-            self.error_logger.error(error_message, extra={"function": "generate_task_list", "file": "task_generator.py"})  # extra bilgisi eklendi
-            self.display.print_error(f"❌ {error_message}")
+            self.error_logger.error(error_message, extra={"function": "generate_task_list", "file": "task_generator.py"})
+            self.display.print_error(f"\u274c {error_message}")
             return []

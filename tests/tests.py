@@ -1,5 +1,4 @@
 from rich.table import Table
-
 from utils.display import Display, console
 
 # Test sınıflarını import et
@@ -23,7 +22,15 @@ def run_tests():
 
     # Database testleri
     display.print_section_header("Database Testleri")
-    database_result = DatabaseTests().run()
+    database_tests = DatabaseTests()
+
+    # SQLite bağlantı testi
+    display.print_section_header("SQLite Testleri")
+    sqlite_result = database_tests.test_sqlite_connection()
+    test_results.append(["SQLite Testleri", "Başarılı" if sqlite_result else "Başarısız"])
+
+    # Tüm veritabanı testleri
+    database_result = database_tests.run()
     test_results.append(["Database Testleri", "Başarılı" if database_result else "Başarısız"])
 
     # RabbitMQ testleri

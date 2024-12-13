@@ -1,0 +1,7 @@
+# Dosyalar ve dizinler
+.env
+node_modules/
+*.log
+
+# Gizli dosyalar
+*.secret

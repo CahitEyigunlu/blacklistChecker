@@ -123,81 +123,166 @@ class DatabaseTests:
             error_logger.error(f"SQLite bağlantısı başarısız: {str(e)}")
             Display.print_error("SQLite bağlantısı başarısız.")
             return False
-
+                
     def test_postgresql_connection(self):
+            """
+            PostgreSQL bağlantısını test eder ve gerekirse veritabanını oluşturur.
+            Config dosyasından alınan bağlantı detaylarını kullanır.
+            """
+            user = None
+            password = None
+            dbname = None
+            host = None
+            port = None
+            connection = None
+            try:
+                # Config dosyasını yükle
+                config = load_config()
+
+                if not config or 'postgresql' not in config:
+                    raise ValueError("PostgreSQL bağlantı ayarları 'postgresql' altında bulunamadı.")
+
+                # PostgreSQL bağlantı detaylarını al
+                postgres_config = config['postgresql']
+                user = postgres_config.get('postgres_user')
+                password = postgres_config.get('postgres_password')
+                dbname = postgres_config.get('postgres_db')
+                host = postgres_config.get('postgres_host')
+                port = postgres_config.get('postgres_port', 5432)
+
+                if not user or not password or not dbname or not host:
+                    raise ValueError("PostgreSQL bağlantı ayarları eksik.")
+
+                # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
+                Display.print_info("PostgreSQL Bağlantı Bilgileri:")
+                Display.print_info(f"  Kullanıcı: {user}")
+                Display.print_info(f"  Şifre: ****")
+                Display.print_info(f"  Veritabanı: {dbname}")
+                Display.print_info(f"  Sunucu: {host}")
+                Display.print_info(f"  Port: {port}")
+
+                # PostgreSQL sunucusuna bağlan (veritabanı olmadan)
+                Display.print_info("PostgreSQL sunucusuna bağlanılıyor...")
+                connection = psycopg2.connect(
+                    user=user,
+                    password=password,
+                    host=host,
+                    port=port
+                )
+                connection.autocommit = True
+                cursor = connection.cursor()
+
+                # Veritabanının varlığını kontrol et ve yoksa oluştur
+                try:
+                    cursor.execute(f"CREATE DATABASE {dbname};")
+                    Display.print_success(f"Veritabanı oluşturuldu: {dbname}")
+                except psycopg2.errors.DuplicateDatabase:
+                    Display.print_info(f"Veritabanı zaten mevcut: {dbname}")
+                finally:
+                    cursor.close()
+                    connection.close()
+
+                # Veritabanına bağlan ve test sorgusu çalıştır
+                connection = psycopg2.connect(
+                    user=user,
+                    password=password,
+                    database=dbname,
+                    host=host,
+                    port=port
+                )
+                cursor = connection.cursor()
+                Display.print_info("Test sorgusu çalıştırılıyor...")
+                cursor.execute("SELECT 1;")
+                result = cursor.fetchone()
+
+                # Test başarılı
+                if result and result[0] == 1:
+                    info_logger.info(f"PostgreSQL bağlantısı ve test başarılı: {host}:{port}, Veritabanı: {dbname}")
+                    Display.print_success("PostgreSQL bağlantısı başarılı.")
+                    return True
+                else:
+                    raise ValueError("PostgreSQL test sorgusu başarısız.")
+
+            except psycopg2.OperationalError as e:
+                Display.print_error(f"Operasyonel hata: {e}")
+                error_logger.error(f"PostgreSQL OperationalError: {str(e)}")
+            except psycopg2.Error as e:
+                Display.print_error(f"Genel PostgreSQL hatası: {e}")
+                error_logger.error(f"PostgreSQL Error: {str(e)}")
+            except Exception as e:
+                Display.print_error(f"Beklenmeyen bir hata: {e}")
+                error_logger.error(f"Unexpected error: {str(e)}")
+            finally:
+                if connection:
+                    connection.close()
+                    Display.print_info("PostgreSQL bağlantısı kapatıldı.")
+
+            return False
+
+    def test_sqlite_connection(self):
         """
-        PostgreSQL bağlantısını test eder ve sonucu döndürür.
-        Config dosyasından alınan bağlantı detaylarını kullanır.
+        SQLite bağlantısını test eder, dosya eksikse oluşturur ve sonucu döndürür.
+        Config dosyasından alınan veritabanı dosya yolunu kullanır.
         """
-        user = None
-        password = None
-        dbname = None
-        host = None
-        port = None
         try:
             # Config dosyasını yükle
             config = load_config()
 
-            if not config or 'postgresql' not in config:
-                raise ValueError("PostgreSQL bağlantı ayarları 'postgresql' altında bulunamadı.")
+            if not config or 'sqlite' not in config:
+                raise ValueError("SQLite ayarları 'sqlite' altında bulunamadı.")
 
-            # PostgreSQL bağlantı detaylarını al
-            postgres_config = config['postgresql']
-            user = postgres_config.get('postgres_user')
-            password = postgres_config.get('postgres_password')
-            dbname = postgres_config.get('postgres_db')
-            host = postgres_config.get('postgres_host')
-            port = postgres_config.get('postgres_port', 5432)
+            # SQLite veritabanı dosya yolunu al
+            sqlite_config = config['sqlite']
+            db_path = sqlite_config.get('db_path')
 
-            if not user or not password or not dbname or not host:
-                raise ValueError("PostgreSQL bağlantı ayarları eksik.")
+            if not db_path:
+                raise ValueError("SQLite veritabanı dosya yolu tanımlanmamış.")
 
-            # Bağlantı bilgilerini ekrana yazdır (şifre maskelenmiş)
-            Display.print_info("PostgreSQL Bağlantı Bilgileri:")
-            Display.print_info(f"  Kullanıcı: {user}")
-            Display.print_info(f"  Şifre: ****")
-            Display.print_info(f"  Veritabanı: {dbname}")
-            Display.print_info(f"  Sunucu: {host}")
-            Display.print_info(f"  Port: {port}")
+            # Bağlantı bilgilerini ekrana yazdır
+            Display.print_info("SQLite Bağlantı Bilgileri:")
+            Display.print_info(f"  Veritabanı Dosyası: {db_path}")
 
-            # PostgreSQL bağlantısını test et
-            connection = psycopg2.connect(
-                user=user,
-                password=password,
-                database=dbname,
-                host=host,
-                port=port
-            )
+            # Veritabanı dosyasını kontrol et
+            if not os.path.exists(db_path):
+                Display.print_warning("Veritabanı dosyası bulunamadı. Yeni bir dosya oluşturulacak...")
+                try:
+                    open(db_path, 'w').close()
+                    Display.print_success("Yeni veritabanı dosyası oluşturuldu.")
+                except OSError as e:
+                    raise OSError(f"Veritabanı dosyası oluşturulamadı: {e}")
 
-            # Test sorgusu
-            cursor = connection.cursor()
-            cursor.execute("SELECT 1;")
-            result = cursor.fetchone()
+            # SQLite bağlantısını test et
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+
+            # Örnek bir SQL sorgusu çalıştır
+            cursor.execute("CREATE TABLE IF NOT EXISTS test_table (id INTEGER PRIMARY KEY, name TEXT)")
+            conn.commit()
 
             # Bağlantı başarılı
-            if result and result[0] == 1:
-                info_logger.info(f"PostgreSQL bağlantısı başarılı: {host}:{port}, Veritabanı: {dbname}")
-                Display.print_success("PostgreSQL bağlantısı başarılı.")
-            else:
-                raise ValueError("PostgreSQL test sorgusu başarısız.")
-
-            # Bağlantıyı kapat
-            cursor.close()
-            connection.close()
+            info_logger.info(f"SQLite bağlantısı başarılı: {db_path}")
+            Display.print_success("SQLite bağlantısı başarılı.")
+            conn.close()
             return True
 
+        except sqlite3.OperationalError as e:
+            error_logger.error(f"SQLite Operasyonel Hatası: {str(e)}")
+            Display.print_error(f"SQLite Operasyonel Hatası: {e}")
+        except ValueError as e:
+            error_logger.error(f"Konfigürasyon Hatası: {str(e)}")
+            Display.print_error(f"Konfigürasyon Hatası: {e}")
+        except OSError as e:
+            error_logger.error(f"Dosya Hatası: {str(e)}")
+            Display.print_error(f"Dosya Hatası: {e}")
         except Exception as e:
-            # Hata loglama ve kullanıcıya gösterim
-            error_logger.error(f"PostgreSQL bağlantısı başarısız: {str(e)}")
-            Display.print_error("PostgreSQL bağlantısı başarısız.")
-            # Bağlantı başarısız olursa, bağlantı bilgilerini göster (şifre dahil)
-            Display.print_info("PostgreSQL Bağlantı Bilgileri:")
-            Display.print_info(f"  Kullanıcı: {user or 'Bulunamadı'}")
-            Display.print_info(f"  Şifre: {password or 'Bulunamadı'}")
-            Display.print_info(f"  Veritabanı: {dbname or 'Bulunamadı'}")
-            Display.print_info(f"  Sunucu: {host or 'Bulunamadı'}")
-            Display.print_info(f"  Port: {port or 'Bulunamadı'}")
-            return False
+            error_logger.error(f"Beklenmeyen Hata: {str(e)}")
+            Display.print_error(f"Beklenmeyen Hata: {e}")
+        finally:
+            if 'conn' in locals() and conn:
+                conn.close()
+                Display.print_info("SQLite bağlantısı kapatıldı.")
+
+        return False
 
 
 def mask_password(uri):
