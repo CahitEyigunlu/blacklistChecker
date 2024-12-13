@@ -107,3 +107,4 @@ docker.yml
 config.env
 Dockerfile
 docker_pass.sh
+docker_push.sh
