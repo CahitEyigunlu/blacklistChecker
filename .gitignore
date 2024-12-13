@@ -98,8 +98,8 @@ celerybeat-schedule  
 .vscode/
 
 #özel ekler
-backup.sch
+backup.sh
 backup/
-.db
 logs/
+.db
 .DS_Store
