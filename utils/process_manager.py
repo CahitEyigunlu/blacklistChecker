@@ -26,15 +26,9 @@ class ProcessManager:
         self.display = Display()
         self.processed_tasks = []
 
-    async def fetch_and_process_tasks(self, queue_name, max_concurrent_tasks=10):
-        """
-        Fetches tasks from RabbitMQ dynamically and processes them with a concurrency limit.
-
-        Args:
-            queue_name (str): The name of the RabbitMQ queue to process.
-            max_concurrent_tasks (int): Maximum number of concurrent tasks to process.
-        """
-        semaphore = asyncio.Semaphore(max_concurrent_tasks)  # Limit the number of concurrent tasks
+    async def fetch_and_process_tasks(self, queue_name):
+        max_concurrent_tasks = self.config['rabbitmq']['concurrency_limit']
+        semaphore = asyncio.Semaphore(max_concurrent_tasks)
 
         async def process_single_task(delivery_tag, task):
             """
