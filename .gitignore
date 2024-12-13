@@ -101,3 +101,4 @@ celerybeat-schedule  
 backup.sch
 backup/
 .db
+logs/
