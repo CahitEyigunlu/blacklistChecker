@@ -2,6 +2,7 @@ import asyncio
 import signal
 import time
 from database.db_manager import DBManager
+from database.postgre import PostgreSQL
 from tests.tests import run_tests
 from utils.config_manager import load_config
 from utils.display import Display, console
@@ -11,7 +12,6 @@ from utils.process_manager import ProcessManager
 from rich.table import Table
 from logB.logger import Logger
 
-
 def signal_handler(sig, frame):
     """
     Handles the SIGINT signal (CTRL+C) to exit gracefully.
@@ -19,7 +19,6 @@ def signal_handler(sig, frame):
     display = Display()
     display.print_error("❌ Application interrupted. Exiting...")
     exit(0)
-
 
 async def main():
     """
@@ -60,7 +59,7 @@ async def main():
         console.print(table)
         display.print_success("✔️ All system tests completed.")
     except Exception as e:
-        logger.error(f"System tests failed: {e}", extra={"function": "main", "section": "system_tests"})  # extra bilgisi eklendi
+        logger.error(f"System tests failed: {e}", extra={"function": "main", "section": "system_tests"})
         display.print_error(f"❌ System tests failed: {e}")
         return
 
@@ -77,7 +76,7 @@ async def main():
         else:
             raise ValueError("No tasks were generated.")
     except Exception as e:
-        logger.error(f"Task generation failed: {e}", extra={"function": "main", "section": "task_generation"})  # extra bilgisi eklendi
+        logger.error(f"Task generation failed: {e}", extra={"function": "main", "section": "task_generation"})
         display.print_error(f"❌ Task generation failed: {e}")
         return
 
@@ -87,7 +86,7 @@ async def main():
         logger.info("DBManager initialized successfully.")
         display.print_success("✔️ DBManager initialized successfully.")
     except Exception as e:
-        logger.error(f"DBManager initialization failed: {e}", extra={"function": "main", "section": "db_init"})  # extra bilgisi eklendi
+        logger.error(f"DBManager initialization failed: {e}", extra={"function": "main", "section": "db_init"})
         display.print_error(f"❌ DBManager initialization failed: {e}")
         return
 
@@ -105,7 +104,7 @@ async def main():
         logger.info("Task synchronization completed.")
         display.print_success("✔️ Task synchronization completed.")
     except Exception as e:
-        logger.error(f"Task synchronization failed: {e}", extra={"function": "main", "section": "task_sync"})  # extra bilgisi eklendi
+        logger.error(f"Task synchronization failed: {e}", extra={"function": "main", "section": "task_sync"})
         display.print_error(f"❌ Task synchronization failed: {e}")
         return
 
@@ -121,10 +120,20 @@ async def main():
         logger.info("Task processing completed.")
         display.print_success("✔️ Task processing completed.")
     except Exception as e:
-        logger.error(f"Task processing failed: {e}", extra={"function": "main", "section": "task_processing"})  # extra bilgisi eklendi
+        logger.error(f"Task processing failed: {e}", extra={"function": "main", "section": "task_processing"})
         display.print_error(f"❌ Task processing failed: {e}")
         return
 
+    # Finalize and handle PostgreSQL processing
+    try:
+        postgres = PostgreSQL(config)
+        postgres.process_queue_and_exit(lambda: db_manager.rabbitmq.fetch_pending_tasks())
+        logger.info("PostgreSQL processing and cleanup completed.")
+        display.print_success("✔️ PostgreSQL processing and cleanup completed.")
+    except Exception as e:
+        logger.error(f"PostgreSQL processing failed: {e}", extra={"function": "main", "section": "postgres_processing"})
+        display.print_error(f"❌ PostgreSQL processing failed: {e}")
+        return
 
 if __name__ == "__main__":
     asyncio.run(main())
