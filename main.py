@@ -1,3 +1,4 @@
+import os
 import asyncio
 import signal
 import time
@@ -11,6 +12,10 @@ from utils.task_synchronizer import TaskSynchronizer
 from utils.process_manager import ProcessManager
 from rich.table import Table
 from logB.logger import Logger
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+NETCONF_FILE = os.path.join(DATA_DIR, "netconf_24_prefixes.yaml")
 
 def signal_handler(sig, frame):
     """
@@ -66,7 +71,7 @@ async def main():
     # Generate tasks
     try:
         task_generator = TaskGenerator()
-        ip_list = task_generator.parse_ip_list("data/netconf_24_prefixes.yaml")
+        ip_list = task_generator.parse_ip_list(NETCONF_FILE)
         blacklist_list = task_generator.get_blacklist_config()
         in_memory_tasks = task_generator.generate_task_list(ip_list, blacklist_list)
 
