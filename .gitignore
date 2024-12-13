@@ -105,3 +105,4 @@ logs/
 .DS_Store
 docker.sh
 docker.yml
+config.env
