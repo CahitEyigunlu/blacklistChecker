@@ -1,85 +1,200 @@
-
-![Project Logo](https://raw.githubusercontent.com/CahitEyigunlu/blacklistChecker/main/assets/logo.webp)
-
+Okay, I can help you with that. Here's an updated README with the project structure, installation, usage instructions, and explanations for the technology choices, all written in English:
 
 ```markdown
 # Blacklist Checker
 
 ## Introduction
+
 The Blacklist Checker is a tool designed to monitor and verify blacklisted domains, IPs, or other entities using a customizable configuration. It offers logging, database management, and task synchronization for efficient operation.
 
+This tool leverages asynchronous programming and a message queue (RabbitMQ) to efficiently process a large number of IP addresses against multiple blacklists concurrently. Results can be stored in various databases like PostgreSQL or MongoDB for further analysis and reporting.
+
 ## Features
-- Dynamic configuration via `.env` and `blacklist.yml`.
+
+- Dynamic configuration via `.env`, `blacklist.yml` and `netconf_24_prefixes.yaml`.
 - Graceful handling of application interruptions.
 - Robust logging and error management.
 - Extensible module-based architecture for database, tasks, and display.
+- Asynchronous task processing with RabbitMQ for high performance.
+- Support for multiple database backends (SQLite, PostgreSQL, MongoDB).
+- Scalable to handle a large number of IP addresses and blacklists.
 
 ## Setup
 
 ### Requirements
-- Python 3.8+
+
+- Python 3.10+
+- Docker (optional, for containerized deployment)
 - Required packages in `requirements.txt` (Install with `pip install -r requirements.txt`)
 
+
 ### Installation
-1. Clone the repository:
+
+1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/cahit.eyigunlu/blacklistChecker.git
+   git clone [https://github.com/cahit.eyigunlu/blacklistChecker.git](https://github.com/cahit.eyigunlu/blacklistChecker.git)
    cd blacklistChecker
    ```
-2. Install dependencies:
+
+2. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
-3. Configure the `.env` file (See Environment Configuration).
+
+3. **Configure the environment:**
+
+   - Copy the `.env.example` file to `.env` and fill in the required values.
+     ```bash
+     cp .env.example .env
+     ```
+     -  See the **Environment Configuration** section below for details.
+
+   -  Configure blacklist sources in `blacklist.yml`. 
+     -  See the **Blacklist Configuration (`blacklist.yml`)** section for details.
+
+   -  Provide the IP prefixes to be checked in `netconf_24_prefixes.yaml`.
+     -  See the **IP Prefix Configuration (`netconf_24_prefixes.yaml`)** section for details.
+
 
 ## Environment Configuration
-The project uses a `.env` file to manage environment variables. Here is an example structure:
+
+The project uses a `.env` file to manage environment variables. Here is an example structure with sensitive information redacted:
 
 ```
-DATABASE_URL=sqlite:///state.db
-LOG_LEVEL=INFO
-BLACKLIST_SOURCE=blacklist.yml
-API_KEY=your_api_key_here
+# MongoDB Settings
+MONGO_URL="mongodb+srv://<user>:<password>@<cluster-address>/<database-name>?..." 
+MONGO_DB_NAME="..."
+
+# RabbitMQ Settings
+RABBITMQ_HOST="..."
+RABBITMQ_PORT=5672
+RABBITMQ_USERNAME="..."
+RABBITMQ_PASSWORD="..."  # Set as an environment variable
+RABBITMQ_ERLANG_COOKIE="..."  # Store on the RabbitMQ server
+RABBITMQ_WEB_UI_PORT=...
+RABBITMQ_AMQP_PORT=...
+RABBITMQ_DEFAULT_QUEUE="..."
+RABBITMQ_CONCURRENCY_LIMIT=...
+
+# PostgreSQL Settings
+POSTGRES_USERNAME="..."
+POSTGRES_PASSWORD="..."  # Set as an environment variable
+POSTGRES_DB="..."
+POSTGRES_HOST="..."
+POSTGRES_PORT=...
+
+APP_LOG_PATH=...
+ERROR_LOG_PATH=...
 ```
 
-- `DATABASE_URL`: Path to the database file.
-- `LOG_LEVEL`: Logging level (e.g., DEBUG, INFO, WARNING, ERROR).
-- `BLACKLIST_SOURCE`: Path to the blacklist configuration file.
-- `API_KEY`: API key for any external services used.
+- **Important:** For security, do not store sensitive information like passwords and API keys directly in the `.env` file. Instead, use environment variables or a secrets management tool.
 
-To create your own `.env` file, copy the example:
-```bash
-cp .env.example .env
+## Blacklist Configuration (`blacklist.yml`)
+
+ This file defines the blacklist providers to be used for checking. Here's an example structure:
+
+```yaml
+database:
+  recorded_dbs:
+    mongodb: false 
+    mysql: false  
+    postgresql: true 
+
+# SQLite Settings (if used)
+sqlite:
+  db_path: "state.db"  # Path to the SQLite database file
+
+# Blacklist Services
+blacklists:
+  - name: "Spamhaus"
+    dns: "zen.spamhaus.org"
+    removal_link: "[https://www.spamhaus.org/removal/](https://www.spamhaus.org/removal/)"
+    removal_method: "Web form submission"
+  - name: "Barracuda"
+    # ... other blacklist providers ...
 ```
 
-Update the values as per your setup.
+You can add or remove blacklist providers as needed.
+
+## IP Prefix Configuration (`netconf_24_prefixes.yaml`)
+
+This file contains a list of IP prefixes (in CIDR notation) that will be checked against the blacklists. Here's an example:
+
+```yaml
+- 37.123.97.0/24
+- 37.123.99.0/24
+- 37.123.100.0/24
+- 45.150.9.0/24
+```
+
+You can add as many IP prefixes as you need.
 
 ## Usage
-1. Run the main application:
+
+1. **Run the main application:**
+
    ```bash
    python main.py
    ```
-2. Use `CTRL+C` to gracefully exit the application.
+
+2. **Use `CTRL+C` to gracefully exit the application.**
+
+## Dockerized Deployment
+
+You can also run the application in a Docker container. 
+
+1. **Build the Docker image:**
+
+   ```bash
+   docker build -t blacklist-checker .
+   ```
+
+2. **Run the Docker container:**
+
+   ```bash
+   docker run -it blacklist-checker
+   ```
 
 ## Testing
+
 Run the test suite to ensure functionality:
+
 ```bash
 python -m unittest discover -s tests
 ```
 
 ## Project Structure
+
 - **main.py**: Entry point of the application.
 - **database/**: Handles database operations.
 - **utils/**: Utility functions including configuration and task management.
 - **logs/**: Contains application logs.
 - **tests/**: Unit tests for modules.
+- **doc/**: Contains documentation files (as described in the previous response).
+
+## Technology Choices
+
+- **SQLite and RabbitMQ:** SQLite is used as a lightweight, file-based database for managing the application state and queueing tasks. RabbitMQ acts as a message broker to distribute tasks efficiently among workers, enabling asynchronous processing and improving performance.
+
+- **PostgreSQL/MongoDB:**  These databases provide more robust and scalable options for storing the blacklist check results. They offer better performance for large datasets and more advanced querying capabilities.
+
+- **Asynchronous Programming:**  By using asynchronous programming with `asyncio`, the application can handle multiple blacklist checks concurrently without blocking, leading to significant performance gains, especially when dealing with a large number of IP addresses.
+
 
 ## Future Enhancements
+
 - Add support for more blacklist providers.
 - Improve reporting and visualization.
+- Implement a web interface for easier monitoring and management.
+
 
 ## License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ```
 
-Bunu GitHub projenizde README dosyası olarak kullanabilirsiniz. Başka bir konuda yardımcı olmamı ister misiniz?
+**Remember to replace the placeholders in the `.env`, `blacklist.yml`, and `netconf_24_prefixes.yaml` files with your actual configuration values.**
+
+This updated README provides a more comprehensive overview of the project, including its features, setup instructions, technology choices, and future enhancements. 
