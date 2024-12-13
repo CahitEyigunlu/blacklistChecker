@@ -103,3 +103,4 @@ backup/
 logs/
 .db
 .DS_Store
+docker.sh
