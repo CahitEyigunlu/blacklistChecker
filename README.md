@@ -1,5 +1,5 @@
 
-![Project Logo](https://raw.githubusercontent.com/CahitEyigunlu/blacklistChecker/main/logo.webp)
+![Project Logo](https://raw.githubusercontent.com/CahitEyigunlu/blacklistChecker/main/assets/logo.webp)
 
 
 ```markdown

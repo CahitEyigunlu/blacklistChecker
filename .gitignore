@@ -102,3 +102,4 @@ backup.sch
 backup/
 .db
 logs/
+.DS_Store
