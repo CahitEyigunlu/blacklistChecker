@@ -106,3 +106,4 @@ logs/
 docker.sh
 docker.yml
 config.env
+docker_pass.sh
