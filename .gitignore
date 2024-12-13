@@ -103,7 +103,7 @@ backup/
 logs/
 .db
 .DS_Store
-docker.sh
 docker.yml
 config.env
+Dockerfile
 docker_pass.sh
