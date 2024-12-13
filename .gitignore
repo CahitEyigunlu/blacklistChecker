@@ -108,3 +108,4 @@ config.env
 Dockerfile
 docker_pass.sh
 docker_push.sh
+state.db
