@@ -69,12 +69,8 @@ def load_config():
             "web_ui_port": int(os.getenv("RABBITMQ_WEB_UI_PORT", 8003)),
             "amqp_port": int(os.getenv("RABBITMQ_AMQP_PORT", 5672)),
             "default_queue": os.getenv("RABBITMQ_DEFAULT_QUEUE", "default_queue"),
-            "concurrency_limit": int(os.getenv("RABBITMQ_CONCURRENCY_LIMIT", 5)),
-            "batch_size": int(os.getenv("RABBITMQ_BATCH_SIZE", 100)),  # Yeni değer
-            "update_threshold": int(os.getenv("RABBITMQ_UPDATE_THRESHOLD", 500)),  # Yeni değer
-            "max_workers": int(os.getenv("RABBITMQ_MAX_WORKERS", 100))  # Yeni değer
+            "concurrency_limit": int(os.getenv("RABBITMQ_CONCURRENCY_LIMIT"))
         }
-
 
         # Load PostgreSQL settings
         config['postgresql'] = {
@@ -83,6 +79,11 @@ def load_config():
             "postgres_db": os.getenv("POSTGRES_DB"),
             "postgres_host": os.getenv("POSTGRES_HOST"),
             "postgres_port": int(os.getenv("POSTGRES_PORT", 5432))
+        }
+
+        config['sqlite'] = {
+            "db_path": os.getenv("SQLITE_DB_PATH", "ip_check.db"),
+            "bulk_update_count": int(os.getenv("SQLITE_BULK_UPDATE_COUNT"))  
         }
 
         # Logging paths

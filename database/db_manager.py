@@ -27,6 +27,7 @@ class DBManager:
         self.display = Display()  # Display örneği oluştur
         self.active_connections = {}
         self.today = date.today().strftime("%Y-%m-%d")
+        self.sqlite_db = Database(config)
 
         try:
             self.connect_to_databases()

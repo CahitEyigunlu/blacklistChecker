@@ -1,23 +1,19 @@
 import os
-
 from rich import print
 from rich.console import Console
 
 console = Console()
 
-
 class Display:
     """Ekran kontrolü ve renkli çıktı için yardımcı sınıf."""
+
 
     @staticmethod
     def get_theme():
         """Konsol temasını algılar (açık veya koyu)."""
-        # Windows için özel çözüm (varsayılan olarak koyu tema)
         if os.name == 'nt':
             return "dark"
-        # Diğer işletim sistemleri için terminal değişkenlerini kontrol et
         try:
-            # Xterm uyumlu terminaller için
             if "dark" in os.environ.get('COLORTERM', '').lower():
                 return "dark"
         except:
@@ -25,29 +21,17 @@ class Display:
         return "light"
 
     @staticmethod
-    def get_color(message_type):
-        """Mesaj türüne ve temaya göre uygun rengi seçer."""
-        theme = Display.get_theme()
-        colors = {
-            "success": "green" ,
-            "error": "red",
-            "info": "cyan" if theme == "dark" else "blue",  # Koyu temada daha görünür renk
-            "warning": "yellow",
-            "debug": "grey"
-        }
-        return colors.get(message_type, "white")  # Varsayılan renk beyaz
-
-    @staticmethod
     def print_header():
         """ASCII art başlığını yazdırır."""
-
-        # Ekranı temizle
         os.system('cls' if os.name == 'nt' else 'clear')
 
+        # SPDNet logosundaki renk paletine uygun renkler
+        colors = [
+            "red", "green", "yellow", "blue", "magenta", "cyan", "white"
+        ]
+
         header = """
-                                                                                                            
-                                                                                                            
-           SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
+           SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
           SS:::::::::::::::SP::::::::::::::::P  D::::::::::::DDD     N:::::::N       N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
          S:::::SSSSSS::::::SP::::::PPPPPP:::::P D:::::::::::::::DD   N::::::::N      N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
          S:::::S     SSSSSSSPP:::::P     P:::::PDDD:::::DDDDD:::::D  N:::::::::N     N::::::NEE::::::EEEEEEEEE::::ET:::::TT:::::::TT:::::T
@@ -63,45 +47,47 @@ class Display:
          S::::::SSSSSS:::::SP::::::::P          D:::::::::::::::DD   N::::::N       N:::::::NE::::::::::::::::::::E      T:::::::::T      
          S:::::::::::::::SS P::::::::P          D::::::::::::DDD     N::::::N        N::::::NE::::::::::::::::::::E      T:::::::::T      
           SSSSSSSSSSSSSS   PPPPPPPPPP          DDDDDDDDDDDDD        NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE      TTTTTTTTTTT      
-
-
         """
-        print(header)  # Logoyu yazdır
 
-        # Altına boşluk ekle
+        # Harf ve nokta renklendirme
+        styled_header = ""
+        color_index = 0
+        for char in header:
+            if char.isalnum():  # Harf veya rakam için renkli
+                styled_header += f"[bold {colors[color_index]}]{char}[/]"
+                color_index = (color_index + 1) % len(colors)
+            elif char == ":":  # Nokta işaretini özel bir renk ile vurgula
+                styled_header += "[bold magenta]:[/]"
+            else:  # Diğer karakterler normal şekilde
+                styled_header += char
+
+        print(styled_header)
         print("\n\n")
 
     @staticmethod
     def print_section_header(title):
-        """Belirtilen başlıkla bir bölüm başlığı yazdırır."""
         console.rule(f"[bold blue]{title}[/]")
 
     @staticmethod
     def print_success(message: str):
-        """Başarılı mesajları yeşil renkte yazdırır."""
-        color = Display.get_color("success")
-        print(f"[bold {color}]✔️ Başarı: {message}[/]")
+        print(f"[bold green]✔️ Başarı: {message}[/]")
 
     @staticmethod
     def print_error(message: str):
-        """Hata mesajlarını kırmızı renkte yazdırır."""
-        color = Display.get_color("error")
-        print(f"[bold {color}]❌ Hata: {message}[/]")
+        print(f"[bold red]❌ Hata: {message}[/]")
 
     @staticmethod
     def print_info(message: str):
-        """Bilgi mesajlarını mavi renkte yazdırır."""
-        color = Display.get_color("info")
-        print(f"[bold {color}]ℹ️ Bilgi: {message}[/]")
+        print(f"[bold blue]ℹ️ Bilgi: {message}[/]")
 
     @staticmethod
     def print_warning(message: str):
-        """Uyarı mesajlarını sarı renkte yazdırır."""
-        color = Display.get_color("warning")
-        print(f"[bold {color}]⚠️ Uyarı: {message}[/]")
+        print(f"[bold yellow]⚠️ Uyarı: {message}[/]")
 
     @staticmethod
     def print_debug(message: str):
-        """Debug mesajlarını gri renkte yazdırır."""
-        color = Display.get_color("debug")
-        print(f"[bold {color}]🐞 Debug: {message}[/]")
+        print(f"[bold grey]🐞 Debug: {message}[/]")
+
+# Test the header
+if __name__ == "__main__":
+    Display.print_header()

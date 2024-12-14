@@ -56,10 +56,9 @@ class PostgreSQL:
         try:
             self.cursor.execute(query, params)
             self.connection.commit()
-            self.logger.info("Sorgu başarıyla çalıştırıldı.")
-            self.display.print_success("✔️ Sorgu başarıyla çalıştırıldı.")
+            self.display.print_success("✔️ Query : " + query + " executed successfully")
         except psycopg2.Error as e:
-            error_message = f"Sorgu çalıştırma hatası: {e}"
+            error_message = f"Query çalıştırma hatası: {e}"
             self.logger.error(error_message, extra={"function": "execute_query", "file": "postgre.py", "query": query, "params": params})
             self.display.print_error(f"❌ {error_message}")
             raise

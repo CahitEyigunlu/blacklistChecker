@@ -130,7 +130,6 @@ async def main():
         display.print_error(f"\u274c Task processing failed: {e}")
         return
         
-
     # Finalize and handle PostgreSQL processing
     try:
         postgres = PostgreSQL(config)
