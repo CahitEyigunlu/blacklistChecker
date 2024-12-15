@@ -74,12 +74,15 @@ class TaskSynchronizer:
             self.rabbitmq.clear_queue(queue_name)
             self.logger.info(f"✔️ RabbitMQ queue '{queue_name}' cleared successfully.")
 
+
             # Step 5: Add tasks to RabbitMQ in batches
             pending_tasks_in_sqlite = [
                 task for task in sqlite_tasks if task["status"] == "pending"
             ]
-            self.display.print_info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
-            self.logger.info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
+            pending_tasks_count = len(pending_tasks_in_sqlite)  # Pending task sayısını al
+            self.display.print_info(f"ℹ️ SQLite: Found {pending_tasks_count} pending tasks.")
+            self.logger.info(f"ℹ️ SQLite: Found {pending_tasks_count} pending tasks.")
+
 
             batch_size = 10000  # Batch size for publishing tasks to RabbitMQ
             total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size
@@ -103,10 +106,11 @@ class TaskSynchronizer:
                     self.display.print_error(f"❌ {error_message}")
             self.display.print_success("✔️ Task Synchronization Completed")
 
-            # Compare total published tasks with expected count
-            if published_tasks_count != total_tasks_count:
+            # Compare total published tasks with expected count (pending task sayısı ile karşılaştır)
+            if published_tasks_count != pending_tasks_count:  # Güncellenen karşılaştırma
                 error_message = (
-                    f"❌ Mismatch in task counts: Expected {total_tasks_count}, but only {published_tasks_count} were published."
+                    f"❌ Mismatch in task counts: Expected {pending_tasks_count}, "
+                    f"but only {published_tasks_count} were published."
                 )
                 self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py"})
                 self.display.print_error(error_message)
