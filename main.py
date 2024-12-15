@@ -113,11 +113,21 @@ async def main():
         logger.error(f"Task synchronization failed: {e}", extra={"function": "main", "section": "task_sync"})
         display.print_error(f"\u274c Task synchronization failed: {e}")
         return
+    finally:
+        # RabbitMQ bağlantısını kapat
+        try:
+            db_manager.rabbitmq.channel.close()
+            db_manager.rabbitmq.connection.close()
+            logger.info("RabbitMQ connection closed successfully.")
+            display.print_success("✔️ RabbitMQ connection closed successfully.")
+        except Exception as close_error:
+            logger.error(f"Failed to close RabbitMQ connection: {close_error}")
+            display.print_error(f"❌ Failed to close RabbitMQ connection: {close_error}")
+
 
     # Process tasks dynamically
     try:
         process_manager = ProcessManager(
-            rabbitmq=db_manager.rabbitmq,
             sqlite_manager=db_manager.sqlite_db,
             config=config
         )
