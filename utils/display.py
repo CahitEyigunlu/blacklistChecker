@@ -88,6 +88,58 @@ class Display:
     def print_debug(message: str):
         print(f"[bold grey]🐞 Debug: {message}[/]")
 
-# Test the header
-if __name__ == "__main__":
-    Display.print_header()
+    @staticmethod
+    def print_dns_status(worker_id, tasks_done, total_tasks, elapsed_time, remaining_time, ip, dns, result, status, details=None):
+        """
+        Özelleştirilmiş DNSBL durumu çıktısı.
+        """
+        status_emoji = {
+            "completed": "✅",
+            "dns_error": "❌",
+            "timed_out": "⏳",
+            "no_answer": "⚠️",
+            "no_nameservers": "🚫",
+            "not_listed": "✅",
+            "blacklisted": "❌"
+        }
+
+        emoji = status_emoji.get(result, "ℹ️")
+        details_text = f"({details})" if details else "(No details)"
+
+        if status == "completed":
+            if result == "listed":
+                console.print(
+                    f"{emoji} [bold yellow][Worker {worker_id}][/bold yellow] - "
+                    f"[cyan][{tasks_done}/{total_tasks}][/cyan] - "
+                    f"[blue][Elapsed: {elapsed_time}][/blue] - "
+                    f"[magenta][Remaining: {remaining_time}][/magenta] - "
+                    f"[bold white]{ip}[/bold white] is [bold red]listed[/bold red] in [bold cyan]{dns}[/bold cyan] "
+                    f"{details_text}"
+                )
+            elif result == "not_listed":
+                console.print(
+                    f"{emoji} [bold green][Worker {worker_id}][/bold green] - "
+                    f"[cyan][{tasks_done}/{total_tasks}][/cyan] - "
+                    f"[blue][Elapsed: {elapsed_time}][/blue] - "
+                    f"[magenta][Remaining: {remaining_time}][/magenta] - "
+                    f"[bold white]{ip}[/bold white] is [bold green]not listed[/bold green] in [bold cyan]{dns}[/bold cyan] "
+                    f"{details_text}"
+                )
+            else:
+                console.print(
+                    f"{emoji} [bold blue][Worker {worker_id}][/bold blue] - "
+                    f"[cyan][{tasks_done}/{total_tasks}][/cyan] - "
+                    f"[blue][Elapsed: {elapsed_time}][/blue] - "
+                    f"[magenta][Remaining: {remaining_time}][/magenta] - "
+                    f"[bold white]{ip}[/bold white] status: [bold blue]{result}[/bold blue] "
+                    f"{details_text}"
+                )
+        else:
+            console.print(
+                f"{emoji} [bold red][Worker {worker_id}][/bold red] - "
+                f"[cyan][{tasks_done}/{total_tasks}][/cyan] - "
+                f"[blue][Elapsed: {elapsed_time}][/blue] - "
+                f"[magenta][Remaining: {remaining_time}][/magenta] - "
+                f"[bold white]{ip}[/bold white] encountered an [bold red]error[/bold red] "
+                f"{details_text}"
+            )

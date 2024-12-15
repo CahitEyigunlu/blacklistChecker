@@ -192,7 +192,7 @@ class TaskManager:
         """
         query = """
         UPDATE ip_check
-        SET status = :status, last_updated = CURRENT_TIMESTAMP
+        SET status = :status , result = :result , last_updated = CURRENT_TIMESTAMP
         WHERE ip_address = :ip AND dns = :dns
         """
         try:

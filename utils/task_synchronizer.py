@@ -69,10 +69,18 @@ class TaskSynchronizer:
                 self.display.print_info("ℹ️ SQLite: No missing tasks found.")
                 self.logger.info("ℹ️ SQLite: No missing tasks found.")
 
-            # Step 4: Clear RabbitMQ queue
-            self.logger.info("ℹ️ Clearing RabbitMQ queue...")
-            self.rabbitmq.clear_queue(queue_name)
-            self.logger.info(f"✔️ RabbitMQ queue '{queue_name}' cleared successfully.")
+            # Step 4: Reset RabbitMQ queue
+            try:
+                self.display.print_info(f"ℹ️ Deleting RabbitMQ queue '{queue_name}'...")
+                self.rabbitmq.channel.queue_delete(queue=queue_name)
+                self.display.print_info(f"ℹ️ Recreating RabbitMQ queue '{queue_name}' with correct settings...")
+                self.rabbitmq.channel.queue_declare(queue=queue_name, durable=False)  # Burada durable=True doğru ayarı belirtiyor
+                self.display.print_info(f"✔️ RabbitMQ queue '{queue_name}' recreated successfully.")
+            except Exception as e:
+                self.error_logger.error(f"❌ Failed to reset RabbitMQ queue '{queue_name}': {e}")
+                self.display.print_error(f"❌ Failed to reset RabbitMQ queue '{queue_name}': {e}")
+                raise
+
 
             # Step 5: Add tasks to RabbitMQ in batches
             pending_tasks_in_sqlite = [
@@ -80,9 +88,11 @@ class TaskSynchronizer:
             ]
             self.display.print_info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
             self.logger.info(f"ℹ️ SQLite: Found {len(pending_tasks_in_sqlite)} pending tasks.")
-
+            self.display.print_info(f"ℹ️ RabbitMQ: Publishing tasks to '{queue_name}'...")
             batch_size = 10000  # Batch size for publishing tasks to RabbitMQ
             total_batches = (len(pending_tasks_in_sqlite) + batch_size - 1) // batch_size
+            queue_size = len(pending_tasks_in_sqlite)
+            self.display.print_info(f"ℹ️ Total tasks to publish: {queue_size}")
 
             for i in range(total_batches):
                 try:
@@ -95,12 +105,41 @@ class TaskSynchronizer:
                     batch_count = len(batch)
                     self.logger.info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
                     self.display.print_info(f"✔️ Batch {i + 1}/{total_batches}: {batch_count} tasks added.")
+                    
+                    # Verify message count in RabbitMQ after each batch
+                    queue_state = self.rabbitmq.channel.queue_declare(queue=queue_name, passive=True)
+                    message_count = queue_state.method.message_count
+                    
+                    expected_message_count = start_idx + batch_count
+                    if message_count != expected_message_count:
+                        self.logger.warning(f"⚠️ Mismatch in RabbitMQ message count. Expected: {expected_message_count}, Actual: {message_count}")
+                        self.display.print_warning(f"⚠️ Mismatch in RabbitMQ message count. Expected: {expected_message_count}, Actual: {message_count}")
+                    else:
+                        self.logger.info(f"✔️ Verified RabbitMQ message count after batch {i + 1}: {message_count}")
+                        self.display.print_info(f"✔️ Verified RabbitMQ message count after batch {i + 1}: {message_count}")
+
                 except Exception as batch_error:
                     error_message = f"Error in batch {i + 1}/{total_batches}: {batch_error}"
-                    self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py", "batch": i+1})  # extra bilgisi eklendi
+                    self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py", "batch": i+1})
                     self.display.print_error(f"❌ {error_message}")
 
+            # Final message count verification
+            queue_state = self.rabbitmq.channel.queue_declare(queue=queue_name, passive=True)
+            final_message_count = queue_state.method.message_count
+            self.display.print_info(f"Message count in RabbitMQ queue '{queue_name}' after publishing: {final_message_count}")
+            self.logger.info(f"Message count in RabbitMQ queue '{queue_name}' after publishing: {final_message_count}")
+
+
+
+
+            try:
+                self.rabbitmq.publish_task(queue_name, batch)
+                print(f"Published batch of size {len(batch)} successfully.")
+            except Exception as e:
+                print(f"Failed to publish batch: {e}")
+
             self.logger.info("✔️ Task Synchronization Completed")
+            exit(0)
         except Exception as e:
             error_message = f"❌ Task synchronization failed: {e}"
             self.error_logger.error(error_message, extra={"function": "synchronize", "file": "task_synchronizer.py"})  # extra bilgisi eklendi

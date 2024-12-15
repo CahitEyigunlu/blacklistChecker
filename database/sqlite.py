@@ -96,13 +96,15 @@ class Database:
             with sqlite3.connect(self.db_path) as conn:  # Her process için yeni bağlantı
                 cursor = conn.cursor()
                 for task in tasks:
+                    self.display.print_success(f"Updating {task['ip']} with status {task['status']} and result {task['result']}")
                     cursor.execute(
-                        "UPDATE ip_check SET status = ?, last_checked = DATETIME('now') WHERE ip_address = ?",
-                        (task["status"], task["ip"])
+                        "UPDATE ip_check SET status = ?, result = ? , last_checked = DATETIME('now') WHERE ip_address = ?",
+                        (task["status"], task["result"],task["ip"])
                     )
                 conn.commit()
             self.logger.info(f"Bulk updated {len(tasks)} tasks synchronously.")
         except sqlite3.Error as e:
+            self.display.print_error(f"Failed to bulk update tasks: {e}")
             self.logger.error(f"Failed to bulk update tasks: {e}", extra={"function": "bulk_update_tasks_sync", "tasks": tasks})
             raise
 
@@ -119,8 +121,8 @@ class Database:
         """
         try:
             await self.conn.executemany(
-                "UPDATE ip_check SET status = ?, last_checked = DATETIME('now') WHERE ip_address = ?",
-                [(task["status"], task["ip"]) for task in tasks]  # Döngü kaldırıldı
+                "UPDATE ip_check SET status = ?, result = ? , last_checked = DATETIME('now') WHERE ip_address = ?",
+                [(task["status"],task["result"], task["ip"]) for task in tasks]  # Döngü kaldırıldı
             )
             await self.conn.commit()
             self.logger.info(f"Bulk updated {len(tasks)} tasks asynchronously.")

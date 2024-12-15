@@ -69,7 +69,7 @@ def load_config():
             "web_ui_port": int(os.getenv("RABBITMQ_WEB_UI_PORT", 8003)),
             "amqp_port": int(os.getenv("RABBITMQ_AMQP_PORT", 5672)),
             "default_queue": os.getenv("RABBITMQ_DEFAULT_QUEUE", "default_queue"),
-            "concurrency_limit": int(os.getenv("RABBITMQ_CONCURRENCY_LIMIT"))
+            "concurrency_limit": int(os.getenv("RABBITMQ_CONCURRENCY_LIMIT",200))
         }
 
         # Load PostgreSQL settings
