@@ -1,0 +1,483 @@
+admin@Cahits-MacBook-Pro blacklistChecker % python3.10 main.py
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+
+           SSSSSSSSSSSSSSS PPPPPPPPPPPPPPPPP   DDDDDDDDDDDDD        NNNNNNNN        NNNNNNNNEEEEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT
+          SS:::::::::::::::SP::::::::::::::::P  D::::::::::::DDD     N:::::::N       N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
+         S:::::SSSSSS::::::SP::::::PPPPPP:::::P D:::::::::::::::DD   N::::::::N      N::::::NE::::::::::::::::::::ET:::::::::::::::::::::T
+         S:::::S     SSSSSSSPP:::::P     P:::::PDDD:::::DDDDD:::::D  N:::::::::N     N::::::NEE::::::EEEEEEEEE::::ET:::::TT:::::::TT:::::T
+         S:::::S              P::::P     P:::::P  D:::::D    D:::::D N::::::::::N    N::::::N  E:::::E       EEEEEETTTTTT  T:::::T  TTTTTT
+         S:::::S              P::::P     P:::::P  D:::::D     D:::::DN:::::::::::N   N::::::N  E:::::E                     T:::::T
+          S::::SSSS           P::::PPPPPP:::::P   D:::::D     D:::::DN:::::::N::::N  N::::::N  E::::::EEEEEEEEEE           T:::::T
+           SS::::::SSSSS      P:::::::::::::PP    D:::::D     D:::::DN::::::N N::::N N::::::N  E:::::::::::::::E           T:::::T
+             SSS::::::::SS    P::::PPPPPPPPP      D:::::D     D:::::DN::::::N  N::::N:::::::N  E:::::::::::::::E           T:::::T
+                SSSSSS::::S   P::::P              D:::::D     D:::::DN::::::N   N:::::::::::N  E::::::EEEEEEEEEE           T:::::T
+                     S:::::S  P::::P              D:::::D     D:::::DN::::::N    N::::::::::N  E:::::E                     T:::::T
+                     S:::::S  P::::P              D:::::D    D:::::D N::::::N     N:::::::::N  E:::::E       EEEEEE        T:::::T
+         SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D  N::::::N      N::::::::NEE::::::EEEEEEEE:::::E      TT:::::::TT
+         S::::::SSSSSS:::::SP::::::::P          D:::::::::::::::DD   N::::::N       N:::::::NE::::::::::::::::::::E      T:::::::::T
+         S:::::::::::::::SS P::::::::P          D::::::::::::DDD     N::::::N        N::::::NE::::::::::::::::::::E      T:::::::::T
+          SSSSSSSSSSSSSS   PPPPPPPPPP          DDDDDDDDDDDDD        NNNNNNNN         NNNNNNNEEEEEEEEEEEEEEEEEEEEEE      TTTTTTTTTTT
+
+
+
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── System Tests ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── Network Testleri ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ℹ️ Bilgi: İnternet bağlantısı kontrol ediliyor...
+✔️ Başarı: İnternet bağlantısı başarılı.
+ℹ️ Bilgi: DNS sunucusu kontrol ediliyor...
+✔️ Başarı: DNS sunucusu başarılı.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── Database Testleri ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── SQLite Testleri ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: SQLite Bağlantı Bilgileri:
+ℹ️ Bilgi:   Veritabanı Dosyası: ip_check.db
+✔️ Başarı: SQLite bağlantısı başarılı.
+ℹ️ Bilgi: SQLite bağlantısı kapatıldı.
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: MongoDB Bağlantı Bilgileri:
+ℹ️ Bilgi:   URI: mongodb+srv://User:****@autospd.mkvab.mongodb.net/?retryWrites=true&w=majority&authSource=admin&appName=AutoSPD
+ℹ️ Bilgi:   Veritabanı: AutoSPD
+✔️ Başarı: MongoDB bağlantısı başarılı.
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: SQLite Bağlantı Bilgileri:
+ℹ️ Bilgi:   Veritabanı Dosyası: ip_check.db
+✔️ Başarı: SQLite bağlantısı başarılı.
+ℹ️ Bilgi: SQLite bağlantısı kapatıldı.
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: PostgreSQL Bağlantı Bilgileri:
+ℹ️ Bilgi:   Kullanıcı: postgres
+ℹ️ Bilgi:   Şifre: ****
+ℹ️ Bilgi:   Veritabanı: anti_spam
+ℹ️ Bilgi:   Sunucu: 178.20.231.247
+ℹ️ Bilgi:   Port: 5432
+ℹ️ Bilgi: PostgreSQL sunucusuna bağlanılıyor...
+ℹ️ Bilgi: Veritabanı zaten mevcut: anti_spam
+ℹ️ Bilgi: Test sorgusu çalıştırılıyor...
+✔️ Başarı: PostgreSQL bağlantısı başarılı.
+ℹ️ Bilgi: PostgreSQL bağlantısı kapatıldı.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── RabbitMQ Testleri ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: RabbitMQ Bağlantı Bilgileri:
+ℹ️ Bilgi:   Host: 178.20.231.247
+ℹ️ Bilgi:   Port: 5672
+ℹ️ Bilgi:   Kullanıcı Adı: admin
+✔️ Başarı: RabbitMQ bağlantısı başarılı.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── Blacklist Testleri ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: Spamhaus (zen.spamhaus.org) kontrol ediliyor...
+✔️ Başarı: Spamhaus (zen.spamhaus.org) IP kara listede. Yanıt süresi: 16.93 ms
+ℹ️ Bilgi: Barracuda (b.barracudacentral.org) kontrol ediliyor...
+ℹ️ Bilgi: Barracuda (b.barracudacentral.org): IP kara listede değil.
+ℹ️ Bilgi: SORBS (dnsbl.sorbs.net) kontrol ediliyor...
+ℹ️ Bilgi: SORBS (dnsbl.sorbs.net): IP kara listede değil.
+ℹ️ Bilgi: SpamCop (bl.spamcop.net) kontrol ediliyor...
+ℹ️ Bilgi: SpamCop (bl.spamcop.net): IP kara listede değil.
+ℹ️ Bilgi: The CBL (cbl.abuseat.org) kontrol ediliyor...
+ℹ️ Bilgi: The CBL (cbl.abuseat.org): IP kara listede değil.
+ℹ️ Bilgi: SURBL (multi.surbl.org) kontrol ediliyor...
+ℹ️ Bilgi: SURBL (multi.surbl.org): IP kara listede değil.
+ℹ️ Bilgi: Hostkarma (karma.junkemailfilter.com) kontrol ediliyor...
+ℹ️ Bilgi: Hostkarma (karma.junkemailfilter.com): IP kara listede değil.
+ℹ️ Bilgi: Spamhaus DROP (drop.spamhaus.org) kontrol ediliyor...
+ℹ️ Bilgi: Spamhaus DROP (drop.spamhaus.org): IP kara listede değil.
+ℹ️ Bilgi: Spamhaus EDROP (edrop.spamhaus.org) kontrol ediliyor...
+ℹ️ Bilgi: Spamhaus EDROP (edrop.spamhaus.org): IP kara listede değil.
+ℹ️ Bilgi: Karaliste Sağlık Kontrol Sonuçları:
+ℹ️ Bilgi: Spamhaus: IP kara listede - 16.93 ms
+⚠️ Uyarı: Barracuda: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: SORBS: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: SpamCop: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: The CBL: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: SURBL: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: Hostkarma: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: Spamhaus DROP: IP kara listede değil (Hata: Belirtilmedi)
+⚠️ Uyarı: Spamhaus EDROP: IP kara listede değil (Hata: Belirtilmedi)
+          Test Results
+┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
+┃ Test Name          ┃ Result   ┃
+┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━┩
+│ Network Testleri   │ Başarılı │
+│ SQLite Testleri    │ Başarılı │
+│ Database Testleri  │ Başarılı │
+│ RabbitMQ Testleri  │ Başarılı │
+│ Blacklist Testleri │ Başarılı │
+└────────────────────┴──────────┘
+✔️ Başarı: ✔️ All system tests completed.
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+ℹ️ Bilgi: ℹ️ Current environment: local
+✔️ Başarı: ✔️ Loaded environment variables from .env
+✔️ Başarı: ✔️ Configuration loaded successfully.
+✔️ Başarı: ✔️ Generated 2286 tasks.
+✔️ Başarı: ✔️ Total tasks generated: 2286
+✔️ Başarı: Table initialized successfully.
+✔️ Başarı: Table initialized successfully.
+✔️ Başarı: ✔️ Connected to SQLite database.
+✔️ Başarı: ✔️ Connected to RabbitMQ server.
+✔️ Başarı: ✔️ Connected to RabbitMQ server.
+✔️ Başarı: ✔️ PostgreSQL sunucusuna başarıyla bağlanıldı.
+ℹ️ Bilgi: ✔️ Database anti_spam already exists.
+✔️ Başarı: ✔️ Connected to PostgreSQL database.
+✔️ Başarı: ✔️ DBManager initialized successfully.
+✔️ Başarı: ✔️ Total tasks generated: 2286
+ℹ️ Bilgi: Fetched 2286 tasks for date 2024-12-15.
+ℹ️ Bilgi: ℹ️ SQLite: No missing tasks found.
+✔️ Başarı: ✔️ Queue 'IP_Blacklist' cleared successfully.
+✔️ Başarı: ✔️ Queue 'IP_Blacklist' has 0 messages.
+ℹ️ Bilgi: ℹ️ SQLite: Found 2250 pending tasks.
+ℹ️ Bilgi: ✔️ Batch 1/1: 2250 tasks added.
+✔️ Başarı: ✔️ Task Synchronization Completed
+✔️ Başarı: ✔️ Task Synchronization Completed
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── ✔️ All checks Completed ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+✔️ Başarı: ✔️ Task synchronization completed.
+[DEBUG] Total tasks in queue 'IP_Blacklist': 2250
+✅ [Worker 30] - [1/2250] - [Elapsed: 0:00:00.285954] - [Remaining: 0:10:43.110546] - 37.123.97.222 is not listed in bl.spamcop.net (Query completed in 71.636 ms)
+✅ [Worker 157] - [2/2250] - [Elapsed: 0:00:00.379395] - [Remaining: 0:07:06.441104] - 37.123.97.74 is not listed in cbl.abuseat.org (Query completed in 68.241 ms)
+✅ [Worker 107] - [3/2250] - [Elapsed: 0:00:00.505864] - [Remaining: 0:06:18.891387] - 37.123.97.50 is not listed in cbl.abuseat.org (Query completed in 103.455 ms)
+✅ [Worker 176] - [4/2250] - [Elapsed: 0:00:00.608499] - [Remaining: 0:05:41.672750] - 37.123.97.144 is not listed in cbl.abuseat.org (Query completed in 76.731 ms)
+✅ [Worker 151] - [5/2250] - [Elapsed: 0:00:00.758515] - [Remaining: 0:05:40.573235] - 37.123.97.252 is not listed in bl.spamcop.net (Query completed in 126.919 ms)
+✅ [Worker 141] - [6/2250] - [Elapsed: 0:00:00.868888] - [Remaining: 0:05:24.964860] - 37.123.97.247 is not listed in multi.surbl.org (Query completed in 85.224 ms)
+✅ [Worker 137] - [7/2250] - [Elapsed: 0:00:00.980878] - [Remaining: 0:05:14.300375] - 37.123.97.189 is not listed in drop.spamhaus.org (Query completed in 88.077 ms)
+✅ [Worker 138] - [8/2250] - [Elapsed: 0:00:01.086017] - [Remaining: 0:05:04.355984] - 37.123.97.74 is not listed in edrop.spamhaus.org (Query completed in 80.535 ms)
+✅ [Worker 156] - [9/2250] - [Elapsed: 0:00:01.175933] - [Remaining: 0:04:52.806819] - 37.123.97.249 is not listed in zen.spamhaus.org (Query completed in 66.484 ms)
+✅ [Worker 150] - [10/2250] - [Elapsed: 0:00:01.283990] - [Remaining: 0:04:47.613760] - 37.123.97.50 is not listed in edrop.spamhaus.org (Query completed in 82.231 ms)
+✅ [Worker 95] - [11/2250] - [Elapsed: 0:00:01.384024] - [Remaining: 0:04:41.710980] - 37.123.97.144 is not listed in edrop.spamhaus.org (Query completed in 75.824 ms)
+✅ [Worker 174] - [12/2250] - [Elapsed: 0:00:01.556336] - [Remaining: 0:04:50.257410] - 37.123.97.174 is not listed in b.barracudacentral.org (Query completed in 149.917 ms)
+✅ [Worker 149] - [13/2250] - [Elapsed: 0:00:01.779730] - [Remaining: 0:05:06.249774] - 37.123.97.193 is not listed in karma.junkemailfilter.com (Query completed in 200.120 ms)
+✅ [Worker 56] - [14/2250] - [Elapsed: 0:00:01.937382] - [Remaining: 0:05:09.426624] - 37.123.97.174 is not listed in bl.spamcop.net (Query completed in 133.931 ms)
+✅ [Worker 25] - [15/2250] - [Elapsed: 0:00:02.024836] - [Remaining: 0:05:01.700415] - 37.123.97.126 is not listed in drop.spamhaus.org (Query completed in 61.929 ms)
+✅ [Worker 16] - [16/2250] - [Elapsed: 0:00:02.123125] - [Remaining: 0:04:56.440630] - 37.123.97.89 is not listed in zen.spamhaus.org (Query completed in 74.781 ms)
+✅ [Worker 163] - [17/2250] - [Elapsed: 0:00:02.231055] - [Remaining: 0:04:53.056687] - 37.123.97.106 is not listed in multi.surbl.org (Query completed in 83.913 ms)
+✅ [Worker 43] - [18/2250] - [Elapsed: 0:00:02.331250] - [Remaining: 0:04:49.075248] - 37.123.97.3 is not listed in zen.spamhaus.org (Query completed in 76.674 ms)
+✅ [Worker 75] - [19/2250] - [Elapsed: 0:00:02.526259] - [Remaining: 0:04:56.635991] - 37.123.97.64 is not listed in dnsbl.sorbs.net (Query completed in 166.388 ms)
+✅ [Worker 170] - [20/2250] - [Elapsed: 0:00:02.616799] - [Remaining: 0:04:51.773200] - 37.123.97.47 is not listed in bl.spamcop.net (Query completed in 66.985 ms)
+✅ [Worker 66] - [21/2250] - [Elapsed: 0:00:02.700286] - [Remaining: 0:04:46.615965] - 37.123.97.246 is not listed in zen.spamhaus.org (Query completed in 59.050 ms)
+✅ [Worker 12] - [22/2250] - [Elapsed: 0:00:02.913536] - [Remaining: 0:04:55.060724] - 37.123.97.239 is not listed in karma.junkemailfilter.com (Query completed in 190.687 ms)
+✅ [Worker 183] - [23/2250] - [Elapsed: 0:00:03.095054] - [Remaining: 0:04:59.682936] - 37.123.97.5 is not listed in dnsbl.sorbs.net (Query completed in 158.491 ms)
+✅ [Worker 87] - [24/2250] - [Elapsed: 0:00:03.188271] - [Remaining: 0:04:55.712970] - 37.123.97.55 is not listed in edrop.spamhaus.org (Query completed in 70.378 ms)
+✅ [Worker 198] - [25/2250] - [Elapsed: 0:00:03.288046] - [Remaining: 0:04:52.636450] - 37.123.97.61 is not listed in drop.spamhaus.org (Query completed in 70.390 ms)
+✅ [Worker 88] - [26/2250] - [Elapsed: 0:00:03.482965] - [Remaining: 0:04:57.927040] - 37.123.97.104 is not listed in b.barracudacentral.org (Query completed in 171.348 ms)
+✅ [Worker 65] - [27/2250] - [Elapsed: 0:00:03.563070] - [Remaining: 0:04:53.360418] - 37.123.97.196 is not listed in zen.spamhaus.org (Query completed in 56.012 ms)
+✅ [Worker 2] - [28/2250] - [Elapsed: 0:00:03.747884] - [Remaining: 0:04:57.421366] - 37.123.97.211 is not listed in b.barracudacentral.org (Query completed in 161.054 ms)
+✅ [Worker 13] - [29/2250] - [Elapsed: 0:00:03.841442] - [Remaining: 0:04:54.202544] - 37.123.97.104 is not listed in bl.spamcop.net (Query completed in 68.980 ms)
+✅ [Worker 142] - [30/2250] - [Elapsed: 0:00:03.952704] - [Remaining: 0:04:52.500540] - 37.123.97.87 is not listed in multi.surbl.org (Query completed in 86.683 ms)
+✅ [Worker 36] - [31/2250] - [Elapsed: 0:00:04.055650] - [Remaining: 0:04:50.305113] - 37.123.97.54 is not listed in multi.surbl.org (Query completed in 80.143 ms)
+✅ [Worker 113] - [32/2250] - [Elapsed: 0:00:04.272373] - [Remaining: 0:04:56.129616] - 37.123.97.210 is not listed in karma.junkemailfilter.com (Query completed in 194.480 ms)
+✅ [Worker 49] - [33/2250] - [Elapsed: 0:00:04.503737] - [Remaining: 0:05:02.569509] - 37.123.97.194 is not listed in dnsbl.sorbs.net (Query completed in 207.047 ms)
+✅ [Worker 93] - [34/2250] - [Elapsed: 0:00:04.690130] - [Remaining: 0:05:05.686120] - 37.123.97.169 is not listed in b.barracudacentral.org (Query completed in 158.794 ms)
+✅ [Worker 5] - [35/2250] - [Elapsed: 0:00:04.793246] - [Remaining: 0:05:03.344250] - 37.123.97.217 is not listed in multi.surbl.org (Query completed in 77.726 ms)
+✅ [Worker 103] - [36/2250] - [Elapsed: 0:00:05.065154] - [Remaining: 0:05:11.507586] - 37.123.97.145 is not listed in b.barracudacentral.org (Query completed in 247.848 ms)
+✅ [Worker 64] - [37/2250] - [Elapsed: 0:00:05.173347] - [Remaining: 0:05:09.421660] - 37.123.97.41 is not listed in multi.surbl.org (Query completed in 78.261 ms)
+✅ [Worker 192] - [38/2250] - [Elapsed: 0:00:05.259587] - [Remaining: 0:05:06.162920] - 37.123.97.94 is not listed in zen.spamhaus.org (Query completed in 57.796 ms)
+✅ [Worker 153] - [39/2250] - [Elapsed: 0:00:05.477578] - [Remaining: 0:05:10.537161] - 37.123.97.4 is not listed in karma.junkemailfilter.com (Query completed in 193.894 ms)
+✅ [Worker 189] - [40/2250] - [Elapsed: 0:00:05.664186] - [Remaining: 0:05:12.947050] - 37.123.97.153 is not listed in b.barracudacentral.org (Query completed in 161.125 ms)
+✅ [Worker 158] - [41/2250] - [Elapsed: 0:00:05.751768] - [Remaining: 0:05:09.893983] - 37.123.97.220 is not listed in cbl.abuseat.org (Query completed in 63.679 ms)
+✅ [Worker 33] - [42/2250] - [Elapsed: 0:00:05.840419] - [Remaining: 0:05:07.040064] - 37.123.97.62 is not listed in bl.spamcop.net (Query completed in 62.455 ms)
+✅ [Worker 130] - [43/2250] - [Elapsed: 0:00:05.939559] - [Remaining: 0:05:04.850703] - 37.123.97.244 is not listed in bl.spamcop.net (Query completed in 70.976 ms)
+✅ [Worker 110] - [44/2250] - [Elapsed: 0:00:06.039023] - [Remaining: 0:05:02.775706] - 37.123.97.185 is not listed in drop.spamhaus.org (Query completed in 74.504 ms)
+✅ [Worker 20] - [45/2250] - [Elapsed: 0:00:06.134229] - [Remaining: 0:05:00.576780] - 37.123.97.9 is not listed in cbl.abuseat.org (Query completed in 61.417 ms)
+✅ [Worker 117] - [46/2250] - [Elapsed: 0:00:06.229394] - [Remaining: 0:04:58.470088] - 37.123.97.220 is not listed in edrop.spamhaus.org (Query completed in 70.910 ms)
+✅ [Worker 171] - [47/2250] - [Elapsed: 0:00:06.316124] - [Remaining: 0:04:56.052358] - 37.123.97.116 is not listed in cbl.abuseat.org (Query completed in 62.156 ms)
+✅ [Worker 67] - [48/2250] - [Elapsed: 0:00:06.505656] - [Remaining: 0:04:58.445868] - 37.123.97.228 is not listed in dnsbl.sorbs.net (Query completed in 163.376 ms)
+✅ [Worker 70] - [49/2250] - [Elapsed: 0:00:06.597023] - [Remaining: 0:04:56.327233] - 37.123.97.59 is not listed in cbl.abuseat.org (Query completed in 65.211 ms)
+✅ [Worker 92] - [50/2250] - [Elapsed: 0:00:06.676644] - [Remaining: 0:04:53.772600] - 37.123.97.22 is not listed in zen.spamhaus.org (Query completed in 53.576 ms)
+✅ [Worker 155] - [51/2250] - [Elapsed: 0:00:06.779056] - [Remaining: 0:04:52.297677] - 37.123.97.9 is not listed in edrop.spamhaus.org (Query completed in 76.895 ms)
+✅ [Worker 62] - [52/2250] - [Elapsed: 0:00:06.967969] - [Remaining: 0:04:54.529802] - 37.123.97.26 is not listed in b.barracudacentral.org (Query completed in 163.819 ms)
+✅ [Worker 27] - [53/2250] - [Elapsed: 0:00:07.154928] - [Remaining: 0:04:56.592803] - 37.123.97.6 is not listed in b.barracudacentral.org (Query completed in 162.249 ms)
+✅ [Worker 94] - [54/2250] - [Elapsed: 0:00:07.250696] - [Remaining: 0:04:54.861312] - 37.123.97.111 is not listed in zen.spamhaus.org (Query completed in 65.686 ms)
+✅ [Worker 34] - [55/2250] - [Elapsed: 0:00:07.343707] - [Remaining: 0:04:53.080790] - 37.123.97.123 is not listed in multi.surbl.org (Query completed in 67.522 ms)
+✅ [Worker 39] - [56/2250] - [Elapsed: 0:00:07.447579] - [Remaining: 0:04:51.784448] - 37.123.97.116 is not listed in edrop.spamhaus.org (Query completed in 78.740 ms)
+✅ [Worker 134] - [57/2250] - [Elapsed: 0:00:07.554506] - [Remaining: 0:04:50.649255] - 37.123.97.197 is not listed in multi.surbl.org (Query completed in 79.242 ms)
+✅ [Worker 146] - [58/2250] - [Elapsed: 0:00:07.742759] - [Remaining: 0:04:52.623232] - 37.123.97.42 is not listed in dnsbl.sorbs.net (Query completed in 162.210 ms)
+✅ [Worker 52] - [59/2250] - [Elapsed: 0:00:07.829349] - [Remaining: 0:04:50.747891] - 37.123.97.66 is not listed in multi.surbl.org (Query completed in 62.363 ms)
+✅ [Worker 23] - [60/2250] - [Elapsed: 0:00:07.914213] - [Remaining: 0:04:48.869760] - 37.123.97.6 is not listed in bl.spamcop.net (Query completed in 59.784 ms)
+✅ [Worker 31] - [61/2250] - [Elapsed: 0:00:08.007262] - [Remaining: 0:04:47.343463] - 37.123.97.59 is not listed in edrop.spamhaus.org (Query completed in 69.896 ms)
+✅ [Worker 164] - [62/2250] - [Elapsed: 0:00:08.227049] - [Remaining: 0:04:50.334472] - 37.123.97.25 is not listed in karma.junkemailfilter.com (Query completed in 195.230 ms)
+✅ [Worker 169] - [63/2250] - [Elapsed: 0:00:08.423141] - [Remaining: 0:04:52.404087] - 37.123.97.97 is not listed in multi.surbl.org (Query completed in 170.758 ms)
+✅ [Worker 74] - [64/2250] - [Elapsed: 0:00:08.540148] - [Remaining: 0:04:51.699840] - 37.123.97.212 is not listed in bl.spamcop.net (Query completed in 91.285 ms)
+✅ [Worker 191] - [65/2250] - [Elapsed: 0:00:08.630696] - [Remaining: 0:04:50.124300] - 37.123.97.172 is not listed in zen.spamhaus.org (Query completed in 63.400 ms)
+✅ [Worker 186] - [66/2250] - [Elapsed: 0:00:08.742319] - [Remaining: 0:04:49.290456] - 37.123.97.58 is not listed in multi.surbl.org (Query completed in 87.049 ms)
+✅ [Worker 61] - [67/2250] - [Elapsed: 0:00:08.961066] - [Remaining: 0:04:51.969701] - 37.123.97.2 is not listed in karma.junkemailfilter.com (Query completed in 195.567 ms)
+✅ [Worker 38] - [68/2250] - [Elapsed: 0:00:09.068039] - [Remaining: 0:04:50.978428] - 37.123.97.191 is not listed in multi.surbl.org (Query completed in 79.804 ms)
+✅ [Worker 68] - [69/2250] - [Elapsed: 0:00:09.144209] - [Remaining: 0:04:49.037025] - 37.123.97.33 is not listed in zen.spamhaus.org (Query completed in 49.722 ms)
+✅ [Worker 80] - [70/2250] - [Elapsed: 0:00:09.238570] - [Remaining: 0:04:47.716400] - 37.123.97.88 is not listed in cbl.abuseat.org (Query completed in 64.039 ms)
+✅ [Worker 160] - [71/2250] - [Elapsed: 0:00:09.377057] - [Remaining: 0:04:47.782709] - 37.123.97.179 is not listed in multi.surbl.org (Query completed in 116.502 ms)
+✅ [Worker 40] - [72/2250] - [Elapsed: 0:00:09.599611] - [Remaining: 0:04:50.388384] - 37.123.97.165 is not listed in karma.junkemailfilter.com (Query completed in 198.666 ms)
+✅ [Worker 187] - [73/2250] - [Elapsed: 0:00:09.695053] - [Remaining: 0:04:49.125193] - 37.123.97.159 is not listed in zen.spamhaus.org (Query completed in 66.508 ms)
+✅ [Worker 100] - [74/2250] - [Elapsed: 0:00:09.783754] - [Remaining: 0:04:47.695488] - 37.123.97.115 is not listed in cbl.abuseat.org (Query completed in 53.912 ms)
+✅ [Worker 19] - [75/2250] - [Elapsed: 0:00:09.976936] - [Remaining: 0:04:49.331550] - 37.123.97.46 is not listed in b.barracudacentral.org (Query completed in 165.975 ms)
+✅ [Worker 72] - [76/2250] - [Elapsed: 0:00:10.182973] - [Remaining: 0:04:51.285564] - 37.123.97.31 is not listed in dnsbl.sorbs.net (Query completed in 179.277 ms)
+✅ [Worker 132] - [77/2250] - [Elapsed: 0:00:10.273066] - [Remaining: 0:04:49.912968] - 37.123.97.88 is not listed in edrop.spamhaus.org (Query completed in 64.410 ms)
+✅ [Worker 97] - [78/2250] - [Elapsed: 0:00:10.460442] - [Remaining: 0:04:51.282576] - 37.123.97.181 is not listed in dnsbl.sorbs.net (Query completed in 163.141 ms)
+✅ [Worker 120] - [79/2250] - [Elapsed: 0:00:10.546004] - [Remaining: 0:04:49.815474] - 37.123.97.124 is not listed in cbl.abuseat.org (Query completed in 56.502 ms)
+✅ [Worker 108] - [80/2250] - [Elapsed: 0:00:10.768686] - [Remaining: 0:04:52.101530] - 37.123.97.219 is not listed in b.barracudacentral.org (Query completed in 196.525 ms)
+✅ [Worker 8] - [81/2250] - [Elapsed: 0:00:10.969546] - [Remaining: 0:04:53.738994] - 37.123.97.164 is not listed in multi.surbl.org (Query completed in 168.978 ms)
+✅ [Worker 42] - [82/2250] - [Elapsed: 0:00:11.278434] - [Remaining: 0:04:58.191056] - 37.123.97.106 is not listed in cbl.abuseat.org (Query completed in 284.498 ms)
+✅ [Worker 144] - [83/2250] - [Elapsed: 0:00:11.498533] - [Remaining: 0:05:00.209679] - 37.123.97.92 is not listed in karma.junkemailfilter.com (Query completed in 194.535 ms)
+✅ [Worker 53] - [84/2250] - [Elapsed: 0:00:11.598132] - [Remaining: 0:04:59.066118] - 37.123.97.115 is not listed in edrop.spamhaus.org (Query completed in 73.279 ms)
+✅ [Worker 172] - [85/2250] - [Elapsed: 0:00:11.826402] - [Remaining: 0:05:01.225110] - 37.123.97.127 is not listed in karma.junkemailfilter.com (Query completed in 193.599 ms)
+✅ [Worker 195] - [86/2250] - [Elapsed: 0:00:12.045258] - [Remaining: 0:05:03.092004] - 37.123.97.229 is not listed in karma.junkemailfilter.com (Query completed in 193.973 ms)
+✅ [Worker 190] - [87/2250] - [Elapsed: 0:00:12.265117] - [Remaining: 0:05:04.935414] - 37.123.97.65 is not listed in karma.junkemailfilter.com (Query completed in 194.595 ms)
+✅ [Worker 116] - [88/2250] - [Elapsed: 0:00:12.362767] - [Remaining: 0:05:03.730732] - 37.123.97.124 is not listed in edrop.spamhaus.org (Query completed in 75.143 ms)
+✅ [Worker 21] - [89/2250] - [Elapsed: 0:00:12.450301] - [Remaining: 0:05:02.304451] - 37.123.97.132 is not listed in bl.spamcop.net (Query completed in 62.830 ms)
+✅ [Worker 84] - [90/2250] - [Elapsed: 0:00:12.672251] - [Remaining: 0:05:04.134480] - 37.123.97.203 is not listed in karma.junkemailfilter.com (Query completed in 196.203 ms)
+✅ [Worker 136] - [91/2250] - [Elapsed: 0:00:12.768099] - [Remaining: 0:05:02.927131] - 37.123.97.121 is not listed in multi.surbl.org (Query completed in 65.605 ms)
+✅ [Worker 78] - [92/2250] - [Elapsed: 0:00:12.945369] - [Remaining: 0:05:03.654338] - 37.123.97.158 is not listed in edrop.spamhaus.org (Query completed in 153.395 ms)
+✅ [Worker 90] - [93/2250] - [Elapsed: 0:00:13.130180] - [Remaining: 0:05:04.536045] - 37.123.97.34 is not listed in dnsbl.sorbs.net (Query completed in 159.930 ms)
+✅ [Worker 69] - [94/2250] - [Elapsed: 0:00:13.334832] - [Remaining: 0:05:05.850160] - 37.123.97.201 is not listed in b.barracudacentral.org (Query completed in 178.965 ms)
+✅ [Worker 77] - [95/2250] - [Elapsed: 0:00:13.551963] - [Remaining: 0:05:07.415060] - 37.123.97.235 is not listed in karma.junkemailfilter.com (Query completed in 193.678 ms)
+✅ [Worker 32] - [96/2250] - [Elapsed: 0:00:13.768027] - [Remaining: 0:05:08.920218] - 37.123.97.28 is not listed in dnsbl.sorbs.net (Query completed in 192.746 ms)
+✅ [Worker 81] - [97/2250] - [Elapsed: 0:00:13.852970] - [Remaining: 0:05:07.478542] - 37.123.97.54 is not listed in cbl.abuseat.org (Query completed in 58.909 ms)
+✅ [Worker 119] - [98/2250] - [Elapsed: 0:00:14.080499] - [Remaining: 0:05:09.197208] - 37.123.97.82 is not listed in dnsbl.sorbs.net (Query completed in 204.724 ms)
+✅ [Worker 44] - [99/2250] - [Elapsed: 0:00:14.172050] - [Remaining: 0:05:07.919952] - 37.123.97.155 is not listed in drop.spamhaus.org (Query completed in 68.299 ms)
+✅ [Worker 184] - [100/2250] - [Elapsed: 0:00:14.385249] - [Remaining: 0:05:09.281800] - 37.123.97.254 is not listed in karma.junkemailfilter.com (Query completed in 190.535 ms)
+✅ [Worker 147] - [101/2250] - [Elapsed: 0:00:14.472948] - [Remaining: 0:05:07.945253] - 37.123.97.18 is not listed in multi.surbl.org (Query completed in 62.773 ms)
+✅ [Worker 126] - [102/2250] - [Elapsed: 0:00:14.655484] - [Remaining: 0:05:08.626788] - 37.123.97.48 is not listed in multi.surbl.org (Query completed in 157.995 ms)
+✅ [Worker 177] - [103/2250] - [Elapsed: 0:00:14.743176] - [Remaining: 0:05:07.317286] - 37.123.97.70 is not listed in multi.surbl.org (Query completed in 64.457 ms)
+✅ [Worker 54] - [104/2250] - [Elapsed: 0:00:14.940128] - [Remaining: 0:05:08.283630] - 37.123.97.68 is not listed in b.barracudacentral.org (Query completed in 174.776 ms)
+✅ [Worker 96] - [105/2250] - [Elapsed: 0:00:15.048146] - [Remaining: 0:05:07.412820] - 37.123.97.89 is not listed in drop.spamhaus.org (Query completed in 84.493 ms)
+✅ [Worker 47] - [106/2250] - [Elapsed: 0:00:15.233910] - [Remaining: 0:05:08.127104] - 37.123.97.98 is not listed in dnsbl.sorbs.net (Query completed in 162.482 ms)
+✅ [Worker 14] - [107/2250] - [Elapsed: 0:00:15.334632] - [Remaining: 0:05:07.121902] - 37.123.97.3 is not listed in drop.spamhaus.org (Query completed in 74.717 ms)
+✅ [Worker 76] - [108/2250] - [Elapsed: 0:00:15.416610] - [Remaining: 0:05:05.761932] - 37.123.97.218 is not listed in zen.spamhaus.org (Query completed in 57.234 ms)
+✅ [Worker 133] - [109/2250] - [Elapsed: 0:00:15.591268] - [Remaining: 0:05:06.246499] - 37.123.97.154 is not listed in b.barracudacentral.org (Query completed in 151.739 ms)
+✅ [Worker 111] - [110/2250] - [Elapsed: 0:00:15.676919] - [Remaining: 0:05:04.986380] - 37.123.97.232 is not listed in zen.spamhaus.org (Query completed in 59.117 ms)
+✅ [Worker 112] - [111/2250] - [Elapsed: 0:00:15.903802] - [Remaining: 0:05:06.469503] - 37.123.97.238 is not listed in karma.junkemailfilter.com (Query completed in 197.443 ms)
+✅ [Worker 73] - [112/2250] - [Elapsed: 0:00:16.087753] - [Remaining: 0:05:07.104458] - 37.123.97.63 is not listed in dnsbl.sorbs.net (Query completed in 159.906 ms)
+✅ [Worker 7] - [113/2250] - [Elapsed: 0:00:16.188680] - [Remaining: 0:05:06.153031] - 37.123.97.246 is not listed in drop.spamhaus.org (Query completed in 75.436 ms)
+✅ [Worker 26] - [114/2250] - [Elapsed: 0:00:16.297131] - [Remaining: 0:05:05.356152] - 37.123.97.154 is not listed in bl.spamcop.net (Query completed in 84.817 ms)
+✅ [Worker 140] - [115/2250] - [Elapsed: 0:00:16.384984] - [Remaining: 0:05:04.190530] - 37.123.97.197 is not listed in cbl.abuseat.org (Query completed in 59.300 ms)
+✅ [Worker 89] - [116/2250] - [Elapsed: 0:00:16.474566] - [Remaining: 0:05:03.074948] - 37.123.97.234 is not listed in drop.spamhaus.org (Query completed in 65.292 ms)
+✅ [Worker 41] - [117/2250] - [Elapsed: 0:00:16.574222] - [Remaining: 0:05:02.160780] - 37.123.97.196 is not listed in drop.spamhaus.org (Query completed in 75.160 ms)
+✅ [Worker 188] - [118/2250] - [Elapsed: 0:00:16.663426] - [Remaining: 0:05:01.070380] - 37.123.97.197 is not listed in edrop.spamhaus.org (Query completed in 64.009 ms)
+✅ [Worker 162] - [119/2250] - [Elapsed: 0:00:16.756334] - [Remaining: 0:05:00.066110] - 37.123.97.97 is not listed in cbl.abuseat.org (Query completed in 68.918 ms)
+✅ [Worker 178] - [120/2250] - [Elapsed: 0:00:16.950139] - [Remaining: 0:05:00.864630] - 37.123.97.73 is not listed in dnsbl.sorbs.net (Query completed in 169.388 ms)
+✅ [Worker 145] - [121/2250] - [Elapsed: 0:00:17.039669] - [Remaining: 0:04:59.814296] - 37.123.97.140 is not listed in multi.surbl.org (Query completed in 65.003 ms)
+✅ [Worker 99] - [122/2250] - [Elapsed: 0:00:17.138226] - [Remaining: 0:04:58.935056] - 37.123.97.11 is not listed in edrop.spamhaus.org (Query completed in 72.294 ms)
+✅ [Worker 37] - [123/2250] - [Elapsed: 0:00:17.358453] - [Remaining: 0:05:00.175002] - 37.123.97.129 is not listed in dnsbl.sorbs.net (Query completed in 194.290 ms)
+✅ [Worker 148] - [124/2250] - [Elapsed: 0:00:17.558898] - [Remaining: 0:05:01.050104] - 37.123.97.206 is not listed in dnsbl.sorbs.net (Query completed in 172.363 ms)
+✅ [Worker 115] - [125/2250] - [Elapsed: 0:00:17.665207] - [Remaining: 0:05:00.309250] - 37.123.97.97 is not listed in edrop.spamhaus.org (Query completed in 72.111 ms)
+✅ [Worker 46] - [126/2250] - [Elapsed: 0:00:17.880948] - [Remaining: 0:05:01.421088] - 37.123.97.216 is not listed in karma.junkemailfilter.com (Query completed in 192.738 ms)
+✅ [Worker 165] - [127/2250] - [Elapsed: 0:00:18.101551] - [Remaining: 0:05:02.595436] - 37.123.97.208 is not listed in karma.junkemailfilter.com (Query completed in 195.152 ms)
+✅ [Worker 154] - [128/2250] - [Elapsed: 0:00:18.194123] - [Remaining: 0:05:01.625324] - 37.123.97.130 is not listed in zen.spamhaus.org (Query completed in 65.079 ms)
+ℹ️ [Worker 24] - [129/2250] - [Elapsed: 0:00:18.554858] - [Remaining: 0:05:05.076156] - 37.123.97.163 is listed in b.barracudacentral.org (127.0.0.2: "http://www.barracudanetworks.com/reputation/?pr=1&ip=37.123.97.163" (334.717 ms))
+✅ [Worker 15] - [130/2250] - [Elapsed: 0:00:18.652504] - [Remaining: 0:05:04.179720] - 37.123.97.94 is not listed in drop.spamhaus.org (Query completed in 71.683 ms)
+✅ [Worker 28] - [131/2250] - [Elapsed: 0:00:18.743392] - [Remaining: 0:05:03.184401] - 37.123.97.179 is not listed in cbl.abuseat.org (Query completed in 65.332 ms)
+✅ [Worker 29] - [132/2250] - [Elapsed: 0:00:18.940763] - [Remaining: 0:05:03.913938] - 37.123.97.221 is not listed in dnsbl.sorbs.net (Query completed in 173.938 ms)
+✅ [Worker 58] - [133/2250] - [Elapsed: 0:00:19.056282] - [Remaining: 0:05:03.323760] - 37.123.97.99 is not listed in cbl.abuseat.org (Query completed in 89.689 ms)
+✅ [Worker 57] - [134/2250] - [Elapsed: 0:00:19.159624] - [Remaining: 0:05:02.549912] - 37.123.97.163 is not listed in bl.spamcop.net (Query completed in 70.117 ms)
+✅ [Worker 125] - [135/2250] - [Elapsed: 0:00:19.332452] - [Remaining: 0:05:02.874345] - 37.123.97.245 is not listed in b.barracudacentral.org (Query completed in 148.459 ms)
+✅ [Worker 85] - [136/2250] - [Elapsed: 0:00:19.420859] - [Remaining: 0:05:01.879200] - 37.123.97.64 is not listed in zen.spamhaus.org (Query completed in 61.893 ms)
+✅ [Worker 50] - [137/2250] - [Elapsed: 0:00:19.519630] - [Remaining: 0:05:01.058127] - 37.123.97.179 is not listed in edrop.spamhaus.org (Query completed in 74.543 ms)
+✅ [Worker 168] - [138/2250] - [Elapsed: 0:00:19.699774] - [Remaining: 0:05:01.492224] - 37.123.97.223 is not listed in b.barracudacentral.org (Query completed in 155.660 ms)
+✅ [Worker 3] - [139/2250] - [Elapsed: 0:00:19.801121] - [Remaining: 0:05:00.720394] - 37.123.97.99 is not listed in edrop.spamhaus.org (Query completed in 76.785 ms)
+✅ [Worker 143] - [140/2250] - [Elapsed: 0:00:20.031586] - [Remaining: 0:05:01.905130] - 37.123.97.43 is not listed in dnsbl.sorbs.net (Query completed in 198.693 ms)
+✅ [Worker 98] - [141/2250] - [Elapsed: 0:00:20.125181] - [Remaining: 0:05:01.021788] - 37.123.97.237 is not listed in edrop.spamhaus.org (Query completed in 70.038 ms)
+✅ [Worker 161] - [142/2250] - [Elapsed: 0:00:20.213415] - [Remaining: 0:05:00.069584] - 37.123.97.227 is not listed in cbl.abuseat.org (Query completed in 63.848 ms)
+✅ [Worker 48] - [143/2250] - [Elapsed: 0:00:20.336041] - [Remaining: 0:04:59.636470] - 37.123.97.5 is not listed in zen.spamhaus.org (Query completed in 97.643 ms)
+✅ [Worker 101] - [144/2250] - [Elapsed: 0:00:20.414907] - [Remaining: 0:04:58.567620] - 37.123.97.199 is not listed in cbl.abuseat.org (Query completed in 53.397 ms)
+✅ [Worker 173] - [145/2250] - [Elapsed: 0:00:20.605934] - [Remaining: 0:04:59.141550] - 37.123.97.128 is not listed in multi.surbl.org (Query completed in 161.841 ms)
+✅ [Worker 139] - [146/2250] - [Elapsed: 0:00:20.688986] - [Remaining: 0:04:58.147320] - 37.123.97.121 is not listed in cbl.abuseat.org (Query completed in 59.036 ms)
+✅ [Worker 194] - [147/2250] - [Elapsed: 0:00:20.776505] - [Remaining: 0:04:57.231711] - 37.123.97.180 is not listed in cbl.abuseat.org (Query completed in 61.603 ms)
+✅ [Worker 135] - [148/2250] - [Elapsed: 0:00:20.994467] - [Remaining: 0:04:58.179210] - 37.123.97.170 is not listed in karma.junkemailfilter.com (Query completed in 194.487 ms)
+✅ [Worker 114] - [149/2250] - [Elapsed: 0:00:21.091863] - [Remaining: 0:04:57.409156] - 37.123.97.227 is not listed in edrop.spamhaus.org (Query completed in 73.997 ms)
+✅ [Worker 196] - [150/2250] - [Elapsed: 0:00:21.313374] - [Remaining: 0:04:58.386900] - 37.123.97.149 is not listed in karma.junkemailfilter.com (Query completed in 197.828 ms)
+✅ [Worker 11] - [151/2250] - [Elapsed: 0:00:21.400509] - [Remaining: 0:04:57.480775] - 37.123.97.60 is not listed in cbl.abuseat.org (Query completed in 63.478 ms)
+✅ [Worker 131] - [152/2250] - [Elapsed: 0:00:21.667385] - [Remaining: 0:04:59.067802] - 37.123.97.111 is not listed in drop.spamhaus.org (Query completed in 242.872 ms)
+✅ [Worker 199] - [153/2250] - [Elapsed: 0:00:21.760334] - [Remaining: 0:04:58.243728] - 37.123.97.199 is not listed in edrop.spamhaus.org (Query completed in 69.613 ms)
+✅ [Worker 83] - [154/2250] - [Elapsed: 0:00:21.857029] - [Remaining: 0:04:57.483184] - 37.123.97.121 is not listed in edrop.spamhaus.org (Query completed in 69.751 ms)
+✅ [Worker 167] - [155/2250] - [Elapsed: 0:00:22.039646] - [Remaining: 0:04:57.890145] - 37.123.97.180 is not listed in edrop.spamhaus.org (Query completed in 158.830 ms)
+✅ [Worker 86] - [156/2250] - [Elapsed: 0:00:22.159157] - [Remaining: 0:04:57.444324] - 37.123.97.194 is not listed in zen.spamhaus.org (Query completed in 95.280 ms)
+✅ [Worker 60] - [157/2250] - [Elapsed: 0:00:22.267979] - [Remaining: 0:04:56.858562] - 37.123.97.103 is not listed in zen.spamhaus.org (Query completed in 85.481 ms)
+✅ [Worker 175] - [158/2250] - [Elapsed: 0:00:22.353930] - [Remaining: 0:04:55.978252] - 37.123.97.67 is not listed in drop.spamhaus.org (Query completed in 61.705 ms)
+✅ [Worker 179] - [159/2250] - [Elapsed: 0:00:22.448850] - [Remaining: 0:04:55.224108] - 37.123.97.60 is not listed in edrop.spamhaus.org (Query completed in 71.353 ms)
+✅ [Worker 185] - [160/2250] - [Elapsed: 0:00:22.680677] - [Remaining: 0:04:56.265860] - 37.123.97.79 is not listed in dnsbl.sorbs.net (Query completed in 208.853 ms)
+✅ [Worker 55] - [161/2250] - [Elapsed: 0:00:22.876351] - [Remaining: 0:04:56.823921] - 37.123.97.57 is not listed in b.barracudacentral.org (Query completed in 171.229 ms)
+✅ [Worker 123] - [162/2250] - [Elapsed: 0:00:23.094473] - [Remaining: 0:04:57.661104] - 37.123.97.49 is not listed in karma.junkemailfilter.com (Query completed in 195.102 ms)
+✅ [Worker 63] - [163/2250] - [Elapsed: 0:00:23.188699] - [Remaining: 0:04:56.900794] - 37.123.97.30 is not listed in multi.surbl.org (Query completed in 65.249 ms)
+✅ [Worker 180] - [164/2250] - [Elapsed: 0:00:23.377396] - [Remaining: 0:04:57.348870] - 37.123.97.102 is not listed in dnsbl.sorbs.net (Query completed in 162.698 ms)
+✅ [Worker 45] - [165/2250] - [Elapsed: 0:00:23.476725] - [Remaining: 0:04:56.660055] - 37.123.97.172 is not listed in drop.spamhaus.org (Query completed in 76.882 ms)
+✅ [Worker 18] - [166/2250] - [Elapsed: 0:00:23.568771] - [Remaining: 0:04:55.888404] - 37.123.97.146 is not listed in bl.spamcop.net (Query completed in 68.501 ms)
+✅ [Worker 121] - [167/2250] - [Elapsed: 0:00:23.659105] - [Remaining: 0:04:55.100693] - 37.123.97.226 is not listed in multi.surbl.org (Query completed in 64.543 ms)
+✅ [Worker 106] - [168/2250] - [Elapsed: 0:00:23.749016] - [Remaining: 0:04:54.317766] - 37.123.97.76 is not listed in bl.spamcop.net (Query completed in 64.602 ms)
+✅ [Worker 59] - [169/2250] - [Elapsed: 0:00:23.843394] - [Remaining: 0:04:53.597885] - 37.123.97.101 is not listed in bl.spamcop.net (Query completed in 68.015 ms)
+✅ [Worker 17] - [170/2250] - [Elapsed: 0:00:23.926000] - [Remaining: 0:04:52.741280] - 37.123.97.96 is not listed in multi.surbl.org (Query completed in 58.852 ms)
+✅ [Worker 4] - [171/2250] - [Elapsed: 0:00:24.010177] - [Remaining: 0:04:51.912390] - 37.123.97.134 is not listed in cbl.abuseat.org (Query completed in 57.603 ms)
+✅ [Worker 127] - [172/2250] - [Elapsed: 0:00:24.096810] - [Remaining: 0:04:51.123644] - 37.123.97.228 is not listed in zen.spamhaus.org (Query completed in 56.111 ms)
+✅ [Worker 128] - [173/2250] - [Elapsed: 0:00:24.185375] - [Remaining: 0:04:50.364600] - 37.123.97.134 is not listed in edrop.spamhaus.org (Query completed in 65.892 ms)
+✅ [Worker 22] - [174/2250] - [Elapsed: 0:00:24.271432] - [Remaining: 0:04:49.583316] - 37.123.97.39 is not listed in zen.spamhaus.org (Query completed in 60.044 ms)
+✅ [Worker 182] - [175/2250] - [Elapsed: 0:00:24.355323] - [Remaining: 0:04:48.783975] - 37.123.97.183 is not listed in bl.spamcop.net (Query completed in 61.451 ms)
+✅ [Worker 79] - [176/2250] - [Elapsed: 0:00:24.571387] - [Remaining: 0:04:49.551140] - 37.123.97.118 is not listed in karma.junkemailfilter.com (Query completed in 192.810 ms)
+✅ [Worker 1] - [177/2250] - [Elapsed: 0:00:24.657532] - [Remaining: 0:04:48.785484] - 37.123.97.186 is not listed in multi.surbl.org (Query completed in 63.039 ms)
+✅ [Worker 35] - [178/2250] - [Elapsed: 0:00:24.743998] - [Remaining: 0:04:48.030792] - 37.123.97.7 is not listed in bl.spamcop.net (Query completed in 64.593 ms)
+✅ [Worker 166] - [179/2250] - [Elapsed: 0:00:24.838046] - [Remaining: 0:04:47.371960] - 37.123.97.119 is not listed in bl.spamcop.net (Query completed in 71.591 ms)
+✅ [Worker 102] - [180/2250] - [Elapsed: 0:00:25.059702] - [Remaining: 0:04:48.187470] - 37.123.97.42 is not listed in karma.junkemailfilter.com (Query completed in 195.721 ms)
+✅ [Worker 181] - [181/2250] - [Elapsed: 0:00:25.189778] - [Remaining: 0:04:47.942730] - 37.123.97.83 is not listed in multi.surbl.org (Query completed in 106.078 ms)
+✅ [Worker 71] - [182/2250] - [Elapsed: 0:00:25.373387] - [Remaining: 0:04:48.308152] - 37.123.97.233 is not listed in b.barracudacentral.org (Query completed in 158.131 ms)
+✅ [Worker 122] - [183/2250] - [Elapsed: 0:00:25.480400] - [Remaining: 0:04:47.802879] - 37.123.97.27 is not listed in zen.spamhaus.org (Query completed in 81.646 ms)
+✅ [Worker 104] - [184/2250] - [Elapsed: 0:00:25.566837] - [Remaining: 0:04:47.070700] - 37.123.97.80 is not listed in cbl.abuseat.org (Query completed in 58.458 ms)
+✅ [Worker 200] - [185/2250] - [Elapsed: 0:00:25.757541] - [Remaining: 0:04:47.509950] - 37.123.97.213 is not listed in b.barracudacentral.org (Query completed in 165.380 ms)
+✅ [Worker 10] - [186/2250] - [Elapsed: 0:00:25.977726] - [Remaining: 0:04:48.268560] - 37.123.97.37 is not listed in karma.junkemailfilter.com (Query completed in 197.991 ms)
+✅ [Worker 193] - [187/2250] - [Elapsed: 0:00:26.072920] - [Remaining: 0:04:47.637901] - 37.123.97.213 is not listed in bl.spamcop.net (Query completed in 71.206 ms)
+✅ [Worker 82] - [188/2250] - [Elapsed: 0:00:26.174633] - [Remaining: 0:04:47.086074] - 37.123.97.215 is not listed in cbl.abuseat.org (Query completed in 79.148 ms)
+✅ [Worker 91] - [189/2250] - [Elapsed: 0:00:26.257807] - [Remaining: 0:04:46.334730] - 37.123.97.80 is not listed in edrop.spamhaus.org (Query completed in 61.542 ms)
+✅ [Worker 109] - [190/2250] - [Elapsed: 0:00:26.347149] - [Remaining: 0:04:45.658140] - 37.123.97.51 is not listed in bl.spamcop.net (Query completed in 65.863 ms)
+✅ [Worker 9] - [191/2250] - [Elapsed: 0:00:26.423074] - [Remaining: 0:04:44.844119] - 37.123.97.140 is not listed in cbl.abuseat.org (Query completed in 53.838 ms)
+✅ [Worker 152] - [192/2250] - [Elapsed: 0:00:26.611845] - [Remaining: 0:04:45.244974] - 37.123.97.137 is not listed in b.barracudacentral.org (Query completed in 165.622 ms)
+✅ [Worker 51] - [193/2250] - [Elapsed: 0:00:26.704042] - [Remaining: 0:04:44.612691] - 37.123.97.31 is not listed in zen.spamhaus.org (Query completed in 64.187 ms)
+✅ [Worker 159] - [194/2250] - [Elapsed: 0:00:26.795843] - [Remaining: 0:04:43.980888] - 37.123.97.215 is not listed in edrop.spamhaus.org (Query completed in 68.416 ms)
+✅ [Worker 124] - [195/2250] - [Elapsed: 0:00:27.016606] - [Remaining: 0:04:44.714085] - 37.123.97.142 is not listed in karma.junkemailfilter.com (Query completed in 197.223 ms)
+✅ [Worker 129] - [196/2250] - [Elapsed: 0:00:27.109872] - [Remaining: 0:04:44.101064] - 37.123.97.181 is not listed in zen.spamhaus.org (Query completed in 69.535 ms)
+✅ [Worker 6] - [197/2250] - [Elapsed: 0:00:27.203551] - [Remaining: 0:04:43.496717] - 37.123.97.140 is not listed in edrop.spamhaus.org (Query completed in 69.763 ms)
+✅ [Worker 118] - [198/2250] - [Elapsed: 0:00:27.392352] - [Remaining: 0:04:43.883940] - 37.123.97.112 is not listed in b.barracudacentral.org (Query completed in 165.854 ms)
+✅ [Worker 105] - [199/2250] - [Elapsed: 0:00:27.476077] - [Remaining: 0:04:43.183621] - 37.123.97.110 is not listed in cbl.abuseat.org (Query completed in 59.936 ms)
+✅ [Worker 197] - [200/2250] - [Elapsed: 0:00:27.683242] - [Remaining: 0:04:43.752800] - 37.123.97.214 is not listed in b.barracudacentral.org (Query completed in 184.542 ms)
+✅ [Worker 30] - [201/2250] - [Elapsed: 0:00:27.988002] - [Remaining: 0:04:45.310956] - 37.123.97.112 is not listed in bl.spamcop.net (Query completed in 61.398 ms)
+✅ [Worker 157] - [202/2250] - [Elapsed: 0:00:28.080937] - [Remaining: 0:04:44.702720] - 37.123.97.198 is not listed in bl.spamcop.net (Query completed in 69.092 ms)
+✅ [Worker 107] - [203/2250] - [Elapsed: 0:00:28.255267] - [Remaining: 0:04:44.919883] - 37.123.97.1 is not listed in b.barracudacentral.org (Query completed in 150.820 ms)
+✅ [Worker 176] - [204/2250] - [Elapsed: 0:00:28.342995] - [Remaining: 0:04:44.263056] - 37.123.97.34 is not listed in zen.spamhaus.org (Query completed in 60.124 ms)
+✅ [Worker 151] - [205/2250] - [Elapsed: 0:00:28.430961] - [Remaining: 0:04:43.616960] - 37.123.97.110 is not listed in edrop.spamhaus.org (Query completed in 62.831 ms)
+✅ [Worker 141] - [206/2250] - [Elapsed: 0:00:28.709918] - [Remaining: 0:04:44.870236] - 37.123.97.212 is not listed in multi.surbl.org (Query completed in 257.038 ms)
+✅ [Worker 137] - [207/2250] - [Elapsed: 0:00:28.887068] - [Remaining: 0:04:45.102693] - 37.123.97.107 is not listed in b.barracudacentral.org (Query completed in 152.793 ms)
+✅ [Worker 138] - [208/2250] - [Elapsed: 0:00:28.984095] - [Remaining: 0:04:44.546574] - 37.123.97.218 is not listed in drop.spamhaus.org (Query completed in 69.208 ms)
+✅ [Worker 156] - [209/2250] - [Elapsed: 0:00:29.083959] - [Remaining: 0:04:44.021478] - 37.123.97.29 is not listed in drop.spamhaus.org (Query completed in 75.700 ms)
+✅ [Worker 150] - [210/2250] - [Elapsed: 0:00:29.301189] - [Remaining: 0:04:44.639160] - 37.123.97.13 is not listed in karma.junkemailfilter.com (Query completed in 194.577 ms)
+✅ [Worker 95] - [211/2250] - [Elapsed: 0:00:29.489736] - [Remaining: 0:04:44.974718] - 37.123.97.17 is not listed in dnsbl.sorbs.net (Query completed in 165.254 ms)
+✅ [Worker 174] - [212/2250] - [Elapsed: 0:00:29.715586] - [Remaining: 0:04:45.662384] - 37.123.97.20 is not listed in dnsbl.sorbs.net (Query completed in 199.534 ms)
+✅ [Worker 149] - [213/2250] - [Elapsed: 0:00:29.808153] - [Remaining: 0:04:45.065928] - 37.123.97.182 is not listed in bl.spamcop.net (Query completed in 67.710 ms)
+✅ [Worker 56] - [214/2250] - [Elapsed: 0:00:29.921528] - [Remaining: 0:04:44.673520] - 37.123.97.28 is not listed in zen.spamhaus.org (Query completed in 86.777 ms)
+✅ [Worker 25] - [215/2250] - [Elapsed: 0:00:30.005866] - [Remaining: 0:04:44.008670] - 37.123.97.82 is not listed in zen.spamhaus.org (Query completed in 59.219 ms)
+✅ [Worker 16] - [216/2250] - [Elapsed: 0:00:30.197826] - [Remaining: 0:04:44.363370] - 37.123.97.200 is not listed in dnsbl.sorbs.net (Query completed in 166.305 ms)
+✅ [Worker 163] - [217/2250] - [Elapsed: 0:00:30.372837] - [Remaining: 0:04:44.552911] - 37.123.97.139 is not listed in drop.spamhaus.org (Query completed in 151.305 ms)
+✅ [Worker 43] - [218/2250] - [Elapsed: 0:00:30.589598] - [Remaining: 0:04:45.128208] - 37.123.97.71 is not listed in karma.junkemailfilter.com (Query completed in 193.268 ms)
+✅ [Worker 75] - [219/2250] - [Elapsed: 0:00:30.774033] - [Remaining: 0:04:45.398151] - 37.123.97.55 is not listed in dnsbl.sorbs.net (Query completed in 160.707 ms)
+✅ [Worker 170] - [220/2250] - [Elapsed: 0:00:30.864026] - [Remaining: 0:04:44.790730] - 37.123.97.14 is not listed in bl.spamcop.net (Query completed in 65.604 ms)
+✅ [Worker 66] - [221/2250] - [Elapsed: 0:00:30.948132] - [Remaining: 0:04:44.135073] - 37.123.97.250 is not listed in multi.surbl.org (Query completed in 61.218 ms)
+✅ [Worker 12] - [222/2250] - [Elapsed: 0:00:31.033115] - [Remaining: 0:04:43.492092] - 37.123.97.130 is not listed in drop.spamhaus.org (Query completed in 62.747 ms)
+✅ [Worker 183] - [223/2250] - [Elapsed: 0:00:31.116773] - [Remaining: 0:04:42.841499] - 37.123.97.96 is not listed in cbl.abuseat.org (Query completed in 61.427 ms)
+✅ [Worker 87] - [224/2250] - [Elapsed: 0:00:31.191059] - [Remaining: 0:04:42.112396] - 37.123.97.98 is not listed in zen.spamhaus.org (Query completed in 51.766 ms)
+✅ [Worker 198] - [225/2250] - [Elapsed: 0:00:31.284428] - [Remaining: 0:04:41.560050] - 37.123.97.35 is not listed in bl.spamcop.net (Query completed in 72.324 ms)
+✅ [Worker 88] - [226/2250] - [Elapsed: 0:00:31.511714] - [Remaining: 0:04:42.210368] - 37.123.97.15 is not listed in dnsbl.sorbs.net (Query completed in 198.441 ms)
+✅ [Worker 65] - [227/2250] - [Elapsed: 0:00:31.730498] - [Remaining: 0:04:42.778986] - 37.123.97.24 is not listed in karma.junkemailfilter.com (Query completed in 193.946 ms)
+✅ [Worker 2] - [228/2250] - [Elapsed: 0:00:31.824299] - [Remaining: 0:04:42.230760] - 37.123.97.168 is not listed in bl.spamcop.net (Query completed in 70.851 ms)
+✅ [Worker 13] - [229/2250] - [Elapsed: 0:00:31.919709] - [Remaining: 0:04:41.701127] - 37.123.97.96 is not listed in edrop.spamhaus.org (Query completed in 68.479 ms)
+✅ [Worker 142] - [230/2250] - [Elapsed: 0:00:32.015133] - [Remaining: 0:04:41.175920] - 37.123.97.64 is not listed in drop.spamhaus.org (Query completed in 68.805 ms)
+✅ [Worker 36] - [231/2250] - [Elapsed: 0:00:32.200502] - [Remaining: 0:04:41.440524] - 37.123.97.85 is not listed in dnsbl.sorbs.net (Query completed in 159.613 ms)
+✅ [Worker 113] - [232/2250] - [Elapsed: 0:00:32.650810] - [Remaining: 0:04:44.005248] - 37.123.97.63 is not listed in karma.junkemailfilter.com (Query completed in 421.928 ms)
+✅ [Worker 49] - [233/2250] - [Elapsed: 0:00:32.836382] - [Remaining: 0:04:44.253793] - 37.123.97.91 is not listed in dnsbl.sorbs.net (Query completed in 163.245 ms)
+✅ [Worker 93] - [234/2250] - [Elapsed: 0:00:32.936948] - [Remaining: 0:04:43.764096] - 37.123.97.5 is not listed in drop.spamhaus.org (Query completed in 77.940 ms)
+✅ [Worker 5] - [235/2250] - [Elapsed: 0:00:33.130759] - [Remaining: 0:04:44.078730] - 37.123.97.243 is not listed in dnsbl.sorbs.net (Query completed in 171.013 ms)
+✅ [Worker 103] - [236/2250] - [Elapsed: 0:00:33.229907] - [Remaining: 0:04:43.581270] - 37.123.97.162 is not listed in drop.spamhaus.org (Query completed in 76.092 ms)
+✅ [Worker 64] - [237/2250] - [Elapsed: 0:00:33.449328] - [Remaining: 0:04:44.106768] - 37.123.97.72 is not listed in karma.junkemailfilter.com (Query completed in 195.783 ms)
+✅ [Worker 192] - [238/2250] - [Elapsed: 0:00:33.534949] - [Remaining: 0:04:43.496836] - 37.123.97.241 is not listed in cbl.abuseat.org (Query completed in 59.769 ms)
+✅ [Worker 153] - [239/2250] - [Elapsed: 0:00:33.754036] - [Remaining: 0:04:44.013530] - 37.123.97.177 is not listed in karma.junkemailfilter.com (Query completed in 194.502 ms)
+✅ [Worker 189] - [240/2250] - [Elapsed: 0:00:33.842093] - [Remaining: 0:04:43.428090] - 37.123.97.8 is not listed in bl.spamcop.net (Query completed in 62.899 ms)
+✅ [Worker 158] - [241/2250] - [Elapsed: 0:00:34.026308] - [Remaining: 0:04:43.646692] - 37.123.97.207 is not listed in b.barracudacentral.org (Query completed in 160.167 ms)
+✅ [Worker 33] - [242/2250] - [Elapsed: 0:00:34.134392] - [Remaining: 0:04:43.230408] - 37.123.97.73 is not listed in zen.spamhaus.org (Query completed in 84.265 ms)
+✅ [Worker 130] - [243/2250] - [Elapsed: 0:00:34.233248] - [Remaining: 0:04:42.742146] - 37.123.97.209 is not listed in drop.spamhaus.org (Query completed in 71.538 ms)
+✅ [Worker 110] - [244/2250] - [Elapsed: 0:00:34.415571] - [Remaining: 0:04:42.940282] - 37.123.97.109 is not listed in b.barracudacentral.org (Query completed in 159.307 ms)
+✅ [Worker 20] - [245/2250] - [Elapsed: 0:00:34.508311] - [Remaining: 0:04:42.404250] - 37.123.97.69 is not listed in bl.spamcop.net (Query completed in 70.269 ms)
+✅ [Worker 117] - [246/2250] - [Elapsed: 0:00:34.600877] - [Remaining: 0:04:41.870616] - 37.123.97.103 is not listed in drop.spamhaus.org (Query completed in 69.115 ms)
+✅ [Worker 171] - [247/2250] - [Elapsed: 0:00:34.702872] - [Remaining: 0:04:41.415491] - 37.123.97.206 is not listed in zen.spamhaus.org (Query completed in 78.359 ms)
+✅ [Worker 67] - [248/2250] - [Elapsed: 0:00:34.788922] - [Remaining: 0:04:40.836556] - 37.123.97.129 is not listed in zen.spamhaus.org (Query completed in 61.413 ms)
+✅ [Worker 70] - [249/2250] - [Elapsed: 0:00:34.980829] - [Remaining: 0:04:41.110485] - 37.123.97.113 is not listed in dnsbl.sorbs.net (Query completed in 166.571 ms)
+✅ [Worker 92] - [250/2250] - [Elapsed: 0:00:35.078912] - [Remaining: 0:04:40.632000] - 37.123.97.207 is not listed in bl.spamcop.net (Query completed in 74.311 ms)
+✅ [Worker 155] - [251/2250] - [Elapsed: 0:00:35.182964] - [Remaining: 0:04:40.201829] - 37.123.97.241 is not listed in edrop.spamhaus.org (Query completed in 75.754 ms)
+✅ [Worker 62] - [252/2250] - [Elapsed: 0:00:35.311593] - [Remaining: 0:04:39.969750] - 37.123.97.161 is not listed in multi.surbl.org (Query completed in 104.873 ms)
+ℹ️ [Worker 27] - [253/2250] - [Elapsed: 0:00:35.652133] - [Remaining: 0:04:41.413246] - 37.123.97.188 is listed in b.barracudacentral.org (127.0.0.2: "http://www.barracudanetworks.com/reputation/?pr=1&ip=37.123.97.188" (305.527 ms))
+✅ [Worker 34] - [254/2250] - [Elapsed: 0:00:35.761572] - [Remaining: 0:04:41.024824] - 37.123.97.136 is not listed in multi.surbl.org (Query completed in 86.437 ms)
+✅ [Worker 94] - [255/2250] - [Elapsed: 0:00:35.909362] - [Remaining: 0:04:40.937895] - 37.123.97.221 is not listed in zen.spamhaus.org (Query completed in 88.751 ms)
+✅ [Worker 39] - [256/2250] - [Elapsed: 0:00:36.014998] - [Remaining: 0:04:40.523896] - 37.123.97.46 is not listed in edrop.spamhaus.org (Query completed in 81.240 ms)
+✅ [Worker 134] - [257/2250] - [Elapsed: 0:00:36.228285] - [Remaining: 0:04:40.945238] - 37.123.97.156 is not listed in dnsbl.sorbs.net (Query completed in 187.600 ms)
+✅ [Worker 146] - [258/2250] - [Elapsed: 0:00:36.453610] - [Remaining: 0:04:41.455656] - 37.123.97.84 is not listed in karma.junkemailfilter.com (Query completed in 194.819 ms)
+✅ [Worker 52] - [259/2250] - [Elapsed: 0:00:36.537569] - [Remaining: 0:04:40.874352] - 37.123.97.138 is not listed in multi.surbl.org (Query completed in 60.899 ms)
+✅ [Worker 23] - [260/2250] - [Elapsed: 0:00:36.623364] - [Remaining: 0:04:40.309410] - 37.123.97.225 is not listed in multi.surbl.org (Query completed in 64.529 ms)
+✅ [Worker 31] - [261/2250] - [Elapsed: 0:00:36.780967] - [Remaining: 0:04:40.295847] - 37.123.97.43 is not listed in zen.spamhaus.org (Query completed in 83.855 ms)
+✅ [Worker 164] - [262/2250] - [Elapsed: 0:00:36.877665] - [Remaining: 0:04:39.818952] - 37.123.97.56 is not listed in multi.surbl.org (Query completed in 69.992 ms)
+✅ [Worker 169] - [263/2250] - [Elapsed: 0:00:36.962990] - [Remaining: 0:04:39.260928] - 37.123.97.176 is not listed in bl.spamcop.net (Query completed in 62.260 ms)
+✅ [Worker 74] - [264/2250] - [Elapsed: 0:00:37.151537] - [Remaining: 0:04:39.481836] - 37.123.97.21 is not listed in b.barracudacentral.org (Query completed in 166.833 ms)
+✅ [Worker 191] - [265/2250] - [Elapsed: 0:00:37.335528] - [Remaining: 0:04:39.664665] - 37.123.97.125 is not listed in dnsbl.sorbs.net (Query completed in 160.375 ms)
+✅ [Worker 186] - [266/2250] - [Elapsed: 0:00:37.492964] - [Remaining: 0:04:39.646784] - 37.123.97.39 is not listed in drop.spamhaus.org (Query completed in 134.938 ms)
+✅ [Worker 61] - [267/2250] - [Elapsed: 0:00:37.699281] - [Remaining: 0:04:39.991668] - 37.123.97.93 is not listed in b.barracudacentral.org (Query completed in 176.309 ms)
+✅ [Worker 38] - [268/2250] - [Elapsed: 0:00:37.862159] - [Remaining: 0:04:40.011014] - 37.123.97.93 is not listed in bl.spamcop.net (Query completed in 140.307 ms)
+✅ [Worker 68] - [269/2250] - [Elapsed: 0:00:38.079319] - [Remaining: 0:04:40.428379] - 37.123.97.175 is not listed in dnsbl.sorbs.net (Query completed in 190.585 ms)
+✅ [Worker 80] - [270/2250] - [Elapsed: 0:00:38.290250] - [Remaining: 0:04:40.795680] - 37.123.97.16 is not listed in dnsbl.sorbs.net (Query completed in 187.301 ms)
+✅ [Worker 160] - [271/2250] - [Elapsed: 0:00:38.464987] - [Remaining: 0:04:40.893323] - 37.123.97.32 is not listed in b.barracudacentral.org (Query completed in 151.343 ms)
+✅ [Worker 40] - [272/2250] - [Elapsed: 0:00:38.562781] - [Remaining: 0:04:40.430950] - 37.123.97.27 is not listed in drop.spamhaus.org (Query completed in 75.477 ms)
+✅ [Worker 187] - [273/2250] - [Elapsed: 0:00:38.645072] - [Remaining: 0:04:39.858189] - 37.123.97.79 is not listed in zen.spamhaus.org (Query completed in 58.859 ms)
+✅ [Worker 100] - [274/2250] - [Elapsed: 0:00:38.862747] - [Remaining: 0:04:40.265960] - 37.123.97.117 is not listed in karma.junkemailfilter.com (Query completed in 192.896 ms)
+✅ [Worker 19] - [275/2250] - [Elapsed: 0:00:39.081609] - [Remaining: 0:04:40.677125] - 37.123.97.44 is not listed in karma.junkemailfilter.com (Query completed in 194.698 ms)
+✅ [Worker 72] - [276/2250] - [Elapsed: 0:00:39.166133] - [Remaining: 0:04:40.122444] - 37.123.97.148 is not listed in cbl.abuseat.org (Query completed in 56.420 ms)
+✅ [Worker 132] - [277/2250] - [Elapsed: 0:00:39.379836] - [Remaining: 0:04:40.491545] - 37.123.97.158 is not listed in dnsbl.sorbs.net (Query completed in 182.530 ms)
+✅ [Worker 97] - [278/2250] - [Elapsed: 0:00:39.469043] - [Remaining: 0:04:39.974700] - 37.123.97.102 is not listed in zen.spamhaus.org (Query completed in 60.703 ms)
+✅ [Worker 120] - [279/2250] - [Elapsed: 0:00:39.567855] - [Remaining: 0:04:39.527220] - 37.123.97.100 is not listed in cbl.abuseat.org (Query completed in 69.529 ms)
+✅ [Worker 108] - [280/2250] - [Elapsed: 0:00:39.749725] - [Remaining: 0:04:39.667110] - 37.123.97.78 is not listed in b.barracudacentral.org (Query completed in 156.689 ms)
+✅ [Worker 8] - [281/2250] - [Elapsed: 0:00:39.853344] - [Remaining: 0:04:39.257363] - 37.123.97.148 is not listed in edrop.spamhaus.org (Query completed in 77.381 ms)
+✅ [Worker 42] - [282/2250] - [Elapsed: 0:00:39.943326] - [Remaining: 0:04:38.753424] - 37.123.97.78 is not listed in bl.spamcop.net (Query completed in 66.872 ms)
+✅ [Worker 144] - [283/2250] - [Elapsed: 0:00:40.042771] - [Remaining: 0:04:38.318698] - 37.123.97.100 is not listed in edrop.spamhaus.org (Query completed in 74.288 ms)
+✅ [Worker 53] - [284/2250] - [Elapsed: 0:00:40.214228] - [Remaining: 0:04:38.383634] - 37.123.97.52 is not listed in multi.surbl.org (Query completed in 146.308 ms)
+✅ [Worker 172] - [285/2250] - [Elapsed: 0:00:40.327917] - [Remaining: 0:04:38.049465] - 37.123.97.31 is not listed in drop.spamhaus.org (Query completed in 87.242 ms)
+✅ [Worker 195] - [286/2250] - [Elapsed: 0:00:40.423026] - [Remaining: 0:04:37.589796] - 37.123.97.77 is not listed in drop.spamhaus.org (Query completed in 68.548 ms)
+✅ [Worker 190] - [287/2250] - [Elapsed: 0:00:40.610246] - [Remaining: 0:04:37.762537] - 37.123.97.108 is not listed in dnsbl.sorbs.net (Query completed in 162.169 ms)
+✅ [Worker 116] - [288/2250] - [Elapsed: 0:00:40.717272] - [Remaining: 0:04:37.385598] - 37.123.97.152 is not listed in multi.surbl.org (Query completed in 84.107 ms)
+✅ [Worker 21] - [289/2250] - [Elapsed: 0:00:40.813578] - [Remaining: 0:04:36.938303] - 37.123.97.34 is not listed in drop.spamhaus.org (Query completed in 72.551 ms)
+✅ [Worker 84] - [290/2250] - [Elapsed: 0:00:41.004459] - [Remaining: 0:04:37.134200] - 37.123.97.193 is not listed in b.barracudacentral.org (Query completed in 165.489 ms)
+✅ [Worker 136] - [291/2250] - [Elapsed: 0:00:41.112576] - [Remaining: 0:04:36.767520] - 37.123.97.146 is not listed in multi.surbl.org (Query completed in 85.248 ms)
+✅ [Worker 78] - [292/2250] - [Elapsed: 0:00:41.203756] - [Remaining: 0:04:36.291422] - 37.123.97.249 is not listed in bl.spamcop.net (Query completed in 63.089 ms)
+✅ [Worker 90] - [293/2250] - [Elapsed: 0:00:41.315369] - [Remaining: 0:04:35.952656] - 37.123.97.76 is not listed in multi.surbl.org (Query completed in 82.314 ms)
+✅ [Worker 69] - [294/2250] - [Elapsed: 0:00:41.446504] - [Remaining: 0:04:35.747100] - 37.123.97.101 is not listed in multi.surbl.org (Query completed in 105.223 ms)
+✅ [Worker 77] - [295/2250] - [Elapsed: 0:00:41.619575] - [Remaining: 0:04:35.817265] - 37.123.97.23 is not listed in multi.surbl.org (Query completed in 150.411 ms)
+✅ [Worker 32] - [296/2250] - [Elapsed: 0:00:41.805672] - [Remaining: 0:04:35.973190] - 37.123.97.190 is not listed in dnsbl.sorbs.net (Query completed in 162.759 ms)
+✅ [Worker 81] - [297/2250] - [Elapsed: 0:00:41.894573] - [Remaining: 0:04:35.488227] - 37.123.97.240 is not listed in zen.spamhaus.org (Query completed in 63.491 ms)
+✅ [Worker 119] - [298/2250] - [Elapsed: 0:00:41.974538] - [Remaining: 0:04:34.947008] - 37.123.97.90 is not listed in cbl.abuseat.org (Query completed in 55.862 ms)
+✅ [Worker 44] - [299/2250] - [Elapsed: 0:00:42.058372] - [Remaining: 0:04:34.433513] - 37.123.97.173 is not listed in cbl.abuseat.org (Query completed in 59.394 ms)
+✅ [Worker 184] - [300/2250] - [Elapsed: 0:00:42.293815] - [Remaining: 0:04:34.909050] - 37.123.97.178 is not listed in dnsbl.sorbs.net (Query completed in 208.735 ms)
+✅ [Worker 147] - [301/2250] - [Elapsed: 0:00:42.372887] - [Remaining: 0:04:34.368526] - 37.123.97.161 is not listed in cbl.abuseat.org (Query completed in 54.431 ms)
+✅ [Worker 126] - [302/2250] - [Elapsed: 0:00:42.463756] - [Remaining: 0:04:33.904384] - 37.123.97.105 is not listed in cbl.abuseat.org (Query completed in 65.193 ms)
+✅ [Worker 177] - [303/2250] - [Elapsed: 0:00:42.564109] - [Remaining: 0:04:33.506772] - 37.123.97.90 is not listed in edrop.spamhaus.org (Query completed in 75.319 ms)
+✅ [Worker 54] - [304/2250] - [Elapsed: 0:00:42.807542] - [Remaining: 0:04:34.024044] - 37.123.97.171 is not listed in dnsbl.sorbs.net (Query completed in 213.942 ms)
+✅ [Worker 96] - [305/2250] - [Elapsed: 0:00:42.994752] - [Remaining: 0:04:34.178870] - 37.123.97.239 is not listed in b.barracudacentral.org (Query completed in 162.258 ms)
+✅ [Worker 47] - [306/2250] - [Elapsed: 0:00:43.086379] - [Remaining: 0:04:33.724920] - 37.123.97.173 is not listed in edrop.spamhaus.org (Query completed in 68.564 ms)
+✅ [Worker 14] - [307/2250] - [Elapsed: 0:00:43.308451] - [Remaining: 0:04:34.099010] - 37.123.97.12 is not listed in dnsbl.sorbs.net (Query completed in 197.246 ms)
+✅ [Worker 76] - [308/2250] - [Elapsed: 0:00:43.396008] - [Remaining: 0:04:33.620032] - 37.123.97.161 is not listed in edrop.spamhaus.org (Query completed in 62.012 ms)
+✅ [Worker 133] - [309/2250] - [Elapsed: 0:00:43.487565] - [Remaining: 0:04:33.168576] - 37.123.97.105 is not listed in edrop.spamhaus.org (Query completed in 68.895 ms)
+✅ [Worker 111] - [310/2250] - [Elapsed: 0:00:43.708402] - [Remaining: 0:04:33.530300] - 37.123.97.74 is not listed in karma.junkemailfilter.com (Query completed in 197.125 ms)
+✅ [Worker 112] - [311/2250] - [Elapsed: 0:00:43.797046] - [Remaining: 0:04:33.063553] - 37.123.97.138 is not listed in cbl.abuseat.org (Query completed in 56.811 ms)
+✅ [Worker 73] - [312/2250] - [Elapsed: 0:00:44.016761] - [Remaining: 0:04:33.411102] - 37.123.97.50 is not listed in karma.junkemailfilter.com (Query completed in 195.783 ms)
+✅ [Worker 7] - [313/2250] - [Elapsed: 0:00:44.249428] - [Remaining: 0:04:33.837564] - 37.123.97.11 is not listed in dnsbl.sorbs.net (Query completed in 206.020 ms)
+✅ [Worker 26] - [314/2250] - [Elapsed: 0:00:44.470724] - [Remaining: 0:04:34.189872] - 37.123.97.144 is not listed in karma.junkemailfilter.com (Query completed in 194.402 ms)
+✅ [Worker 140] - [315/2250] - [Elapsed: 0:00:44.694144] - [Remaining: 0:04:34.549410] - 37.123.97.160 is not listed in dnsbl.sorbs.net (Query completed in 200.226 ms)
+✅ [Worker 89] - [316/2250] - [Elapsed: 0:00:44.786586] - [Remaining: 0:04:34.105820] - 37.123.97.98 is not listed in drop.spamhaus.org (Query completed in 70.775 ms)
+✅ [Worker 41] - [317/2250] - [Elapsed: 0:00:45.013708] - [Remaining: 0:04:34.484067] - 37.123.97.210 is not listed in b.barracudacentral.org (Query completed in 201.048 ms)
+✅ [Worker 188] - [318/2250] - [Elapsed: 0:00:45.199042] - [Remaining: 0:04:34.604820] - 37.123.97.40 is not listed in multi.surbl.org (Query completed in 158.988 ms)
+✅ [Worker 162] - [319/2250] - [Elapsed: 0:00:45.285182] - [Remaining: 0:04:34.124760] - 37.123.97.205 is not listed in zen.spamhaus.org (Query completed in 58.869 ms)
+✅ [Worker 178] - [320/2250] - [Elapsed: 0:00:45.375983] - [Remaining: 0:04:33.674000] - 37.123.97.210 is not listed in bl.spamcop.net (Query completed in 68.517 ms)
+✅ [Worker 145] - [321/2250] - [Elapsed: 0:00:45.456338] - [Remaining: 0:04:33.163761] - 37.123.97.17 is not listed in zen.spamhaus.org (Query completed in 56.422 ms)
+✅ [Worker 99] - [322/2250] - [Elapsed: 0:00:45.524702] - [Remaining: 0:04:32.582568] - 37.123.97.20 is not listed in zen.spamhaus.org (Query completed in 44.709 ms)
+✅ [Worker 37] - [323/2250] - [Elapsed: 0:00:45.619589] - [Remaining: 0:04:32.163699] - 37.123.97.120 is not listed in drop.spamhaus.org (Query completed in 71.531 ms)
+✅ [Worker 148] - [324/2250] - [Elapsed: 0:00:45.850541] - [Remaining: 0:04:32.555964] - 37.123.97.4 is not listed in b.barracudacentral.org (Query completed in 208.896 ms)
+✅ [Worker 115] - [325/2250] - [Elapsed: 0:00:46.041066] - [Remaining: 0:04:32.705125] - 37.123.97.114 is not listed in dnsbl.sorbs.net (Query completed in 166.923 ms)
+✅ [Worker 46] - [326/2250] - [Elapsed: 0:00:46.136456] - [Remaining: 0:04:32.290252] - 37.123.97.200 is not listed in zen.spamhaus.org (Query completed in 69.848 ms)
+✅ [Worker 165] - [327/2250] - [Elapsed: 0:00:46.247212] - [Remaining: 0:04:31.967967] - 37.123.97.231 is not listed in cbl.abuseat.org (Query completed in 87.953 ms)
+✅ [Worker 154] - [328/2250] - [Elapsed: 0:00:46.330777] - [Remaining: 0:04:31.486344] - 37.123.97.167 is not listed in multi.surbl.org (Query completed in 58.015 ms)
+✅ [Worker 24] - [329/2250] - [Elapsed: 0:00:46.515897] - [Remaining: 0:04:31.602506] - 37.123.97.237 is not listed in dnsbl.sorbs.net (Query completed in 161.927 ms)
+✅ [Worker 15] - [330/2250] - [Elapsed: 0:00:46.604861] - [Remaining: 0:04:31.155840] - 37.123.97.122 is not listed in drop.spamhaus.org (Query completed in 63.760 ms)
+✅ [Worker 28] - [331/2250] - [Elapsed: 0:00:46.699046] - [Remaining: 0:04:30.742115] - 37.123.97.10 is not listed in cbl.abuseat.org (Query completed in 69.549 ms)
+✅ [Worker 29] - [332/2250] - [Elapsed: 0:00:46.919162] - [Remaining: 0:04:31.057514] - 37.123.97.55 is not listed in karma.junkemailfilter.com (Query completed in 195.668 ms)
+✅ [Worker 58] - [333/2250] - [Elapsed: 0:00:47.009918] - [Remaining: 0:04:30.624807] - 37.123.97.129 is not listed in drop.spamhaus.org (Query completed in 66.463 ms)
+✅ [Worker 57] - [334/2250] - [Elapsed: 0:00:47.093992] - [Remaining: 0:04:30.156000] - 37.123.97.198 is not listed in multi.surbl.org (Query completed in 59.777 ms)
