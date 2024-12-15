@@ -73,6 +73,7 @@ class RabbitMQ:
         try:
             self.channel.queue_purge(queue=queue_name)
             self.display.print_success(f"✔️ Queue '{queue_name}' cleared successfully.")
+            self.display.print_success(f"✔️ Queue '{queue_name}' has {self.channel.queue_declare(queue=queue_name).method.message_count} messages.")
         except pika.exceptions.ChannelClosedByBroker as e:
             if e.args[0] == 404:
                 self.display.print_warning(f"⚠️ Queue '{queue_name}' not found. Creating the queue...")
@@ -81,6 +82,7 @@ class RabbitMQ:
                 self.display.print_success(f"✔️ Queue '{queue_name}' created and cleared successfully.")
             else:
                 self._handle_critical_error(f"Error clearing queue '{queue_name}': {e}", "clear_queue", queue_name)
+            
         except Exception as e:
             self._handle_critical_error(f"Error clearing queue '{queue_name}': {e}", "clear_queue", queue_name)
 
