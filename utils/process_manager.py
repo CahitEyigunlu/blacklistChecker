@@ -133,7 +133,7 @@ class ProcessManager:
         self.workers = []
         self.worker_tasks = []  # Worker görevlerini saklamak için
         self.start_time = datetime.now()
-        self.concurrency_limit = 50
+        self.concurrency_limit = config["rabbitmq"].get("RABBITMQ_CONCURRENCY_LIMIT", 50)
         self.sqlite_bulk_update_count = config["sqlite"].get("bulk_update_count", 500)
         self.tasks_to_update = []
         self.resolver = aiodns.DNSResolver()
@@ -145,9 +145,9 @@ class ProcessManager:
         # Event loop'u al
         self.loop = asyncio.get_event_loop()
 
-        # Sinyal işleyicilerini event loop'una ekle
-        self.loop.add_signal_handler(signal.SIGINT, self.handle_stop_signal)
-        self.loop.add_signal_handler(signal.SIGTERM, self.handle_stop_signal)
+        # Sinyal işleyicilerini event loop'una ekle# Sinyal işleyicilerini tanımla
+        signal.signal(signal.SIGINT, self.handle_stop_signal)
+        signal.signal(signal.SIGTERM, self.handle_stop_signal)
 
         self.stats = {
             "not_listed": 0,
@@ -163,9 +163,9 @@ class ProcessManager:
         """
         Sinyal alındığında tüm worker'ları durdurur ve event loop'u sonlandırır.
         """
-        self.display.print_info(f"Sinyal alındı: {signum}. Tüm worker'lar durdurulacak.")  # Log yerine display.print_info
+        self.display.print_info(f"Sinyal alındı: {signum}. Tüm worker'lar durdurulacak.")
         
-        # stop_workers'ı asenkron olarak çağır
+        # Tüm işçileri durdurmayı asenkron olarak başlat
         asyncio.create_task(self.stop_workers())
 
     async def ensure_stopped_workers(self, check_interval=0.1, timeout=5.0):
@@ -318,9 +318,18 @@ class ProcessManager:
             total_tasks = max(queue_state.declaration_result.message_count, 1) 
             self.display.print_success(f"Total tasks in the queue: {total_tasks}")
 
+            # Görev sayısını kontrol et
+            if total_tasks <= 1:
+                self.display.print_info(f"Kuyrukta yalnızca {total_tasks} görev bulundu. İşçiler çalıştırılmadan işlem tamamlanacak.")
+                
+                # RabbitMQ bağlantısını kapat
+                await self.rabbitmq.close_connection()
+
+                # Fonksiyondan çık
+                return
+
             # Görev takipçi
             task_tracker = {"tasks_done": 0, "total_tasks": total_tasks}  # tasks_done başlangıçta 0 olmalı
-
 
             async def process_task(message, worker_id):
                 try:

@@ -1,0 +1,1059 @@
+
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.242", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1980/2286] - [Elapsed: 0:40:41.903131] - [Remaining: 0:06:17.384904] - 37.123.97.84 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.10", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1981/2286] - [Elapsed: 0:40:42.418177] - [Remaining: 0:06:16.041210] - 37.123.97.210 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.90", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1982/2286] - [Elapsed: 0:40:42.818513] - [Remaining: 0:06:14.680608] - 37.123.97.125 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.22", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1983/2286] - [Elapsed: 0:40:43.316913] - [Remaining: 0:06:13.335996] - 37.123.97.208 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.96", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1984/2286] - [Elapsed: 0:40:43.830988] - [Remaining: 0:06:11.994540] - 37.123.97.30 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.103", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1985/2286] - [Elapsed: 0:40:44.338286] - [Remaining: 0:06:10.652905] - 37.123.97.167 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.16", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1986/2286] - [Elapsed: 0:40:44.852286] - [Remaining: 0:06:09.312900] - 37.123.97.169 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.2", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1987/2286] - [Elapsed: 0:40:45.257370] - [Remaining: 0:06:07.957772] - 37.123.97.18 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 37: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 37: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.90", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1988/2286] - [Elapsed: 0:40:45.776593] - [Remaining: 0:06:06.620460] - 37.123.97.3 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 38: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 38: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.215", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1989/2286] - [Elapsed: 0:40:46.284279] - [Remaining: 0:06:05.282379] - 37.123.97.126 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 39: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 39: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.116", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1990/2286] - [Elapsed: 0:40:46.694474] - [Remaining: 0:06:03.930520] - 37.123.97.180 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 40: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 40: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.137", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1991/2286] - [Elapsed: 0:40:47.216057] - [Remaining: 0:06:02.596005] - 37.123.97.136 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 41: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 41: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.56", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1992/2286] - [Elapsed: 0:40:47.721204] - [Remaining: 0:06:01.260144] - 37.123.97.244 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 42: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 42: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.149", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1993/2286] - [Elapsed: 0:40:48.146785] - [Remaining: 0:05:59.913289] - 37.123.97.100 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 43: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 43: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.221", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1994/2286] - [Elapsed: 0:40:48.653472] - [Remaining: 0:05:58.579212] - 37.123.97.14 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 44: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 44: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.121", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1995/2286] - [Elapsed: 0:40:49.056855] - [Remaining: 0:05:57.230727] - 37.123.97.120 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 45: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 45: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.150", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1996/2286] - [Elapsed: 0:40:49.490936] - [Remaining: 0:05:55.888000] - 37.123.97.124 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 46: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 46: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.62", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1997/2286] - [Elapsed: 0:40:49.891790] - [Remaining: 0:05:54.541154] - 37.123.97.162 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 47: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 47: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.185", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1998/2286] - [Elapsed: 0:40:50.288268] - [Remaining: 0:05:53.194848] - 37.123.97.188 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 48: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 48: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.184", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [1999/2286] - [Elapsed: 0:40:50.701822] - [Remaining: 0:05:51.851668] - 37.123.97.143 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 49: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 49: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.133", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2000/2286] - [Elapsed: 0:40:51.466230] - [Remaining: 0:05:50.559638] - 37.123.97.128 encountered an error (No details)
+✔️ Başarı: Bulk updated 500 tasks successfully.
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 50: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 50: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.54", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2001/2286] - [Elapsed: 0:41:29.608651] - [Remaining: 0:05:54.591870] - 37.123.97.76 encountered an error (No details)
+ℹ️ Bilgi: Worker 1: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 1: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 1: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.166", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2002/2286] - [Elapsed: 0:41:30.015652] - [Remaining: 0:05:53.228976] - 37.123.97.68 encountered an error (No details)
+ℹ️ Bilgi: Worker 2: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 2: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 2: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.25", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2003/2286] - [Elapsed: 0:41:30.421945] - [Remaining: 0:05:51.866918] - 37.123.97.184 encountered an error (No details)
+ℹ️ Bilgi: Worker 3: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 3: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 3: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.243", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2004/2286] - [Elapsed: 0:41:30.823935] - [Remaining: 0:05:50.505132] - 37.123.97.65 encountered an error (No details)
+ℹ️ Bilgi: Worker 4: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 4: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 4: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.52", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2005/2286] - [Elapsed: 0:41:31.234677] - [Remaining: 0:05:49.145591] - 37.123.97.112 encountered an error (No details)
+ℹ️ Bilgi: Worker 5: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 5: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 5: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.173", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2006/2286] - [Elapsed: 0:41:31.646055] - [Remaining: 0:05:47.787160] - 37.123.97.128 encountered an error (No details)
+ℹ️ Bilgi: Worker 6: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 6: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 6: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.89", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2007/2286] - [Elapsed: 0:41:32.052678] - [Remaining: 0:05:46.428720] - 37.123.97.78 encountered an error (No details)
+ℹ️ Bilgi: Worker 7: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 7: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 7: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.247", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2008/2286] - [Elapsed: 0:41:32.455769] - [Remaining: 0:05:45.071114] - 37.123.97.113 encountered an error (No details)
+ℹ️ Bilgi: Worker 8: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 8: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 8: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.205", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2009/2286] - [Elapsed: 0:41:32.898246] - [Remaining: 0:05:43.719605] - 37.123.97.64 encountered an error (No details)
+ℹ️ Bilgi: Worker 9: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 9: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 9: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.206", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2010/2286] - [Elapsed: 0:41:33.400887] - [Remaining: 0:05:42.377448] - 37.123.97.69 encountered an error (No details)
+ℹ️ Bilgi: Worker 10: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 10: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 10: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.38", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2011/2286] - [Elapsed: 0:41:33.811607] - [Remaining: 0:05:41.023375] - 37.123.97.21 encountered an error (No details)
+ℹ️ Bilgi: Worker 11: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 11: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 11: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.214", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2012/2286] - [Elapsed: 0:41:34.303457] - [Remaining: 0:05:39.681362] - 37.123.97.123 encountered an error (No details)
+ℹ️ Bilgi: Worker 12: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 12: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 12: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.87", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2013/2286] - [Elapsed: 0:41:34.711379] - [Remaining: 0:05:38.328900] - 37.123.97.168 encountered an error (No details)
+ℹ️ Bilgi: Worker 13: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 13: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 13: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.6", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2014/2286] - [Elapsed: 0:41:35.237797] - [Remaining: 0:05:36.993312] - 37.123.97.19 encountered an error (No details)
+ℹ️ Bilgi: Worker 14: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 14: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 14: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.104", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2015/2286] - [Elapsed: 0:41:35.652144] - [Remaining: 0:05:35.643527] - 37.123.97.104 encountered an error (No details)
+ℹ️ Bilgi: Worker 15: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 15: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 15: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.13", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2016/2286] - [Elapsed: 0:41:36.055883] - [Remaining: 0:05:34.293210] - 37.123.97.217 encountered an error (No details)
+ℹ️ Bilgi: Worker 16: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 16: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 16: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.227", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2017/2286] - [Elapsed: 0:41:36.507536] - [Remaining: 0:05:32.950177] - 37.123.97.227 encountered an error (No details)
+ℹ️ Bilgi: Worker 17: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 17: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 17: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.132", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2018/2286] - [Elapsed: 0:41:36.910986] - [Remaining: 0:05:31.601760] - 37.123.97.20 encountered an error (No details)
+ℹ️ Bilgi: Worker 18: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 18: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 18: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.73", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2019/2286] - [Elapsed: 0:41:37.319330] - [Remaining: 0:05:30.254703] - 37.123.97.77 encountered an error (No details)
+ℹ️ Bilgi: Worker 19: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 19: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 19: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.145", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2020/2286] - [Elapsed: 0:41:37.749946] - [Remaining: 0:05:28.911660] - 37.123.97.132 encountered an error (No details)
+ℹ️ Bilgi: Worker 20: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 20: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 20: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.250", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2021/2286] - [Elapsed: 0:41:38.161193] - [Remaining: 0:05:27.567030] - 37.123.97.154 encountered an error (No details)
+ℹ️ Bilgi: Worker 21: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 21: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 21: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.135", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2022/2286] - [Elapsed: 0:41:38.571191] - [Remaining: 0:05:26.222952] - 37.123.97.179 encountered an error (No details)
+ℹ️ Bilgi: Worker 22: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 22: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 22: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.196", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2023/2286] - [Elapsed: 0:41:38.983845] - [Remaining: 0:05:24.880218] - 37.123.97.111 encountered an error (No details)
+ℹ️ Bilgi: Worker 23: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 23: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 23: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.105", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2024/2286] - [Elapsed: 0:41:39.396644] - [Remaining: 0:05:23.538560] - 37.123.97.235 encountered an error (No details)
+ℹ️ Bilgi: Worker 24: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 24: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 24: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.70", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2025/2286] - [Elapsed: 0:41:39.804455] - [Remaining: 0:05:22.196931] - 37.123.97.220 encountered an error (No details)
+ℹ️ Bilgi: Worker 25: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 25: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 25: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.138", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2026/2286] - [Elapsed: 0:41:40.267813] - [Remaining: 0:05:20.863660] - 37.123.97.37 encountered an error (No details)
+ℹ️ Bilgi: Worker 26: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 26: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 26: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.10", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2027/2286] - [Elapsed: 0:41:40.674034] - [Remaining: 0:05:19.523638] - 37.123.97.23 encountered an error (No details)
+ℹ️ Bilgi: Worker 27: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 27: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 27: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.103", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2028/2286] - [Elapsed: 0:41:41.079154] - [Remaining: 0:05:18.184692] - 37.123.97.253 encountered an error (No details)
+ℹ️ Bilgi: Worker 28: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 28: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 28: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.47", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2029/2286] - [Elapsed: 0:41:41.586002] - [Remaining: 0:05:16.859412] - 37.123.97.242 encountered an error (No details)
+ℹ️ Bilgi: Worker 29: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 29: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.55", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2030/2286] - [Elapsed: 0:41:42.012845] - [Remaining: 0:05:15.524864] - 37.123.97.10 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.141", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2031/2286] - [Elapsed: 0:41:42.528178] - [Remaining: 0:05:14.202330] - 37.123.97.90 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.48", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2032/2286] - [Elapsed: 0:41:42.928840] - [Remaining: 0:05:12.866024] - 37.123.97.22 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.97", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2033/2286] - [Elapsed: 0:41:43.427509] - [Remaining: 0:05:11.543188] - 37.123.97.96 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.116", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2034/2286] - [Elapsed: 0:41:43.941106] - [Remaining: 0:05:10.222836] - 37.123.97.103 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.221", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2035/2286] - [Elapsed: 0:41:44.447099] - [Remaining: 0:05:08.902437] - 37.123.97.16 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.149", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2036/2286] - [Elapsed: 0:41:44.962672] - [Remaining: 0:05:07.583750] - 37.123.97.2 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.118", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2037/2286] - [Elapsed: 0:41:45.366360] - [Remaining: 0:05:06.252321] - 37.123.97.90 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 37: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 37: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.203", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2038/2286] - [Elapsed: 0:41:45.886450] - [Remaining: 0:05:04.936088] - 37.123.97.215 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 38: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 38: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.131", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2039/2286] - [Elapsed: 0:41:46.394902] - [Remaining: 0:05:03.619316] - 37.123.97.116 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 39: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 39: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.228", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2040/2286] - [Elapsed: 0:41:46.803646] - [Remaining: 0:05:02.290950] - 37.123.97.137 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 40: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 40: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.101", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2041/2286] - [Elapsed: 0:41:47.324266] - [Remaining: 0:05:00.977110] - 37.123.97.56 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 41: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 41: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.60", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2042/2286] - [Elapsed: 0:41:47.829564] - [Remaining: 0:04:59.662256] - 37.123.97.149 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 42: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 42: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.84", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2043/2286] - [Elapsed: 0:41:48.256949] - [Remaining: 0:04:58.338876] - 37.123.97.221 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 43: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 43: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.143", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2044/2286] - [Elapsed: 0:41:48.761353] - [Remaining: 0:04:57.025476] - 37.123.97.121 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 44: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 44: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.89", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2045/2286] - [Elapsed: 0:41:49.164290] - [Remaining: 0:04:55.700975] - 37.123.97.150 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 45: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 45: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.139", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2046/2286] - [Elapsed: 0:41:49.600331] - [Remaining: 0:04:54.381360] - 37.123.97.62 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 46: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 46: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.216", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2047/2286] - [Elapsed: 0:41:50.002632] - [Remaining: 0:04:53.058454] - 37.123.97.185 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 47: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 47: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.151", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2048/2286] - [Elapsed: 0:41:50.396798] - [Remaining: 0:04:51.735640] - 37.123.97.184 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 48: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 48: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.112", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2049/2286] - [Elapsed: 0:41:50.810472] - [Remaining: 0:04:50.415771] - 37.123.97.133 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 49: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 49: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.213", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2050/2286] - [Elapsed: 0:41:51.691324] - [Remaining: 0:04:49.150740] - 37.123.97.54 encountered an error (No details)
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 50: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 50: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.201", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2051/2286] - [Elapsed: 0:42:29.716607] - [Remaining: 0:04:52.142130] - 37.123.97.166 encountered an error (No details)
+ℹ️ Bilgi: Worker 1: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 1: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 1: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.214", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2052/2286] - [Elapsed: 0:42:30.123592] - [Remaining: 0:04:50.803500] - 37.123.97.25 encountered an error (No details)
+ℹ️ Bilgi: Worker 2: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 2: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 2: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.99", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2053/2286] - [Elapsed: 0:42:30.531662] - [Remaining: 0:04:49.466152] - 37.123.97.243 encountered an error (No details)
+ℹ️ Bilgi: Worker 3: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 3: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 3: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.134", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2054/2286] - [Elapsed: 0:42:30.934777] - [Remaining: 0:04:48.128920] - 37.123.97.52 encountered an error (No details)
+ℹ️ Bilgi: Worker 4: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 4: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 4: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.44", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2055/2286] - [Elapsed: 0:42:31.344026] - [Remaining: 0:04:46.793430] - 37.123.97.173 encountered an error (No details)
+ℹ️ Bilgi: Worker 5: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 5: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 5: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.123", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2056/2286] - [Elapsed: 0:42:31.752668] - [Remaining: 0:04:45.458750] - 37.123.97.89 encountered an error (No details)
+ℹ️ Bilgi: Worker 6: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 6: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 6: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.170", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2057/2286] - [Elapsed: 0:42:32.161605] - [Remaining: 0:04:44.124880] - 37.123.97.247 encountered an error (No details)
+ℹ️ Bilgi: Worker 7: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 7: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 7: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.212", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2058/2286] - [Elapsed: 0:42:32.565657] - [Remaining: 0:04:42.791592] - 37.123.97.205 encountered an error (No details)
+ℹ️ Bilgi: Worker 8: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 8: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 8: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.179", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2059/2286] - [Elapsed: 0:42:33.008115] - [Remaining: 0:04:41.463202] - 37.123.97.206 encountered an error (No details)
+ℹ️ Bilgi: Worker 9: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 9: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 9: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.74", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2060/2286] - [Elapsed: 0:42:33.507695] - [Remaining: 0:04:40.142142] - 37.123.97.38 encountered an error (No details)
+ℹ️ Bilgi: Worker 10: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 10: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 10: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.161", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2061/2286] - [Elapsed: 0:42:33.919790] - [Remaining: 0:04:38.812125] - 37.123.97.214 encountered an error (No details)
+ℹ️ Bilgi: Worker 11: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 11: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 11: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.209", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2062/2286] - [Elapsed: 0:42:34.411872] - [Remaining: 0:04:37.491872] - 37.123.97.87 encountered an error (No details)
+ℹ️ Bilgi: Worker 12: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 12: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 12: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.241", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2063/2286] - [Elapsed: 0:42:34.820717] - [Remaining: 0:04:36.163423] - 37.123.97.6 encountered an error (No details)
+ℹ️ Bilgi: Worker 13: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 13: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 13: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.159", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2064/2286] - [Elapsed: 0:42:35.347470] - [Remaining: 0:04:34.848432] - 37.123.97.104 encountered an error (No details)
+ℹ️ Bilgi: Worker 14: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 14: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 14: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.19", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2065/2286] - [Elapsed: 0:42:35.762301] - [Remaining: 0:04:33.522197] - 37.123.97.13 encountered an error (No details)
+ℹ️ Bilgi: Worker 15: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 15: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 15: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.22", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2066/2286] - [Elapsed: 0:42:36.165388] - [Remaining: 0:04:32.195660] - 37.123.97.227 encountered an error (No details)
+ℹ️ Bilgi: Worker 16: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 16: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 16: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.164", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2067/2286] - [Elapsed: 0:42:36.618337] - [Remaining: 0:04:30.875406] - 37.123.97.132 encountered an error (No details)
+ℹ️ Bilgi: Worker 17: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 17: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 17: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.203", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2068/2286] - [Elapsed: 0:42:37.024237] - [Remaining: 0:04:29.550896] - 37.123.97.73 encountered an error (No details)
+ℹ️ Bilgi: Worker 18: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 18: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 18: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.131", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2069/2286] - [Elapsed: 0:42:37.429963] - [Remaining: 0:04:28.227407] - 37.123.97.145 encountered an error (No details)
+ℹ️ Bilgi: Worker 19: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 19: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 19: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.197", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2070/2286] - [Elapsed: 0:42:37.864143] - [Remaining: 0:04:26.907528] - 37.123.97.250 encountered an error (No details)
+ℹ️ Bilgi: Worker 20: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 20: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 20: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.40", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2071/2286] - [Elapsed: 0:42:38.275101] - [Remaining: 0:04:25.586275] - 37.123.97.135 encountered an error (No details)
+ℹ️ Bilgi: Worker 21: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 21: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 21: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.207", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2072/2286] - [Elapsed: 0:42:38.684676] - [Remaining: 0:04:24.265604] - 37.123.97.196 encountered an error (No details)
+ℹ️ Bilgi: Worker 22: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 22: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 22: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.224", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2073/2286] - [Elapsed: 0:42:39.096667] - [Remaining: 0:04:22.946157] - 37.123.97.105 encountered an error (No details)
+ℹ️ Bilgi: Worker 23: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 23: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 23: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.228", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2074/2286] - [Elapsed: 0:42:39.511884] - [Remaining: 0:04:21.627928] - 37.123.97.70 encountered an error (No details)
+ℹ️ Bilgi: Worker 24: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 24: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 24: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.240", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2075/2286] - [Elapsed: 0:42:39.920853] - [Remaining: 0:04:20.310067] - 37.123.97.138 encountered an error (No details)
+ℹ️ Bilgi: Worker 25: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 25: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 25: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.219", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2076/2286] - [Elapsed: 0:42:40.385577] - [Remaining: 0:04:18.998460] - 37.123.97.10 encountered an error (No details)
+ℹ️ Bilgi: Worker 26: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 26: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 26: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.147", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2077/2286] - [Elapsed: 0:42:40.790006] - [Remaining: 0:04:17.681743] - 37.123.97.103 encountered an error (No details)
+ℹ️ Bilgi: Worker 27: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 27: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 27: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.1", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2078/2286] - [Elapsed: 0:42:41.195933] - [Remaining: 0:04:16.366032] - 37.123.97.47 encountered an error (No details)
+ℹ️ Bilgi: Worker 28: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 28: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 28: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.187", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2079/2286] - [Elapsed: 0:42:41.704539] - [Remaining: 0:04:15.061467] - 37.123.97.55 encountered an error (No details)
+ℹ️ Bilgi: Worker 29: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 29: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.207", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2080/2286] - [Elapsed: 0:42:42.131653] - [Remaining: 0:04:13.749564] - 37.123.97.141 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.208", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2081/2286] - [Elapsed: 0:42:42.646631] - [Remaining: 0:04:12.447250] - 37.123.97.48 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.239", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2082/2286] - [Elapsed: 0:42:43.046840] - [Remaining: 0:04:11.134200] - 37.123.97.97 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.49", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2083/2286] - [Elapsed: 0:42:43.545924] - [Remaining: 0:04:09.831897] - 37.123.97.116 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.234", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2084/2286] - [Elapsed: 0:42:44.059801] - [Remaining: 0:04:08.531710] - 37.123.97.221 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.3", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2085/2286] - [Elapsed: 0:42:44.566570] - [Remaining: 0:04:07.231608] - 37.123.97.149 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.126", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2086/2286] - [Elapsed: 0:42:45.082287] - [Remaining: 0:04:05.933200] - 37.123.97.118 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.216", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2087/2286] - [Elapsed: 0:42:45.487355] - [Remaining: 0:04:04.624730] - 37.123.97.203 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 37: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 37: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.53", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2088/2286] - [Elapsed: 0:42:46.008485] - [Remaining: 0:04:03.328338] - 37.123.97.131 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 38: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 38: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.218", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2089/2286] - [Elapsed: 0:42:46.516093] - [Remaining: 0:04:02.031442] - 37.123.97.228 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 39: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 39: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.15", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2090/2286] - [Elapsed: 0:42:46.927231] - [Remaining: 0:04:00.726220] - 37.123.97.101 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 40: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 40: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.9", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2091/2286] - [Elapsed: 0:42:47.446849] - [Remaining: 0:03:59.431920] - 37.123.97.60 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 41: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 41: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.173", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2092/2286] - [Elapsed: 0:42:47.954011] - [Remaining: 0:03:58.137134] - 37.123.97.84 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 42: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 42: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.195", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2093/2286] - [Elapsed: 0:42:48.382064] - [Remaining: 0:03:56.836090] - 37.123.97.143 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 43: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 43: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.50", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2094/2286] - [Elapsed: 0:42:48.887102] - [Remaining: 0:03:55.542720] - 37.123.97.89 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 44: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 44: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.206", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2095/2286] - [Elapsed: 0:42:49.292052] - [Remaining: 0:03:54.240872] - 37.123.97.139 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 45: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 45: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.185", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2096/2286] - [Elapsed: 0:42:49.724996] - [Remaining: 0:03:52.942660] - 37.123.97.216 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 46: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 46: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.57", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2097/2286] - [Elapsed: 0:42:50.128823] - [Remaining: 0:03:51.642558] - 37.123.97.151 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 47: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 47: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.87", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2098/2286] - [Elapsed: 0:42:50.521534] - [Remaining: 0:03:50.342300] - 37.123.97.112 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 48: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 48: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.6", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2099/2286] - [Elapsed: 0:42:50.936267] - [Remaining: 0:03:49.044893] - 37.123.97.213 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 49: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 49: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.79", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2100/2286] - [Elapsed: 0:42:51.818518] - [Remaining: 0:03:47.789550] - 37.123.97.201 encountered an error (No details)
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 50: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 50: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.232", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2101/2286] - [Elapsed: 0:43:29.851950] - [Remaining: 0:03:49.806075] - 37.123.97.214 encountered an error (No details)
+ℹ️ Bilgi: Worker 1: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 1: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 1: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.174", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2102/2286] - [Elapsed: 0:43:30.257286] - [Remaining: 0:03:48.490648] - 37.123.97.99 encountered an error (No details)
+ℹ️ Bilgi: Worker 2: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 2: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 2: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.175", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2103/2286] - [Elapsed: 0:43:30.666905] - [Remaining: 0:03:47.176383] - 37.123.97.134 encountered an error (No details)
+ℹ️ Bilgi: Worker 3: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 3: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 3: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.70", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2104/2286] - [Elapsed: 0:43:31.070407] - [Remaining: 0:03:45.862546] - 37.123.97.44 encountered an error (No details)
+ℹ️ Bilgi: Worker 4: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 4: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 4: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.254", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2105/2286] - [Elapsed: 0:43:31.480076] - [Remaining: 0:03:44.550048] - 37.123.97.123 encountered an error (No details)
+ℹ️ Bilgi: Worker 5: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 5: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 5: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.21", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2106/2286] - [Elapsed: 0:43:31.885927] - [Remaining: 0:03:43.238160] - 37.123.97.170 encountered an error (No details)
+ℹ️ Bilgi: Worker 6: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 6: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 6: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.104", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2107/2286] - [Elapsed: 0:43:32.296950] - [Remaining: 0:03:41.927422] - 37.123.97.212 encountered an error (No details)
+ℹ️ Bilgi: Worker 7: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 7: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 7: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.115", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2108/2286] - [Elapsed: 0:43:32.702346] - [Remaining: 0:03:40.617116] - 37.123.97.179 encountered an error (No details)
+ℹ️ Bilgi: Worker 8: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 8: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 8: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.29", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2109/2286] - [Elapsed: 0:43:33.144484] - [Remaining: 0:03:39.310788] - 37.123.97.74 encountered an error (No details)
+ℹ️ Bilgi: Worker 9: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 9: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 9: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.73", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2110/2286] - [Elapsed: 0:43:33.644208] - [Remaining: 0:03:38.010144] - 37.123.97.161 encountered an error (No details)
+ℹ️ Bilgi: Worker 10: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 10: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 10: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.235", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2111/2286] - [Elapsed: 0:43:34.054075] - [Remaining: 0:03:36.702675] - 37.123.97.209 encountered an error (No details)
+ℹ️ Bilgi: Worker 11: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 11: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 11: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.23", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2112/2286] - [Elapsed: 0:43:34.549116] - [Remaining: 0:03:35.403126] - 37.123.97.241 encountered an error (No details)
+ℹ️ Bilgi: Worker 12: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 12: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 12: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.59", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2113/2286] - [Elapsed: 0:43:34.956139] - [Remaining: 0:03:34.097188] - 37.123.97.159 encountered an error (No details)
+ℹ️ Bilgi: Worker 13: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 13: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 13: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.58", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2114/2286] - [Elapsed: 0:43:35.484096] - [Remaining: 0:03:32.801840] - 37.123.97.19 encountered an error (No details)
+ℹ️ Bilgi: Worker 14: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 14: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 14: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.177", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2115/2286] - [Elapsed: 0:43:35.899310] - [Remaining: 0:03:31.498272] - 37.123.97.22 encountered an error (No details)
+ℹ️ Bilgi: Worker 15: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 15: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 15: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.242", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2116/2286] - [Elapsed: 0:43:36.301863] - [Remaining: 0:03:30.194460] - 37.123.97.164 encountered an error (No details)
+ℹ️ Bilgi: Worker 16: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 16: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 16: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.59", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2117/2286] - [Elapsed: 0:43:36.754615] - [Remaining: 0:03:28.895323] - 37.123.97.203 encountered an error (No details)
+ℹ️ Bilgi: Worker 17: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 17: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 17: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.103", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2118/2286] - [Elapsed: 0:43:37.159338] - [Remaining: 0:03:27.593400] - 37.123.97.131 encountered an error (No details)
+ℹ️ Bilgi: Worker 18: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 18: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 18: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.225", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2119/2286] - [Elapsed: 0:43:37.562568] - [Remaining: 0:03:26.292094] - 37.123.97.197 encountered an error (No details)
+ℹ️ Bilgi: Worker 19: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 19: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 19: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.119", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2120/2286] - [Elapsed: 0:43:37.993550] - [Remaining: 0:03:24.993898] - 37.123.97.40 encountered an error (No details)
+ℹ️ Bilgi: Worker 20: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 20: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 20: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.220", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2121/2286] - [Elapsed: 0:43:38.408624] - [Remaining: 0:03:23.695140] - 37.123.97.207 encountered an error (No details)
+ℹ️ Bilgi: Worker 21: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 21: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 21: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.7", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2122/2286] - [Elapsed: 0:43:38.815938] - [Remaining: 0:03:22.396664] - 37.123.97.224 encountered an error (No details)
+ℹ️ Bilgi: Worker 22: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 22: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 22: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.195", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2123/2286] - [Elapsed: 0:43:39.228446] - [Remaining: 0:03:21.099457] - 37.123.97.228 encountered an error (No details)
+ℹ️ Bilgi: Worker 23: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 23: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 23: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.213", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2124/2286] - [Elapsed: 0:43:39.640648] - [Remaining: 0:03:19.803024] - 37.123.97.240 encountered an error (No details)
+ℹ️ Bilgi: Worker 24: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 24: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 24: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.201", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2125/2286] - [Elapsed: 0:43:40.051267] - [Remaining: 0:03:18.507365] - 37.123.97.219 encountered an error (No details)
+ℹ️ Bilgi: Worker 25: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 25: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 25: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.7", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2126/2286] - [Elapsed: 0:43:40.513867] - [Remaining: 0:03:17.216480] - 37.123.97.147 encountered an error (No details)
+ℹ️ Bilgi: Worker 26: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 26: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 26: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.79", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2127/2286] - [Elapsed: 0:43:40.919620] - [Remaining: 0:03:15.922026] - 37.123.97.1 encountered an error (No details)
+ℹ️ Bilgi: Worker 27: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 27: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 27: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.166", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2128/2286] - [Elapsed: 0:43:41.325042] - [Remaining: 0:03:14.628508] - 37.123.97.187 encountered an error (No details)
+ℹ️ Bilgi: Worker 28: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 28: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 28: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.174", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2129/2286] - [Elapsed: 0:43:41.831431] - [Remaining: 0:03:13.343145] - 37.123.97.207 encountered an error (No details)
+ℹ️ Bilgi: Worker 29: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 29: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.81", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2130/2286] - [Elapsed: 0:43:42.257765] - [Remaining: 0:03:12.052692] - 37.123.97.208 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.200", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2131/2286] - [Elapsed: 0:43:42.774432] - [Remaining: 0:03:10.769660] - 37.123.97.239 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.109", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2132/2286] - [Elapsed: 0:43:43.171921] - [Remaining: 0:03:09.478674] - 37.123.97.49 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.102", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2133/2286] - [Elapsed: 0:43:43.672750] - [Remaining: 0:03:08.195967] - 37.123.97.234 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.127", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2134/2286] - [Elapsed: 0:43:44.185659] - [Remaining: 0:03:06.914856] - 37.123.97.3 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.43", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2135/2286] - [Elapsed: 0:43:44.691662] - [Remaining: 0:03:05.633964] - 37.123.97.126 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.140", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2136/2286] - [Elapsed: 0:43:45.206171] - [Remaining: 0:03:04.354350] - 37.123.97.216 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.89", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2137/2286] - [Elapsed: 0:43:45.610452] - [Remaining: 0:03:03.067807] - 37.123.97.53 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 37: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 37: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.170", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2138/2286] - [Elapsed: 0:43:46.132498] - [Remaining: 0:03:01.790324] - 37.123.97.218 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 38: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 38: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.144", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2139/2286] - [Elapsed: 0:43:46.638802] - [Remaining: 0:03:00.512325] - 37.123.97.15 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 39: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 39: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.251", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2140/2286] - [Elapsed: 0:43:47.050062] - [Remaining: 0:02:59.228578] - 37.123.97.9 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 40: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 40: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.34", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2141/2286] - [Elapsed: 0:43:47.569630] - [Remaining: 0:02:57.953135] - 37.123.97.173 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 41: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 41: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.83", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2142/2286] - [Elapsed: 0:43:48.074565] - [Remaining: 0:02:56.677344] - 37.123.97.195 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 42: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 42: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.128", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2143/2286] - [Elapsed: 0:43:48.504751] - [Remaining: 0:02:55.397222] - 37.123.97.50 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 43: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 43: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.117", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2144/2286] - [Elapsed: 0:43:49.008858] - [Remaining: 0:02:54.122814] - 37.123.97.206 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 44: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 44: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.184", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2145/2286] - [Elapsed: 0:43:49.412540] - [Remaining: 0:02:52.842453] - 37.123.97.185 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 45: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 45: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.250", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2146/2286] - [Elapsed: 0:43:49.845960] - [Remaining: 0:02:51.564960] - 37.123.97.57 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 46: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 46: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.231", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2147/2286] - [Elapsed: 0:43:50.249239] - [Remaining: 0:02:50.286259] - 37.123.97.87 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 47: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 47: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.229", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2148/2286] - [Elapsed: 0:43:50.640063] - [Remaining: 0:02:49.007634] - 37.123.97.6 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 48: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 48: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.163", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2149/2286] - [Elapsed: 0:43:51.054665] - [Remaining: 0:02:47.731292] - 37.123.97.79 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 49: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 49: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.92", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2150/2286] - [Elapsed: 0:43:51.936907] - [Remaining: 0:02:46.485352] - 37.123.97.232 encountered an error (No details)
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 50: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 50: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.20", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2151/2286] - [Elapsed: 0:44:29.962725] - [Remaining: 0:02:47.570910] - 37.123.97.174 encountered an error (No details)
+ℹ️ Bilgi: Worker 1: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 1: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 1: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.164", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2152/2286] - [Elapsed: 0:44:30.368906] - [Remaining: 0:02:46.277652] - 37.123.97.175 encountered an error (No details)
+ℹ️ Bilgi: Worker 2: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 2: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 2: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.46", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2153/2286] - [Elapsed: 0:44:30.777701] - [Remaining: 0:02:44.985303] - 37.123.97.70 encountered an error (No details)
+ℹ️ Bilgi: Worker 3: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 3: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 3: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.198", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2154/2286] - [Elapsed: 0:44:31.180459] - [Remaining: 0:02:43.693464] - 37.123.97.254 encountered an error (No details)
+ℹ️ Bilgi: Worker 4: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 4: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 4: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.108", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2155/2286] - [Elapsed: 0:44:31.589282] - [Remaining: 0:02:42.402927] - 37.123.97.21 encountered an error (No details)
+ℹ️ Bilgi: Worker 5: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 5: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 5: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.225", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2156/2286] - [Elapsed: 0:44:31.997702] - [Remaining: 0:02:41.113030] - 37.123.97.104 encountered an error (No details)
+ℹ️ Bilgi: Worker 6: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 6: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 6: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.132", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2157/2286] - [Elapsed: 0:44:32.405758] - [Remaining: 0:02:39.824034] - 37.123.97.115 encountered an error (No details)
+ℹ️ Bilgi: Worker 7: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 7: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 7: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.227", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2158/2286] - [Elapsed: 0:44:32.812997] - [Remaining: 0:02:38.535680] - 37.123.97.29 encountered an error (No details)
+ℹ️ Bilgi: Worker 8: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 8: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 8: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.106", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2159/2286] - [Elapsed: 0:44:33.253438] - [Remaining: 0:02:37.250257] - 37.123.97.73 encountered an error (No details)
+ℹ️ Bilgi: Worker 9: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 9: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 9: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.222", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2160/2286] - [Elapsed: 0:44:33.754688] - [Remaining: 0:02:35.968974] - 37.123.97.235 encountered an error (No details)
+ℹ️ Bilgi: Worker 10: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 10: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 10: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.155", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2161/2286] - [Elapsed: 0:44:34.162393] - [Remaining: 0:02:34.683125] - 37.123.97.23 encountered an error (No details)
+ℹ️ Bilgi: Worker 11: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 11: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 11: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.106", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2162/2286] - [Elapsed: 0:44:34.659543] - [Remaining: 0:02:33.403252] - 37.123.97.59 encountered an error (No details)
+ℹ️ Bilgi: Worker 12: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 12: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 12: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.203", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2163/2286] - [Elapsed: 0:44:35.065981] - [Remaining: 0:02:32.118897] - 37.123.97.58 encountered an error (No details)
+ℹ️ Bilgi: Worker 13: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 13: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 13: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.10", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2164/2286] - [Elapsed: 0:44:35.593909] - [Remaining: 0:02:30.842142] - 37.123.97.177 encountered an error (No details)
+ℹ️ Bilgi: Worker 14: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 14: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 14: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.90", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2165/2286] - [Elapsed: 0:44:36.009437] - [Remaining: 0:02:29.559872] - 37.123.97.242 encountered an error (No details)
+ℹ️ Bilgi: Worker 15: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 15: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 15: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.107", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2166/2286] - [Elapsed: 0:44:36.410001] - [Remaining: 0:02:28.277520] - 37.123.97.59 encountered an error (No details)
+ℹ️ Bilgi: Worker 16: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 16: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 16: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.150", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2167/2286] - [Elapsed: 0:44:36.864867] - [Remaining: 0:02:26.999034] - 37.123.97.103 encountered an error (No details)
+ℹ️ Bilgi: Worker 17: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 17: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 17: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.80", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2168/2286] - [Elapsed: 0:44:37.270232] - [Remaining: 0:02:25.718554] - 37.123.97.225 encountered an error (No details)
+ℹ️ Bilgi: Worker 18: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 18: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 18: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.116", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2169/2286] - [Elapsed: 0:44:37.671662] - [Remaining: 0:02:24.438723] - 37.123.97.119 encountered an error (No details)
+ℹ️ Bilgi: Worker 19: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 19: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 19: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.234", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2170/2286] - [Elapsed: 0:44:38.102750] - [Remaining: 0:02:23.161284] - 37.123.97.220 encountered an error (No details)
+ℹ️ Bilgi: Worker 20: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 20: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 20: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.144", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2171/2286] - [Elapsed: 0:44:38.519958] - [Remaining: 0:02:21.883780] - 37.123.97.7 encountered an error (No details)
+ℹ️ Bilgi: Worker 21: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 21: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 21: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.149", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2172/2286] - [Elapsed: 0:44:38.925052] - [Remaining: 0:02:20.606574] - 37.123.97.195 encountered an error (No details)
+ℹ️ Bilgi: Worker 22: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 22: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 22: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.221", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2173/2286] - [Elapsed: 0:44:39.336684] - [Remaining: 0:02:19.330469] - 37.123.97.213 encountered an error (No details)
+ℹ️ Bilgi: Worker 23: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 23: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 23: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.251", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2174/2286] - [Elapsed: 0:44:39.750562] - [Remaining: 0:02:18.055232] - 37.123.97.201 encountered an error (No details)
+ℹ️ Bilgi: Worker 24: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 24: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 24: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.93", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2175/2286] - [Elapsed: 0:44:40.160177] - [Remaining: 0:02:16.780638] - 37.123.97.7 encountered an error (No details)
+ℹ️ Bilgi: Worker 25: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 25: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 25: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.15", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2176/2286] - [Elapsed: 0:44:40.624148] - [Remaining: 0:02:15.509440] - 37.123.97.79 encountered an error (No details)
+ℹ️ Bilgi: Worker 26: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 26: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 26: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.36", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2177/2286] - [Elapsed: 0:44:41.029909] - [Remaining: 0:02:14.236225] - 37.123.97.166 encountered an error (No details)
+ℹ️ Bilgi: Worker 27: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 27: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 27: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.66", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2178/2286] - [Elapsed: 0:44:41.433678] - [Remaining: 0:02:12.963660] - 37.123.97.174 encountered an error (No details)
+ℹ️ Bilgi: Worker 28: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 28: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 28: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.181", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2179/2286] - [Elapsed: 0:44:41.939806] - [Remaining: 0:02:11.696884] - 37.123.97.81 encountered an error (No details)
+ℹ️ Bilgi: Worker 29: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 29: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.192", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2180/2286] - [Elapsed: 0:44:42.368029] - [Remaining: 0:02:10.427064] - 37.123.97.200 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.175", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2181/2286] - [Elapsed: 0:44:42.886221] - [Remaining: 0:02:09.162285] - 37.123.97.109 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.194", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2182/2286] - [Elapsed: 0:44:43.280680] - [Remaining: 0:02:07.892440] - 37.123.97.102 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.231", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2183/2286] - [Elapsed: 0:44:43.782683] - [Remaining: 0:02:06.628303] - 37.123.97.127 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.50", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2184/2286] - [Elapsed: 0:44:44.296017] - [Remaining: 0:02:05.365446] - 37.123.97.43 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.66", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2185/2286] - [Elapsed: 0:44:44.801134] - [Remaining: 0:02:04.102942] - 37.123.97.140 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.167", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2186/2286] - [Elapsed: 0:44:45.316470] - [Remaining: 0:02:02.841600] - 37.123.97.89 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.12", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2187/2286] - [Elapsed: 0:44:45.720591] - [Remaining: 0:02:01.575861] - 37.123.97.170 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 37: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 37: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.214", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2188/2286] - [Elapsed: 0:44:46.241167] - [Remaining: 0:02:00.316070] - 37.123.97.144 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 38: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 38: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.130", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2189/2286] - [Elapsed: 0:44:46.747320] - [Remaining: 0:01:59.056442] - 37.123.97.251 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 39: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 39: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.120", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2190/2286] - [Elapsed: 0:44:47.158600] - [Remaining: 0:01:57.793248] - 37.123.97.34 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 40: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 40: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.27", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2191/2286] - [Elapsed: 0:44:47.679904] - [Remaining: 0:01:56.535645] - 37.123.97.83 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 41: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 41: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.246", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2192/2286] - [Elapsed: 0:44:48.183932] - [Remaining: 0:01:55.277934] - 37.123.97.128 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 42: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 42: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.28", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2193/2286] - [Elapsed: 0:44:48.613958] - [Remaining: 0:01:54.017814] - 37.123.97.117 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 43: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 43: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.58", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2194/2286] - [Elapsed: 0:44:49.116580] - [Remaining: 0:01:52.761456] - 37.123.97.184 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 44: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 44: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.8", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2195/2286] - [Elapsed: 0:44:49.521923] - [Remaining: 0:01:51.501845] - 37.123.97.250 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 45: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 45: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.182", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2196/2286] - [Elapsed: 0:44:49.955813] - [Remaining: 0:01:50.244060] - 37.123.97.231 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 46: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 46: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.236", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2197/2286] - [Elapsed: 0:44:50.359362] - [Remaining: 0:01:48.985840] - 37.123.97.229 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 47: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 47: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.68", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2198/2286] - [Elapsed: 0:44:50.748502] - [Remaining: 0:01:47.727840] - 37.123.97.163 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 48: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 48: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.230", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2199/2286] - [Elapsed: 0:44:51.163852] - [Remaining: 0:01:46.471731] - 37.123.97.92 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 49: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 49: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.28", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2200/2286] - [Elapsed: 0:44:52.047264] - [Remaining: 0:01:45.234588] - 37.123.97.20 encountered an error (No details)
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 50: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 50: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.63", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2201/2286] - [Elapsed: 0:45:30.072828] - [Remaining: 0:01:45.432130] - 37.123.97.164 encountered an error (No details)
+ℹ️ Bilgi: Worker 1: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 1: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 1: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.119", "dns": "dnsbl.sorbs.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2202/2286] - [Elapsed: 0:45:30.478283] - [Remaining: 0:01:44.159916] - 37.123.97.46 encountered an error (No details)
+ℹ️ Bilgi: Worker 2: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 2: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 2: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.204", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2203/2286] - [Elapsed: 0:45:30.886882] - [Remaining: 0:01:42.888626] - 37.123.97.198 encountered an error (No details)
+ℹ️ Bilgi: Worker 3: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 3: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 3: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.240", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2204/2286] - [Elapsed: 0:45:31.287206] - [Remaining: 0:01:41.617762] - 37.123.97.108 encountered an error (No details)
+ℹ️ Bilgi: Worker 4: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 4: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 4: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.210", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2205/2286] - [Elapsed: 0:45:31.697823] - [Remaining: 0:01:40.348065] - 37.123.97.225 encountered an error (No details)
+ℹ️ Bilgi: Worker 5: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 5: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 5: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.75", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2206/2286] - [Elapsed: 0:45:32.106133] - [Remaining: 0:01:39.079120] - 37.123.97.132 encountered an error (No details)
+ℹ️ Bilgi: Worker 6: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 6: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 6: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.24", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2207/2286] - [Elapsed: 0:45:32.513261] - [Remaining: 0:01:37.810848] - 37.123.97.227 encountered an error (No details)
+ℹ️ Bilgi: Worker 7: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 7: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 7: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.157", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2208/2286] - [Elapsed: 0:45:32.920798] - [Remaining: 0:01:36.543408] - 37.123.97.106 encountered an error (No details)
+ℹ️ Bilgi: Worker 8: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 8: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 8: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.169", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2209/2286] - [Elapsed: 0:45:33.362129] - [Remaining: 0:01:35.277875] - 37.123.97.222 encountered an error (No details)
+ℹ️ Bilgi: Worker 9: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 9: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 9: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.4", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2210/2286] - [Elapsed: 0:45:33.864054] - [Remaining: 0:01:34.015268] - 37.123.97.155 encountered an error (No details)
+ℹ️ Bilgi: Worker 10: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 10: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 10: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.188", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2211/2286] - [Elapsed: 0:45:34.270078] - [Remaining: 0:01:32.750025] - 37.123.97.106 encountered an error (No details)
+ℹ️ Bilgi: Worker 11: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 11: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 11: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.93", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2212/2286] - [Elapsed: 0:45:34.767604] - [Remaining: 0:01:31.488642] - 37.123.97.203 encountered an error (No details)
+ℹ️ Bilgi: Worker 12: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 12: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 12: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.131", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2213/2286] - [Elapsed: 0:45:35.173337] - [Remaining: 0:01:30.224861] - 37.123.97.10 encountered an error (No details)
+ℹ️ Bilgi: Worker 13: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 13: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 13: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.228", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2214/2286] - [Elapsed: 0:45:35.704064] - [Remaining: 0:01:28.966008] - 37.123.97.90 encountered an error (No details)
+ℹ️ Bilgi: Worker 14: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 14: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 14: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.195", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2215/2286] - [Elapsed: 0:45:36.121816] - [Remaining: 0:01:27.704099] - 37.123.97.107 encountered an error (No details)
+ℹ️ Bilgi: Worker 15: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 15: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 15: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.42", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2216/2286] - [Elapsed: 0:45:36.517458] - [Remaining: 0:01:26.442370] - 37.123.97.150 encountered an error (No details)
+ℹ️ Bilgi: Worker 16: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 16: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 16: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.139", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2217/2286] - [Elapsed: 0:45:36.972825] - [Remaining: 0:01:25.183191] - 37.123.97.80 encountered an error (No details)
+ℹ️ Bilgi: Worker 17: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 17: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 17: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.83", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2218/2286] - [Elapsed: 0:45:37.378914] - [Remaining: 0:01:23.923220] - 37.123.97.116 encountered an error (No details)
+ℹ️ Bilgi: Worker 18: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 18: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 18: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.72", "dns": "cbl.abuseat.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2219/2286] - [Elapsed: 0:45:37.781441] - [Remaining: 0:01:22.663997] - 37.123.97.234 encountered an error (No details)
+ℹ️ Bilgi: Worker 19: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 19: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 19: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.30", "dns": "zen.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2220/2286] - [Elapsed: 0:45:38.211017] - [Remaining: 0:01:21.406248] - 37.123.97.144 encountered an error (No details)
+ℹ️ Bilgi: Worker 20: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 20: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 20: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.216", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2221/2286] - [Elapsed: 0:45:38.628841] - [Remaining: 0:01:20.148965] - 37.123.97.149 encountered an error (No details)
+ℹ️ Bilgi: Worker 21: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 21: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 21: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.167", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2222/2286] - [Elapsed: 0:45:39.034013] - [Remaining: 0:01:18.892096] - 37.123.97.221 encountered an error (No details)
+ℹ️ Bilgi: Worker 22: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 22: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 22: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.18", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2223/2286] - [Elapsed: 0:45:39.444183] - [Remaining: 0:01:17.636097] - 37.123.97.251 encountered an error (No details)
+ℹ️ Bilgi: Worker 23: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 23: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 23: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.134", "dns": "edrop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2224/2286] - [Elapsed: 0:45:39.859568] - [Remaining: 0:01:16.380962] - 37.123.97.93 encountered an error (No details)
+ℹ️ Bilgi: Worker 24: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 24: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 24: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.69", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2225/2286] - [Elapsed: 0:45:40.268880] - [Remaining: 0:01:15.126502] - 37.123.97.15 encountered an error (No details)
+ℹ️ Bilgi: Worker 25: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 25: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 25: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.183", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2226/2286] - [Elapsed: 0:45:40.732307] - [Remaining: 0:01:13.874160] - 37.123.97.36 encountered an error (No details)
+ℹ️ Bilgi: Worker 26: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 26: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 26: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.136", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2227/2286] - [Elapsed: 0:45:41.138631] - [Remaining: 0:01:12.621094] - 37.123.97.66 encountered an error (No details)
+ℹ️ Bilgi: Worker 27: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 27: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 27: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.86", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2228/2286] - [Elapsed: 0:45:41.541013] - [Remaining: 0:01:11.368652] - 37.123.97.181 encountered an error (No details)
+ℹ️ Bilgi: Worker 28: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 28: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 28: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.120", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2229/2286] - [Elapsed: 0:45:42.049091] - [Remaining: 0:01:10.119690] - 37.123.97.192 encountered an error (No details)
+ℹ️ Bilgi: Worker 29: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 29: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 29: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.254", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2230/2286] - [Elapsed: 0:45:42.476804] - [Remaining: 0:01:08.869360] - 37.123.97.175 encountered an error (No details)
+ℹ️ Bilgi: Worker 30: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 30: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 30: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.27", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2231/2286] - [Elapsed: 0:45:42.993355] - [Remaining: 0:01:07.622005] - 37.123.97.194 encountered an error (No details)
+ℹ️ Bilgi: Worker 31: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 31: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 31: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.217", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2232/2286] - [Elapsed: 0:45:43.389190] - [Remaining: 0:01:06.372318] - 37.123.97.231 encountered an error (No details)
+ℹ️ Bilgi: Worker 32: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 32: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 32: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.39", "dns": "multi.surbl.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2233/2286] - [Elapsed: 0:45:43.890933] - [Remaining: 0:01:05.125923] - 37.123.97.50 encountered an error (No details)
+ℹ️ Bilgi: Worker 33: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 33: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 33: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.77", "dns": "b.barracudacentral.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2234/2286] - [Elapsed: 0:45:44.404060] - [Remaining: 0:01:03.880492] - 37.123.97.66 encountered an error (No details)
+ℹ️ Bilgi: Worker 34: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 34: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 34: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.62", "dns": "karma.junkemailfilter.com", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2235/2286] - [Elapsed: 0:45:44.909338] - [Remaining: 0:01:02.635497] - 37.123.97.167 encountered an error (No details)
+ℹ️ Bilgi: Worker 35: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 35: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 35: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.115", "dns": "drop.spamhaus.org", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2236/2286] - [Elapsed: 0:45:45.425391] - [Remaining: 0:01:01.391450] - 37.123.97.12 encountered an error (No details)
+ℹ️ Bilgi: Worker 36: Mesaj başarıyla işlendi.
+ℹ️ Bilgi: Worker 36: Mesaj alındı, işleniyor.
+ℹ️ Bilgi: Worker 36: Mesaj işleniyor; Mesaj: b'{"ip": "37.123.97.68", "dns": "bl.spamcop.net", "status": "pending", "result": null, "check_date": "2024-12-16", "last_updated": "2024-12-16 06:10:39"}'
+✅ [Worker Async] - [2237/2286] - [Elapsed: 0:45:45.829626] - [Remaining: 0:01:00.145589] - 37.123.97.214 encountered an error (No details)
+ℹ️ Bilgi: Worker 37: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2238/2286] - [Elapsed: 0:45:46.349667] - [Remaining: 0:00:58.902960] - 37.123.97.130 encountered an error (No details)
+ℹ️ Bilgi: Worker 38: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2239/2286] - [Elapsed: 0:45:46.856296] - [Remaining: 0:00:57.660681] - 37.123.97.120 encountered an error (No details)
+ℹ️ Bilgi: Worker 39: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2240/2286] - [Elapsed: 0:45:47.268000] - [Remaining: 0:00:56.417114] - 37.123.97.27 encountered an error (No details)
+ℹ️ Bilgi: Worker 40: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2241/2286] - [Elapsed: 0:45:47.787370] - [Remaining: 0:00:55.176435] - 37.123.97.246 encountered an error (No details)
+ℹ️ Bilgi: Worker 41: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2242/2286] - [Elapsed: 0:45:48.293103] - [Remaining: 0:00:53.936168] - 37.123.97.28 encountered an error (No details)
+ℹ️ Bilgi: Worker 42: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2243/2286] - [Elapsed: 0:45:48.723203] - [Remaining: 0:00:52.695081] - 37.123.97.58 encountered an error (No details)
+ℹ️ Bilgi: Worker 43: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2244/2286] - [Elapsed: 0:45:49.225798] - [Remaining: 0:00:51.456090] - 37.123.97.8 encountered an error (No details)
+ℹ️ Bilgi: Worker 44: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2245/2286] - [Elapsed: 0:45:49.629396] - [Remaining: 0:00:50.215939] - 37.123.97.182 encountered an error (No details)
+ℹ️ Bilgi: Worker 45: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2246/2286] - [Elapsed: 0:45:50.064927] - [Remaining: 0:00:48.977120] - 37.123.97.236 encountered an error (No details)
+ℹ️ Bilgi: Worker 46: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2247/2286] - [Elapsed: 0:45:50.468439] - [Remaining: 0:00:47.738457] - 37.123.97.68 encountered an error (No details)
+ℹ️ Bilgi: Worker 47: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2248/2286] - [Elapsed: 0:45:50.855785] - [Remaining: 0:00:46.500220] - 37.123.97.230 encountered an error (No details)
+ℹ️ Bilgi: Worker 48: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2249/2286] - [Elapsed: 0:45:51.271961] - [Remaining: 0:00:45.263247] - 37.123.97.28 encountered an error (No details)
+ℹ️ Bilgi: Worker 49: Mesaj başarıyla işlendi.
+✅ [Worker Async] - [2250/2286] - [Elapsed: 0:45:52.155269] - [Remaining: 0:00:44.034480] - 37.123.97.63 encountered an error (No details)
+ℹ️ Bilgi: Worker 50: Mesaj başarıyla işlendi.
