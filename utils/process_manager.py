@@ -68,30 +68,49 @@ class AsyncRabbitMQ:
             raise
 
 class Worker:
-    """
-    RabbitMQ'dan görevleri işleyen bir işçiyi temsil eder.
-    """
-
     def __init__(self, worker_id, rabbitmq, process_task):
         self.worker_id = worker_id
         self.rabbitmq = rabbitmq
         self.process_task = process_task
-        self.running = True
+        self.running = True  # Durdurma sinyali için bayrak
+
+    def stop(self):
+        """
+        Worker'ı durdurma sinyali.
+        """
+        self.running = False
 
     async def run(self, queue_name):
         try:
             self.rabbitmq.logger.info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")
-            self.rabbitmq.display.print_info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")
-
             queue = await self.rabbitmq.channel.declare_queue(name=queue_name, durable=False)
+
+            idle_count = 0  # İşlem yapılmayan ardışık döngü sayısı
+            max_idle_count = 5  # İşlem yapılmayan maksimum döngü sayısı
+
             async with queue.iterator() as queue_iter:
                 async for message in queue_iter:
-                    self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj alındı, işleniyor.")
+                    if not self.running:
+                        break  # Worker durdurma sinyali
+
+                    if queue.declaration_result.message_count == 0:  # Kuyrukta iş yok
+                        idle_count += 1
+                        if idle_count >= max_idle_count:
+                            self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Kuyrukta iş kalmadı, sonlanıyor.")
+                            return
+                        await asyncio.sleep(1)  # Bekleme süresi
+                        continue
+
+                    # İşlem sıfırlama
+                    idle_count = 0
+
                     async with message.process():
                         self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj işleniyor; Mesaj: {message.body}")
                         await self.process_task(message)
                         await asyncio.sleep(0.1)  # Mesaj işleme sonrası gecikme
                         self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj başarıyla işlendi.")
+
+                self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Kuyruk boş, işlem tamam.")
         except asyncio.CancelledError:
             self.rabbitmq.display.print_info(f"Worker {self.worker_id} iptal edildi.")
         except Exception as e:
@@ -132,10 +151,19 @@ class ProcessManager:
             "exception": 0
         }
 
+
+    async def stop_workers(self):
+        """
+        Tüm worker'lara durdurma sinyali gönderir ve tamamlanmalarını bekler.
+        """
+        for worker in self.workers:
+            worker.stop()  # Worker'ları durdur
+        await asyncio.gather(*self.workers, return_exceptions=True)  # Worker'ların sonlanmasını bekle
+        await asyncio.sleep(1)
+        await self.rabbitmq.close_connection()  # RabbitMQ bağlantısını kapat
+        self.display.print_info("Tüm işçiler ve bağlantılar durduruldu.")
+
     def display_statistics(self):
-        """
-        İşlenen görevlerle ilgili istatistikleri görüntüler.
-        """
         elapsed_time = datetime.now() - self.start_time
         total_tasks = len(self.processed_tasks)
 
@@ -143,12 +171,11 @@ class ProcessManager:
         self.display.print_info(f"Total Tasks Processed: {total_tasks}")
         self.display.print_info(f"Elapsed Time: {elapsed_time}")
 
-        # Detaylı sonuçların gösterimi
         self.display.print_info("--- Task Results ---")
         for result, count in self.stats.items():
-            self.display.print_info(f"{result.capitalize()}: {count}")
+            ratio = (count / total_tasks) * 100 if total_tasks > 0 else 0
+            self.display.print_info(f"{result.capitalize()}: {count} ({ratio:.2f}%)")
 
-        # İşlem oranı ve performans
         if total_tasks > 0:
             avg_time_per_task = elapsed_time / total_tasks
             self.display.print_info(f"Average Time per Task: {avg_time_per_task}")
@@ -158,20 +185,11 @@ class ProcessManager:
 
         self.display.print_info("=== End of Statistics ===")
 
-    async def stop_workers(self):  # Worker'ları durdurma metodu
-        for worker in self.workers:
-            worker.cancel()
-        await asyncio.gather(*self.workers, return_exceptions=True)  # Tüm görevleri sonlandır
-        await self.rabbitmq.close_connection()  # RabbitMQ bağlantısını kapat
-        self.display.print_info("Tüm işçiler ve bağlantılar durduruldu.")
-
-
     async def fetch_and_process_tasks(self, queue_name):
         """
         Görevleri RabbitMQ'dan alır ve işler.
         """
-        await self.rabbitmq.connect(prefetch_count=self.concurrency_limit)  # prefetch_count parametresi ile çağırılıyor
-
+        await self.rabbitmq.connect(prefetch_count=min(self.concurrency_limit * 2, 100))  
         queue_state = await self.rabbitmq.channel.declare_queue(name=queue_name, passive=True)
         total_tasks = queue_state.declaration_result.message_count
         self.display.print_success(f"Total tasks in the queue: {total_tasks}")
@@ -230,7 +248,11 @@ class ProcessManager:
 
         # Tüm worker'ları bekle
         self.display.print_info("Tüm işçilerin tamamlanması")
-        await asyncio.gather(*self.workers, return_exceptions=True)  # Tüm görevlerin tamamlanması bekleniyor
+        try:
+            await asyncio.gather(*self.workers, return_exceptions=True)
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout: İşçiler belirtilen sürede tamamlanamadı!")
+            self.display.print_error("Timeout: İşçiler belirtilen sürede tamamlanamadı!")
         self.display.print_info("Tüm işçiler tamamlandı.")
 
         # Kalan görevleri güncelle
@@ -246,8 +268,6 @@ class ProcessManager:
                 self.display.print_error(error_message)
 
         self.display_statistics()
-
-        await self.rabbitmq.close_connection()  # RabbitMQ bağlantısını kapat
 
     async def perform_rdns_check_async(self, ip, dns):
         """
@@ -289,7 +309,7 @@ class ProcessManager:
                 duration_ms = (end_time - start_time) * 1000
 
                 if isinstance(e, NXDOMAIN):
-                    result = "not_listed"
+                    result = "not_listed"  # Değiştirildi
                     details = f"Query completed in {duration_ms:.3f} ms"
                 elif isinstance(e, Timeout):
                     result = "timed_out"
