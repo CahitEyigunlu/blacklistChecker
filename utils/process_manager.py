@@ -1,6 +1,4 @@
-
 import json
-import pika
 import time
 import signal
 import aiodns
@@ -11,7 +9,7 @@ from aiodns import DNSResolver
 from logB.logger import Logger
 from utils.display import Display
 from datetime import datetime, timedelta
-from dns.resolver import Resolver, NXDOMAIN, Timeout, NoAnswer, NoNameservers
+from dns.resolver import NXDOMAIN, Timeout, NoAnswer, NoNameservers
 
 class AsyncRabbitMQ:
     """
@@ -34,15 +32,15 @@ class AsyncRabbitMQ:
         self.channel = None
         self.logger = Logger(log_file_path=config['logging']['app_log_path'])
         self.display = Display()
-        
-    async def connect(self):
+
+    async def connect(self, prefetch_count):  # prefetch_count parametresi eklendi
         try:
             connection_string = f"amqp://{self.username}:{self.password}@{self.host}:5672//"
             self.connection = await aio_pika.connect_robust(connection_string)
             self.channel = await self.connection.channel()
 
-            # Prefetch ayarını burada yapın
-            await self.channel.set_qos(prefetch_count=1)
+            # Prefetch ayarı parametre ile yapılır
+            await self.channel.set_qos(prefetch_count=prefetch_count)
 
             try:
                 await self.channel.declare_queue(name=self.queue_name, passive=True)
@@ -55,7 +53,6 @@ class AsyncRabbitMQ:
         except Exception as e:
             self.logger.error(f"RabbitMQ bağlantı hatası: {e}")
             raise
-
 
     async def close_connection(self):
         """
@@ -84,8 +81,8 @@ class Worker:
     async def run(self, queue_name):
         try:
             self.rabbitmq.logger.info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")
-            self.rabbitmq.display.print_info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")   
-            
+            self.rabbitmq.display.print_info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")
+
             queue = await self.rabbitmq.channel.declare_queue(name=queue_name, durable=False)
             async with queue.iterator() as queue_iter:
                 async for message in queue_iter:
@@ -101,7 +98,6 @@ class Worker:
             error_message = f"Worker {self.worker_id} başlatılırken bir hata oluştu: {e}"
             self.rabbitmq.logger.error(error_message)
             self.rabbitmq.display.print_error(error_message)
-
 
 class ProcessManager:
     """
@@ -122,8 +118,9 @@ class ProcessManager:
         self.tasks_to_update = []
         self.resolver = aiodns.DNSResolver()
 
-        signal.signal(signal.SIGINT, self.signal_handler)
-        signal.signal(signal.SIGTERM, self.signal_handler)
+        # Sinyal işleyicileri güncellendi
+        signal.signal(signal.SIGINT, lambda s, f: asyncio.run(self.stop_workers()))
+        signal.signal(signal.SIGTERM, lambda s, f: asyncio.run(self.stop_workers()))
 
         self.stats = {
             "not_listed": 0,
@@ -161,19 +158,20 @@ class ProcessManager:
 
         self.display.print_info("=== End of Statistics ===")
 
-    def signal_handler(self, sig, frame):
-        """
-        Çalışanları düzgün bir şekilde durdurmak için sonlandırma sinyallerini işler.
-        """
+    async def stop_workers(self):  # Worker'ları durdurma metodu
         for worker in self.workers:
             worker.cancel()
+        await asyncio.gather(*self.workers, return_exceptions=True)  # Tüm görevleri sonlandır
+        await self.rabbitmq.close_connection()  # RabbitMQ bağlantısını kapat
+        self.display.print_info("Tüm işçiler ve bağlantılar durduruldu.")
+
 
     async def fetch_and_process_tasks(self, queue_name):
         """
         Görevleri RabbitMQ'dan alır ve işler.
         """
-        await self.rabbitmq.connect()  # RabbitMQ'ye bağlan
-        # Burada `queue` yerine `name` kullanılıyor
+        await self.rabbitmq.connect(prefetch_count=self.concurrency_limit)  # prefetch_count parametresi ile çağırılıyor
+
         queue_state = await self.rabbitmq.channel.declare_queue(name=queue_name, passive=True)
         total_tasks = queue_state.declaration_result.message_count
         self.display.print_success(f"Total tasks in the queue: {total_tasks}")
@@ -198,13 +196,12 @@ class ProcessManager:
 
                 elapsed_time = datetime.now() - self.start_time
                 tasks_done = len(self.processed_tasks)
-                total_tasks_dynamic = total_tasks
-                remaining_time = (elapsed_time / tasks_done) * (total_tasks_dynamic - tasks_done) if tasks_done > 0 else timedelta(seconds=0)
+                remaining_time = (elapsed_time / tasks_done) * (total_tasks - tasks_done) if tasks_done > 0 else timedelta(seconds=0)
 
                 self.display.print_dns_status(
                     worker_id="Async",
                     tasks_done=tasks_done,
-                    total_tasks=total_tasks_dynamic,
+                    total_tasks=total_tasks,  # total_tasks_dynamic yerine total_tasks kullanılıyor
                     elapsed_time=elapsed_time,
                     remaining_time=remaining_time,
                     ip=ip,
@@ -233,8 +230,9 @@ class ProcessManager:
 
         # Tüm worker'ları bekle
         self.display.print_info("Tüm işçilerin tamamlanması")
-        await asyncio.gather(*self.workers, return_exceptions=True)
+        await asyncio.gather(*self.workers, return_exceptions=True)  # Tüm görevlerin tamamlanması bekleniyor
         self.display.print_info("Tüm işçiler tamamlandı.")
+
         # Kalan görevleri güncelle
         if self.tasks_to_update:
             try:
@@ -251,8 +249,17 @@ class ProcessManager:
 
         await self.rabbitmq.close_connection()  # RabbitMQ bağlantısını kapat
 
-
     async def perform_rdns_check_async(self, ip, dns):
+        """
+        Asenkron olarak ters DNS araması gerçekleştirir.
+
+        Args:
+            ip (str): IP adresi.
+            dns (str): DNS sunucusu.
+
+        Returns:
+            dict: Aramasonuçlarını içeren bir sözlük.
+        """
         try:
             # IP adresini doğrula
             try:
@@ -260,60 +267,46 @@ class ProcessManager:
             except ValueError:
                 return {"status": "invalid_ip", "result": "invalid_ip", "details": f"Invalid IP: {ip}"}
 
-            # Reverse IP for PTR query
+            # PTR sorgusu için ters IP
             query = f"{'.'.join(reversed(ip.split('.')))}.{dns}"
-
-            # Görevin başlangıç zamanını kaydet
             start_time = time.time()
 
-            # Perform actual DNS query
-            resolver = Resolver()
-            resolver.timeout = 5
-            resolver.lifetime = 5
-
             try:
-                # 'A' kaydı için sorgu
-                answers = resolver.resolve(query, "A")
-                # 'TXT' kaydı için sorgu
-                answer_txt = resolver.resolve(query, "TXT")
+                # 'A' ve 'TXT' kayıtları için asenkron sorgular
+                answers = await self.resolver.query(query, "A")
+                answer_txt = await self.resolver.query(query, "TXT")
 
-                # Görevin bitiş zamanını kaydet ve süreyi hesapla
                 end_time = time.time()
-                duration_ms = (end_time - start_time) * 1000  # Milisaniye cinsinden
-
+                duration_ms = (end_time - start_time) * 1000
                 return {
                     "status": "completed",
                     "result": "listed",
                     "details": f"{answers[0]}: {answer_txt[0]} ({duration_ms:.3f} ms)"
                 }
-            except NXDOMAIN:
-                # NXDOMAIN hata durumu için süre hesaplama
+
+            except (NXDOMAIN, Timeout, NoAnswer, NoNameservers, Exception) as e:
                 end_time = time.time()
                 duration_ms = (end_time - start_time) * 1000
-                return {"status": "completed", "result": "not_listed", "details": f"Query completed in {duration_ms:.3f} ms"}
-            except Timeout:
-                # Timeout durumu için süre hesaplama
-                end_time = time.time()
-                duration_ms = (end_time - start_time) * 1000
-                return {"status": "completed", "result": "timed_out", "details": f"Query timed out in {duration_ms:.3f} ms"}
-            except NoAnswer:
-                # NoAnswer durumu için süre hesaplama
-                end_time = time.time()
-                duration_ms = (end_time - start_time) * 1000
-                return {"status": "completed", "result": "no_answer", "details": f"No answer in {duration_ms:.3f} ms"}
-            except NoNameservers:
-                # NoNameservers durumu için süre hesaplama
-                end_time = time.time()
-                duration_ms = (end_time - start_time) * 1000
-                return {"status": "completed", "result": "no_nameservers", "details": f"No nameservers in {duration_ms:.3f} ms"}
-            except Exception as e:
-                # Genel hata durumu için süre hesaplama
-                end_time = time.time()
-                duration_ms = (end_time - start_time) * 1000
-                return {"status": "dns_error", "result": "dns_error", "details": f"DNS error in {duration_ms:.3f} ms: {str(e)}"}
+
+                if isinstance(e, NXDOMAIN):
+                    result = "not_listed"
+                    details = f"Query completed in {duration_ms:.3f} ms"
+                elif isinstance(e, Timeout):
+                    result = "timed_out"
+                    details = f"Query timed out in {duration_ms:.3f} ms"
+                elif isinstance(e, NoAnswer):
+                    result = "no_answer"
+                    details = f"No answer in {duration_ms:.3f} ms"
+                elif isinstance(e, NoNameservers):
+                    result = "no_nameservers"
+                    details = f"No nameservers in {duration_ms:.3f} ms"
+                else:
+                    result = "dns_error"
+                    details = f"DNS error in {duration_ms:.3f} ms: {str(e)}"
+
+                return {"status": "completed", "result": result, "details": details}
 
         except Exception as e:
-            # Genel bir hata durumunda
             error_message = f"Failed to perform RDNS check: {e}"
             self.logger.error(error_message)
             self.display.print_error(error_message)
