@@ -237,11 +237,11 @@ class TaskManager:
                 }
                 for row in rows
             ]
-            self.logger.info(f"Fetched {len(tasks)} tasks with status '{status}' for date {latest_date}.")
-            self.display.print_info(f"ℹ️ Fetched {len(tasks)} tasks with status '{status}' for date {latest_date}.")
+            self.logger.info(f"Fetched {len(tasks)} tasks with status '{result}' for date {latest_date}.")
+            self.display.print_info(f"ℹ️ Fetched {len(tasks)} tasks with status '{result}' for date {latest_date}.")
             return tasks
         except sqlite3.Error as e:
-            self.logger.error(f"Error fetching tasks by latest date: {e}", extra={"function": "fetch_tasks_by_latest_date", "file": "task_manager.py", "status": status})
+            self.logger.error(f"Error fetching tasks by latest date: {e}", extra={"function": "fetch_tasks_by_latest_date", "file": "task_manager.py", "status": result})
             self.display.print_error(f"❌ Error fetching tasks by latest date: {e}")
             return []
 
