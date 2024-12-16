@@ -204,7 +204,7 @@ class TaskManager:
             self.logger.error(f"Failed to bulk update tasks: {e}", extra={"function": "bulk_update_tasks", "file": "task_manager.py", "tasks": tasks})  # extra bilgisi eklendi
             self.display.print_error(f"Failed to bulk update tasks: {e}")
 
-    def fetch_tasks_by_latest_date(self, status="blacklisted"):
+    def fetch_tasks_by_latest_date(self, result="listed"):
         """
         Fetches tasks with a specific status for the latest check_date.
 
@@ -222,8 +222,8 @@ class TaskManager:
                 return []
 
             self.cursor.execute(
-                "SELECT ip_address, dns, status, result, check_date, last_updated FROM ip_check WHERE check_date = ? AND status = ?",
-                (latest_date, status)
+                "SELECT ip_address, dns, status, result, check_date, last_updated FROM ip_check WHERE check_date = ? AND result = ?",
+                (latest_date, result)
             )
             rows = self.cursor.fetchall()
             tasks = [

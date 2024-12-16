@@ -172,7 +172,7 @@ class PostgreSQL:
             self.ensure_blacklisted_tasks_table_exists()
 
             # Fetch 'blacklisted' tasks from SQLite for the latest date
-            blacklisted_tasks = sqlite_manager.fetch_tasks_by_latest_date("blacklisted")
+            blacklisted_tasks = sqlite_manager.fetch_tasks_by_latest_date("listed")
             if not blacklisted_tasks:
                 self.logger.info("No 'blacklisted' tasks found in SQLite.")
                 self.display.print_info("ℹ️ No 'blacklisted' tasks found in SQLite.")
