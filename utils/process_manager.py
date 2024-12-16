@@ -32,6 +32,7 @@ class AsyncRabbitMQ:
         self.channel = None
         self.logger = Logger(log_file_path=config['logging']['app_log_path'])
         self.display = Display()
+        
 
     async def connect(self, prefetch_count):  # prefetch_count parametresi eklendi
         try:
@@ -68,11 +69,13 @@ class AsyncRabbitMQ:
             raise
 
 class Worker:
-    def __init__(self, worker_id, rabbitmq, process_task):
+    def __init__(self, worker_id, rabbitmq, process_task, task_tracker_lock):
         self.worker_id = worker_id
         self.rabbitmq = rabbitmq
         self.process_task = process_task
-        self.running = True  # Durdurma sinyali için bayrak
+        self.running = True
+        self.last_task_time = datetime.now()
+        self.task_tracker_lock = task_tracker_lock  # Lock ekleniyor
 
     def stop(self):
         """
@@ -80,37 +83,44 @@ class Worker:
         """
         self.running = False
 
-    async def run(self, queue_name):
+    async def run(self, queue_name, task_tracker):
+        """
+        Worker kuyruğa bağlanır ve görevleri işler.
+        """
         try:
             self.rabbitmq.logger.info(f"Worker {self.worker_id} başlatıldı ve kuyruğa bağlandı: {queue_name}")
             queue = await self.rabbitmq.channel.declare_queue(name=queue_name, durable=False)
 
-            idle_count = 0  # İşlem yapılmayan ardışık döngü sayısı
-            max_idle_count = 5  # İşlem yapılmayan maksimum döngü sayısı
-
             async with queue.iterator() as queue_iter:
                 async for message in queue_iter:
                     if not self.running:
-                        break  # Worker durdurma sinyali
+                        break
 
-                    if queue.declaration_result.message_count == 0:  # Kuyrukta iş yok
-                        idle_count += 1
-                        if idle_count >= max_idle_count:
-                            self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Kuyrukta iş kalmadı, sonlanıyor.")
-                            return
-                        await asyncio.sleep(1)  # Bekleme süresi
-                        continue
-
-                    # İşlem sıfırlama
-                    idle_count = 0
+                    # Son görevden bu yana geçen süreyi kontrol et
+                    idle_time = datetime.now() - self.last_task_time
+                    if idle_time > timedelta(seconds=60):
+                        self.rabbitmq.display.print_info(f"Worker {self.worker_id}: 60 saniye boşta kaldı, sonlandırılıyor.")
+                        self.running = False  # Worker'ı işaretle
+                        break
 
                     async with message.process():
+                        self.last_task_time = datetime.now()  # Zamanlayıcıyı sıfırla
                         self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj işleniyor; Mesaj: {message.body}")
-                        await self.process_task(message)
-                        await asyncio.sleep(0.1)  # Mesaj işleme sonrası gecikme
-                        self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj başarıyla işlendi.")
+                        try:
+                            await asyncio.wait_for(self.process_task(message), timeout=60)
+                        except asyncio.TimeoutError:
+                            self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Görev zaman aşımına uğradı.")
+                            continue
+                        # Lock ile task_tracker güncelleniyor
+                        async with self.task_tracker_lock:
+                            task_tracker["tasks_done"] += 1
 
-                self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Kuyruk boş, işlem tamam.")
+                        self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Mesaj başarıyla işlendi. (Tasks Done: {task_tracker['tasks_done']}/{task_tracker['total_tasks']})")
+
+                        if task_tracker["tasks_done"] == task_tracker["total_tasks"]:
+                            self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Son görev işlendi: {message.body}")
+
+                self.rabbitmq.display.print_info(f"Worker {self.worker_id}: Kuyrukta iş kalmadı veya tüm görevler tamamlandı.")
         except asyncio.CancelledError:
             self.rabbitmq.display.print_info(f"Worker {self.worker_id} iptal edildi.")
         except Exception as e:
@@ -136,6 +146,7 @@ class ProcessManager:
         self.sqlite_bulk_update_count = config["sqlite"].get("bulk_update_count", 500)
         self.tasks_to_update = []
         self.resolver = aiodns.DNSResolver()
+        self.task_tracker_lock = asyncio.Lock()
 
         # Sinyal işleyicileri güncellendi
         signal.signal(signal.SIGINT, lambda s, f: asyncio.run(self.stop_workers()))
@@ -184,90 +195,6 @@ class ProcessManager:
             self.display.print_info("No tasks were processed.")
 
         self.display.print_info("=== End of Statistics ===")
-
-    async def fetch_and_process_tasks(self, queue_name):
-        """
-        Görevleri RabbitMQ'dan alır ve işler.
-        """
-        await self.rabbitmq.connect(prefetch_count=min(self.concurrency_limit * 2, 100))  
-        queue_state = await self.rabbitmq.channel.declare_queue(name=queue_name, passive=True)
-        total_tasks = queue_state.declaration_result.message_count
-        self.display.print_success(f"Total tasks in the queue: {total_tasks}")
-
-        async def process_task(message):
-            try:
-                task = json.loads(message.body)
-                ip = task["ip"]
-                dns = task["dns"]
-
-                result = await self.perform_rdns_check_async(ip, dns)
-
-                task.update({
-                    "result": result["result"],
-                    "status": result["status"],
-                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                })
-
-                self.processed_tasks.append(task)
-                self.tasks_to_update.append(task)
-                self.stats[result["result"]] += 1
-
-                elapsed_time = datetime.now() - self.start_time
-                tasks_done = len(self.processed_tasks)
-                remaining_time = (elapsed_time / tasks_done) * (total_tasks - tasks_done) if tasks_done > 0 else timedelta(seconds=0)
-
-                self.display.print_dns_status(
-                    worker_id="Async",
-                    tasks_done=tasks_done,
-                    total_tasks=total_tasks,  # total_tasks_dynamic yerine total_tasks kullanılıyor
-                    elapsed_time=elapsed_time,
-                    remaining_time=remaining_time,
-                    ip=ip,
-                    dns=dns,
-                    result=result["result"],
-                    status=result["status"],
-                    details=result.get("details", None)
-                )
-
-                if len(self.tasks_to_update) >= self.sqlite_bulk_update_count:
-                    self.sqlite_manager.bulk_update_tasks(self.tasks_to_update)
-                    self.tasks_to_update = []
-
-            except asyncio.CancelledError:
-                pass
-            except Exception as e:
-                error_message = f"Görev işlenirken bir hata oluştu: {e}"
-                self.logger.error(error_message)
-                self.display.print_error(error_message)
-
-        # Async worker'ları oluştur ve çalıştır
-        self.workers = [
-            asyncio.create_task(Worker(i + 1, self.rabbitmq, process_task).run(queue_name))
-            for i in range(self.concurrency_limit)
-        ]
-
-        # Tüm worker'ları bekle
-        self.display.print_info("Tüm işçilerin tamamlanması")
-        try:
-            await asyncio.gather(*self.workers, return_exceptions=True)
-        except asyncio.TimeoutError:
-            self.logger.error("Timeout: İşçiler belirtilen sürede tamamlanamadı!")
-            self.display.print_error("Timeout: İşçiler belirtilen sürede tamamlanamadı!")
-        self.display.print_info("Tüm işçiler tamamlandı.")
-
-        # Kalan görevleri güncelle
-        if self.tasks_to_update:
-            try:
-                while self.tasks_to_update:
-                    batch = self.tasks_to_update[:self.sqlite_bulk_update_count]
-                    self.sqlite_manager.bulk_update_tasks(batch)
-                    self.tasks_to_update = self.tasks_to_update[self.sqlite_bulk_update_count:]
-            except Exception as e:
-                error_message = f"Toplu güncelleme başarısız oldu: {e}"
-                self.logger.error(error_message)
-                self.display.print_error(error_message)
-
-        self.display_statistics()
 
     async def perform_rdns_check_async(self, ip, dns):
         """
@@ -331,3 +258,89 @@ class ProcessManager:
             self.logger.error(error_message)
             self.display.print_error(error_message)
             return {"status": "exception", "result": "exception", "details": f"Exception: {str(e)}"}
+            
+    async def fetch_and_process_tasks(self, queue_name):
+        """
+        Görevleri RabbitMQ'dan alır ve işler.
+        """
+        await self.rabbitmq.connect(prefetch_count=min(self.concurrency_limit * 2, 100))  
+        queue_state = await self.rabbitmq.channel.declare_queue(name=queue_name, passive=True)
+        total_tasks = queue_state.declaration_result.message_count
+        self.display.print_success(f"Total tasks in the queue: {total_tasks}")
+
+        # Görev takipçi
+        task_tracker = {"tasks_done": 0, "total_tasks": total_tasks}
+
+        async def process_task(message):
+            try:
+                task = json.loads(message.body)
+                ip = task["ip"]
+                dns = task["dns"]
+
+                result = await self.perform_rdns_check_async(ip, dns)
+
+                task.update({
+                    "result": result["result"],
+                    "status": result["status"],
+                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                })
+
+                self.processed_tasks.append(task)
+                self.tasks_to_update.append(task)
+                self.stats[result["result"]] += 1
+
+                elapsed_time = datetime.now() - self.start_time
+                tasks_done = task_tracker["tasks_done"]  # Task tracker'dan alınan görev sayısı
+                remaining_time = (elapsed_time / tasks_done) * (total_tasks - tasks_done) if tasks_done > 0 else timedelta(seconds=0)
+
+                self.display.print_dns_status(
+                    worker_id="Async",
+                    tasks_done=tasks_done,
+                    total_tasks=total_tasks, 
+                    elapsed_time=elapsed_time,
+                    remaining_time=remaining_time,
+                    ip=ip,
+                    dns=dns,
+                    result=result["result"],
+                    status=result["status"],
+                    details=result.get("details", None)
+                )
+
+                if len(self.tasks_to_update) >= self.sqlite_bulk_update_count:
+                    self.sqlite_manager.bulk_update_tasks(self.tasks_to_update)
+                    self.tasks_to_update = []
+
+            except asyncio.CancelledError:
+                pass
+            except Exception as e:
+                error_message = f"Görev işlenirken bir hata oluştu: {e}"
+                self.logger.error(error_message)
+                self.display.print_error(error_message)
+
+        # Async worker'ları oluştur ve çalıştır
+        self.workers = [
+            asyncio.create_task(Worker(i + 1, self.rabbitmq, process_task, self.task_tracker_lock).run(queue_name, task_tracker))
+            for i in range(self.concurrency_limit)
+        ]
+
+        # Tüm worker'ları bekle
+        self.display.print_info("Tüm işçilerin tamamlanması")
+        await asyncio.gather(*self.workers, return_exceptions=True)
+
+        # İşçilerin düzgün şekilde kapandığından emin olun
+        if task_tracker["tasks_done"] >= task_tracker["total_tasks"]:
+            self.display.print_info("Tüm görevler başarıyla işlendi.")
+
+        # Kalan görevleri güncelle
+        if self.tasks_to_update:
+            try:
+                while self.tasks_to_update:
+                    batch = self.tasks_to_update[:self.sqlite_bulk_update_count]
+                    self.sqlite_manager.bulk_update_tasks(batch)
+                    self.tasks_to_update = self.tasks_to_update[self.sqlite_bulk_update_count:]
+            except Exception as e:
+                error_message = f"Toplu güncelleme başarısız oldu: {e}"
+                self.logger.error(error_message)
+                self.display.print_error(error_message)
+
+        self.display_statistics()
